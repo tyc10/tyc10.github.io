@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -152,232 +152,684 @@
           <div id="js-content" class="content-ll">
             
   
-  
+    <article id="post-密码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h1><h2 id="1-猪圈密码（buu萌哒哒的八戒）"><a href="#1-猪圈密码（buu萌哒哒的八戒）" class="headerlink" title="1.猪圈密码（buu萌哒哒的八戒）"></a>1.猪圈密码（buu萌哒哒的八戒）</h2><p><img src="E:\Desktop\Crypto\bajie.jpg" alt="bajie"></p>
+<h2 id="2-MD5"><a href="#2-MD5" class="headerlink" title="2.MD5"></a>2.MD5</h2><p>（1）buu获得权限的第一步Administrator:500:806EDC27AA52E314AAD3B435B51404EE:F4AD50F57683D4260DFD48AA351A17A8:::</p>
+<p>将F4AD50F57683D4260DFD48AA351A17A8MD5解密即可</p>
+<p>（2）丢失的MD5</p>
+<p>  题目中给的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib   </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>):</span><br><span class="line">            m=hashlib.md5()</span><br><span class="line">            m.update(<span class="string">&#x27;TASC&#x27;</span>+<span class="built_in">chr</span>(i)+<span class="string">&#x27;O3RJMV&#x27;</span>+<span class="built_in">chr</span>(j)+<span class="string">&#x27;WDJKX&#x27;</span>+<span class="built_in">chr</span>(k)+<span class="string">&#x27;ZM&#x27;</span>)</span><br><span class="line">            des=m.hexdigest()</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&#x27;e9032&#x27;</span> <span class="keyword">in</span> des <span class="keyword">and</span> <span class="string">&#x27;da&#x27;</span> <span class="keyword">in</span> des <span class="keyword">and</span> <span class="string">&#x27;911513&#x27;</span> <span class="keyword">in</span> des:</span><br><span class="line">                <span class="built_in">print</span> des</span><br></pre></td></tr></table></figure>
+
+<p> 修改后的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>)：</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>)：</span><br><span class="line">		<span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>)：</span><br><span class="line">			m = hashlib.md5()</span><br><span class="line">			s = <span class="string">&#x27;TASC&#x27;</span> + <span class="built_in">chr</span>(i) + <span class="string">&#x27;O3RJMV&#x27;</span> +<span class="built_in">chr</span>(j) +<span class="string">&#x27;WDJKX&#x27;</span> +<span class="built_in">chr</span>(k) + <span class="string">&#x27;ZM&#x27;</span></span><br><span class="line">			m.update(s.encode(<span class="string">&quot;utf8&quot;</span>))</span><br><span class="line">			des = m.hexdigest()</span><br><span class="line">			<span class="keyword">if</span> <span class="string">&#x27;e9032&#x27;</span> <span class="keyword">in</span> des <span class="keyword">and</span> <span class="string">&#x27;da&#x27;</span> <span class="keyword">in</span> des <span class="keyword">and</span> <span class="string">&#x27;911513&#x27;</span> <span class="keyword">in</span> des:</span><br><span class="line">				<span class="built_in">print</span>(des)</span><br><span class="line">				<span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-栅栏密码"><a href="#2-栅栏密码" class="headerlink" title="2.栅栏密码"></a>2.栅栏密码</h2><p>特征U2开头需要密钥，一种流加密<br>把要加密的明文分成N个一组，然后把每组的第一个字连起来，形成一段无规律的话。<br>不过栅栏密码本身有一个潜规则，就是组成栅栏的字母一般不会太多。<br>参考<br>加密原理<br>举例：<br>n &#x3D; 7, m &#x3D; 2<br>假设明文为：have a good night<br>加密过程如下：<br>将其去掉空格：haveagoodnight<br>分成7组：ha ve ag oo dn ig ht<br>ha<br>ve<br>ag<br>oo<br>dn<br>ig<br>ht<br>按照竖排来组合，则它的栅栏密码为：hvaodihaegongt<br>解密过程如下：<br>先将其分为2组：hvaodih aegongt<br>hvaodih<br>aegongt<br>然后按照每组按次序取一个进行重新组合：ha ve ag oo dn ig ht<br>拼起来即可：haveagoodnight<br>添加上必需的空格即可：have a good night</p>
+<h2 id="3-中文电码"><a href="#3-中文电码" class="headerlink" title="3.中文电码"></a>3.中文电码</h2><p>606046152623600817831216121621196386</p>
+<pre><code>中文电码采用了四位阿拉伯数字作代号，
+从0001到9999按四位数顺序排列，用四位数字表示最多一万个汉字、字母和符号。
+汉字先按部首，后按笔划排列。
+字母和符号放到电码表的最尾。
+后来由于一万个汉字不足以应付户籍管理的要求，又有第二字面汉字的出现。
+在香港，两个字面都采用同一编码，由输入员人手选择字面；
+在台湾，第二字面的汉字会在开首补上“1”字，变成5个数字的编码。
+</code></pre>
+<h2 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/10/20/sqli-labs%E9%9D%B6%E5%9C%BA%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2023-10-20T01:45:55.680Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-20</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/11/%E5%AF%86%E7%A0%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/28/web%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2023-09-28T09:31:11.612Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-暴力破解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="暴力破解"><a href="#暴力破解" class="headerlink" title="暴力破解"></a>暴力破解</h1><p>BS框架</p>
+<h2 id="1-弱口令破解"><a href="#1-弱口令破解" class="headerlink" title="1.弱口令破解"></a>1.弱口令破解</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/11/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/27/SH-misc/" class="archive-article-date">
-  	<time datetime="2023-09-27T08:21:55.040Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-信息收集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h1><h2 id="主动信息收集"><a href="#主动信息收集" class="headerlink" title="主动信息收集"></a>主动信息收集</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/11/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/21/H1ve%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2023-09-21T05:54:35.150Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-21</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-wireshark的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="wireshark的使用"><a href="#wireshark的使用" class="headerlink" title="wireshark的使用"></a>wireshark的使用</h1><p>1.使用wireshark进行抓包，学会用混淆模式抓包</p>
+<p>2.（1）过滤器使用时 过滤arp udp tcp dns http等协议时要输入小写字母进行过滤</p>
+<p>​    （2）对ip进行过滤：ip.src_host &#x3D;&#x3D; 192.168.1.53 表示源 IP 地址 </p>
+<p>​                                         ip.dst_host &#x3D;&#x3D; 192.168.1.1 表示目的地址</p>
+<p>​    （3）or和and的使用</p>
+<p>​       我们中间用 or 进行了拼接，表示或 当然我们也可以使用 and 表示与，or 表示满足左右其中一个条 件就会显示符合条件的数据包，and 表示左右 2 个条件都满足才会显示</p>
+<p>3.常用协议分析。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/11/wireshark%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/08/%E6%80%A5%E6%95%91%E7%9F%A5%E8%AF%86%E5%9F%B9%E8%AE%AD/" class="archive-article-date">
-  	<time datetime="2023-09-08T07:32:06.691Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-08</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-volatility取证" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="volatility取证"><a href="#volatility取证" class="headerlink" title="volatility取证"></a>volatility取证</h1><p>volatility -f 文件名 imageinfo  		     	 得到镜像的基本信息。<br>volatility -f 文件名 –profile&#x3D;系统 pslist		查看进程信息<br>volatility -f 文件名 –profile&#x3D;系统 pstree	    查看进程树<br>volatility -f 文件名 –profile&#x3D;系统 hashdump		查看用户名密码信息<br>volatility -f 文件名 –profile&#x3D;系统 john			爆破密码<br>volatility -f 文件名 –profile&#x3D;系统 lsadump		查看用户强密码<br>volatility -f 文件名 –profile&#x3D;系统 svcscan		查看服务<br>volatility -f 文件名 –profile&#x3D;系统 iehistory	查看IE浏览器历史记录<br>volatility -f 文件名 –profile&#x3D;系统 netscan		查看网络连接<br>volatility -f 文件名 –profile&#x3D;系统 cmdscan		cmd历史命令<br>volatility -f 文件名 –profile&#x3D;系统 consoles		命令历史记录<br>volatility -f 文件名 –profile&#x3D;系统 cmdline		查看cmd输出， 获取命令行下运行的程序<br>volatility -f 文件名 –profile&#x3D;系统 envars 		查看环境变量，一般很多配合grep筛选，可也是使用-p指定pid<br>volatility -f 文件名 –profile&#x3D;系统 filescan		查看文件<br>volatility -f 文件名 –profile&#x3D;系统 notepad		查看当前展示的notepad内容<br>volatility -f 文件名 –profile&#x3D;系统 hivelist		查看注册表配置单元<br>volatility -f 文件名 –profile&#x3D;系统 userassist	查看运行程序相关的记录，比如最后一次更新时间，运行过的次数等。<br>volatility -f 文件名 –profile&#x3D;系统 clipboard  	查看剪贴板的信息<br>volatility -f 文件名 –profile&#x3D;系统 timeliner	最大程序提取信息<br>volatility -f 文件名 –profile&#x3D;系统 Dumpregistry	提取日志文件<br>volatility -f 文件名 –profile&#x3D;系统 dlllist		进程相关的dll文件列表<br>volatility -f 文件名 –profile&#x3D;系统 memdump -p xxx –dump-dir&#x3D;.&#x2F; 	提取进程<br>volatility -f 文件名 –profile&#x3D;系统 dumpfiles -Q 0xxxxxxxx -D .&#x2F; 	提取文件<br>volatility -f 文件名 –profile&#x3D;系统 procdump -p pid -D .&#x2F;			转存可执行程序<br>volatility -f 文件名 –profile&#x3D;系统 screenshot –dump-dir&#x3D;.&#x2F;			屏幕截图<br>volatility -f 文件名 –profile&#x3D;系统 hivedump -o 0xfffff8a001032410 查看注册表键名<br>volatility -f 文件名 –profile&#x3D;系统 printkey -K “xxxxxxx”			查看注册表键值<br>volatility -f &#x2F;root&#x2F;hacker.raw –profile&#x3D;Win7SP1x64 filescan |grep Desktop    查看桌面文件</p>
+<p>amcache    	查看AmCache应用程序痕迹信息<br>apihooks    检测内核及进程的内存空间中的API hook<br>atoms     	列出会话及窗口站atom表<br>atomscan    Atom表的池扫描(Pool scanner)<br>auditpol    列出注册表HKLMSECURITYPolicyPolAdtEv的审计策略信息<br>bigpools    使用BigPagePoolScanner转储大分页池(big page pools)<br>bioskbd    	从实时模式内存中读取键盘缓冲数据(早期电脑可以读取出BIOS开机密码)<br>cachedump   	获取内存中缓存的域帐号的密码哈希<br>callbacks   	打印全系统通知例程<br>clipboard   	提取Windows剪贴板中的内容<br>cmdline    	显示进程命令行参数<br>cmdscan    	提取执行的命令行历史记录（扫描_COMMAND_HISTORY信息）<br>connections  	打印系统打开的网络连接(仅支持Windows XP 和2003)<br>connscan    打印TCP连接信息<br>consoles    提取执行的命令行历史记录（扫描_CONSOLE_INFORMATION信息）<br>crashinfo   	提取崩溃转储信息<br>deskscan    tagDESKTOP池扫描(Poolscaner)<br>devicetree   显示设备树信息<br>dlldump    	从进程地址空间转储动态链接库<br>dlllist    	打印每个进程加载的动态链接库列表<br>driverirp   	IRP hook驱动检测<br>drivermodule  关联驱动对象至内核模块<br>driverscan   驱动对象池扫描<br>dumpcerts   	提取RAS私钥及SSL公钥<br>dumpfiles   	提取内存中映射或缓存的文件<br>dumpregistry  转储内存中注册表信息至磁盘<br>editbox    	查看Edit编辑控件信息 (Listbox正在实验中)<br>envars     显示进程的环境变量<br>eventhooks   打印Windows事件hook详细信息<br>evtlogs    	提取Windows事件日志（仅支持XP&#x2F;2003)<br>filescan    提取文件对象（file objects）池信息<br>gahti     	转储用户句柄（handle）类型信息<br>gditimers   	打印已安装的GDI计时器(timers)及回调(callbacks)<br>gdt      	显示全局描述符表(Global Deor Table)<br>getservicesids 获取注册表中的服务名称并返回SID信息<br>getsids    	打印每个进程的SID信息<br>handles    	打印每个进程打开的句柄的列表<br>hashdump    转储内存中的Windows帐户密码哈希(LM&#x2F;NTLM)<br>hibinfo    	转储休眠文件信息<br>hivedump    打印注册表配置单元信息<br>hivelist    打印注册表配置单元列表<br>hivescan    注册表配置单元池扫描<br>hpakextract  	从HPAK文件（Fast Dump格式）提取物理内存数据<br>hpakinfo    查看HPAK文件属性及相关信息<br>idt      	显示中断描述符表(Interrupt Deor Table)<br>iehistory   	重建IE缓存及访问历史记录<br>imagecopy   	将物理地址空间导出原生DD镜像文件<br>imageinfo   	查看&#x2F;识别镜像信息<br>impscan    	扫描对导入函数的调用<br>joblinks    打印进程任务链接信息<br>kdbgscan    搜索和转储潜在KDBG值<br>kpcrscan    搜索和转储潜在KPCR值<br>ldrmodules   检测未链接的动态链接DLL<br>lsadump    	从注册表中提取LSA密钥信息（已解密）<br>machoinfo   	转储Mach-O 文件格式信息<br>malfind    	查找隐藏的和插入的代码<br>mbrparser   	扫描并解析潜在的主引导记录(MBR)<br>memdump    	转储进程的可寻址内存<br>memmap     打印内存映射<br>messagehooks  桌面和窗口消息钩子的线程列表<br>mftparser   	扫描并解析潜在的MFT条目<br>moddump    	转储内核驱动程序到可执行文件的示例<br>modscan    	内核模块池扫描<br>modules    	打印加载模块的列表<br>multiscan   	批量扫描各种对象<br>mutantscan   对互斥对象池扫描<br>notepad    	查看记事本当前显示的文本<br>objtypescan  	扫描窗口对象类型对象<br>patcher    	基于页面扫描的补丁程序内存<br>poolpeek    可配置的池扫描器插件<br>printkey    打印注册表项及其子项和值<br>privs     	显示进程权限<br>procdump    进程转储到一个可执行文件示例<br>pslist     按照EPROCESS列表打印所有正在运行的进程<br>psscan     进程对象池扫描<br>pstree     以树型方式打印进程列表<br>psxview    	查找带有隐藏进程的所有进程列表<br>qemuinfo    转储 Qemu 信息<br>raw2dmp    	将物理内存原生数据转换为windbg崩溃转储格式<br>screenshot   基于GDI Windows的虚拟屏幕截图保存<br>servicediff  	Windows服务列表(ala Plugx)<br>sessions    _MM_SESSION_SPACE的详细信息列表(用户登录会话)<br>shellbags   	打印Shellbags信息<br>shimcache   	解析应用程序兼容性Shim缓存注册表项<br>shutdowntime  从内存中的注册表信息获取机器关机时间<br>sockets    	打印已打开套接字列表<br>sockscan    TCP套接字对象池扫描<br>ssdt      显示SSDT条目<br>strings    	物理到虚拟地址的偏移匹配(需要一些时间，带详细信息)<br>svcscan    	Windows服务列表扫描<br>symlinkscan  	符号链接对象池扫描<br>thrdscan    线程对象池扫描<br>threads    	调查_ETHREAD 和_KTHREADs<br>timeliner   	创建内存中的各种痕迹信息的时间线<br>timers     打印内核计时器及关联模块的DPC<br>truecryptmaster	Recover 恢复TrueCrypt 7.1a主密钥<br>truecryptpassphrase		查找并提取TrueCrypt密码<br>truecryptsummary	TrueCrypt摘要信息<br>unloadedmodules	打印卸载的模块信息列表<br>userassist   打印注册表中UserAssist相关信息<br>userhandles  	转储用户句柄表<br>vaddump    	转储VAD数据为文件<br>vadinfo    	转储VAD信息<br>vadtree    	以树形方式显示VAD树信息<br>vadwalk    	显示遍历VAD树<br>vboxinfo    转储Virtualbox信息（虚拟机）<br>verinfo    	打印PE镜像中的版本信息<br>vmwareinfo   转储VMware VMSS&#x2F;VMSN 信息<br>volshell    内存镜像中的shell<br>windows    	打印桌面窗口(详细信息)<br>wintree    	Z顺序打印桌面窗口树<br>wndscan    	池扫描窗口站<br>yarascan    以Yara签名扫描进程或内核内存</p>
+<p>例题1</p>
+<p>你作为 A 公司的应急响应人员，请分析提供的内存文件按照下面的要求找到 相关关键信息，完成应急响应事件。</p>
+<p>1、从内存中获取到用户admin的密码并且破解密码，以Flag{admin,password} 形式提交(密码为 6 位)；   </p>
+<p>2、获取当前系统 ip 地址及主机名，以 Flag{ip:主机名}形式提交；</p>
+<p>3、获取当前系统浏览器搜索过的关键词，作为 Flag 提交；</p>
+<p>4、当前系统中存在挖矿进程，请获取指向的矿池地址，以 Flag{ip:端口}形式 提交；</p>
+<p>5、恶意进程在系统中注册了服务，请将服务名以 Flag{服务名}形式提交。</p>
+<p>上题已经看到进程</p>
+<p>解析<br> 1.从内存中获取到用户admin的密码并且破解密码，以Flag{admin,password} 形式提交(密码为 6 位)；<br>      不管什么题内存取证的第一步肯定是去判断当前的镜像信息，分析出是哪个操作系统   使用参数  imageinfo 查看系统信息</p>
+<pre><code>  volatility -f 1.vmem imageinfo
+</code></pre>
+<p>操作系统我们一般取第一个就可以了</p>
+<p>接下来就可以输入参数</p>
+<p>可以先查看当前内存镜像中的用户</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 printkey -K “SAM\Domains\Account\Users\Names”</p>
+<p> 使用hashdump获取sam</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 hashdump</p>
+<p> 可以通过john工具来进行爆破，但是好像跑不出来结果。应该是设定了强密码。于是只能使用了lasdump命令来查看</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 lsadump</p>
+<p>  flag{admin.dfsddew}</p>
+<p>2.获取当前系统 ip 地址及主机名，以 Flag{ip:主机名}形式提交；<br> Netscan 可以查ip</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 netscan</p>
+<p> Ip:192.168.85.129</p>
+<p>主机名需要通过查询注册表，先用hivelist</p>
+<p>Volatility -f  1.vmem –profile&#x3D;Win7SP1x64 hivelist</p>
+<p> 然后我们需要一步一步去找键名</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 -o 0xfffff8a000024010 printkey</p>
+<p> volatility -f 1.vmem –profile&#x3D;Win7SP1x64 -o 0xfffff8a000024010 printkey -K “ControlSet001”</p>
+<p>继续</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64  -o 0xfffff8a000024010 printkey -K “ControlSet001\Control “</p>
+<p>继续</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 -o 0xfffff8a000024010 printkey -K “ControlSet001\Control\ComputerName”</p>
+<p>再来</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 -o 0xfffff8a000024010 printkey -K “ControlSet001\Control\ComputerName\ComputerName”</p>
+<p>得到主机名WIN-9FBAEH4UV8C</p>
+<p>也可以直接通过 hivedump查询相应的键名 但比较慢</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 hivedump -o 0xfffff8a000024010 &gt; system.txt</p>
+<p>3.获取当前系统浏览器搜索过的关键词，作为 Flag 提交；<br>这里使用iehistory</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 iehistory</p>
+<p>  flag{admin@file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;admin&#x2F;Desktop&#x2F;flag.txt}</p>
+<p>4.当前系统中存在挖矿进程，请获取指向的矿池地址，以 Flag{ip:端口}形式 提交；<br>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 netscan </p>
+<p>唯一一个已建立的</p>
+<p>  flag{54.36.109.161:2222}</p>
+<p>5.恶意进程在系统中注册了服务，请将服务名以 Flag{服务名}形式提交。<br>上一题中已经知道了进程号为2588</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 pslist -p 2588</p>
+<p>查到父进程是3036</p>
+<p>然后在通过通过svcscan可以查询服务名称，找到对应服务名</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 svcscan</p>
+<p> flag{VMnetDHCP}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/11/volatility%E5%8F%96%E8%AF%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/09/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88Mysql)/" class="archive-article-date">
-  	<time datetime="2023-08-09T10:49:11.877Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-rsa" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="rsa"><a href="#rsa" class="headerlink" title="rsa"></a>rsa</h1><h3 id="rsa算法简介"><a href="#rsa算法简介" class="headerlink" title="rsa算法简介"></a>rsa算法简介</h3><p>RSA是公钥密码体制，是一种使用不同加密密钥与解密密钥的解密方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">选择两个大素数p和q，计算出模数N = p*q</span><br><span class="line">计算φ(n) = （p-1) * (q-1)即N的欧拉函数，然后选择一个e(1&lt;e&lt;φ(n)),且e和φ(n)互素</span><br><span class="line"></span><br><span class="line">取e的模反数为d（逆元），计算方法：e * d ≡ 1(mod φ(n))</span><br><span class="line"></span><br><span class="line">对明文进行加密： c = m^e%N</span><br><span class="line">c = pow(m,e,N),得到c即为密文</span><br><span class="line"></span><br><span class="line">对密文c进行解密 ：m = c^d%N</span><br><span class="line">m = pow(c,d,N),得到的m即为明文</span><br><span class="line"></span><br><span class="line">其中：</span><br><span class="line">	p 和 q ：大整数N的两个因子</span><br><span class="line">	N      ：大整数N，我们称之为模数</span><br><span class="line">	e 和 d ：互为模反的两个指数</span><br><span class="line">	c 和 m ：分别是密文和明文，这里一般指的是一个十进制的数</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="rsa算法原理"><a href="#rsa算法原理" class="headerlink" title="rsa算法原理"></a>rsa算法原理</h3><h5 id="欧拉函数φ-n"><a href="#欧拉函数φ-n" class="headerlink" title="欧拉函数φ(n)"></a>欧拉函数φ(n)</h5><p>欧拉函数φ(n)的定义是小于n的自然数中与n互质的数的个数</p>
+<p>任何一个素数p的欧拉函数就是 p-1</p>
+<h5 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h5><p>若n,a为正整数，且n,a互质，gcd（n,a）&#x3D; 1 , 则:a^φ(n)≡1 mod n</p>
+<h5 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h5><p>   <img src="C:\Users\tong\Pictures\费马小定理.png"></p>
+<p>模运算<br>模运算与基本四则运算有些相似，但是除法除外。其规则如下：</p>
+<p>(a + b) % p &#x3D; (a % p + b % p) % p<br>(a - b) % p &#x3D; (a % p - b % p) % p<br>(a * b) % p &#x3D; (a % p * b % p) % p<br>a ^ b % p &#x3D; ((a % p) ^ b) % p<br>结合律<br>((a + b) % p + c) &#x3D; (a + (b + c) % p) % p<br>((a * b) % p * c) &#x3D; (a * (b * c) % p) % p<br>交换律<br>(a + b) % p &#x3D; (b + a) % p<br>(a * b) % p &#x3D; (b * a) % p<br>分配律<br>(a + b) % p &#x3D; (a % p + b % p) % p<br>((a + b) % p * c) % p &#x3D; ((a * c) % p + (b * c) % p<br>重要定理<br>若 a ≡ b (mod p)，则对于任意的 c，都有(a + c) ≡ (b + c) (mod p)<br>若 a ≡ b (mod p)，则对于任意的 c，都有(a * c) ≡ (b * c) (mod p)<br>若 a ≡ b (mod p)，c ≡ d (mod p)，则<br>(a + c) ≡ (b + d) (mod p)<br>(a - c) ≡ (b - d) (mod p)<br>(a * c) ≡ (b * d) (mod p)<br>(a &#x2F; c) ≡ (b &#x2F; d) (mod p)<br>逆元<br>a mod p的逆元便是可以使 a * a’ mod p &#x3D; 1 的最小a’。</p>
+<p>推导过程</p>
+<p>式1：c&#x3D;m^e%N<br>式2：m&#x3D;c^d%N</p>
+<p>将式1带入式2 得 m &#x3D; (m ^ e % N ) ^ d % N</p>
+<p>需要证明：m &#x3D;&#x3D; ( m ^ e % N ) ^ d % N</p>
+<p>(m^e%N)^d%N</p>
+<p>&#x3D;&gt;  (m^e)^d%N #模运算 a ^ b % p &#x3D; ((a % p) ^ b) % p</p>
+<p>m^(e*d)%N #幂的乘方，底数不变，指数相乘<br>将 e * d ≡ 1 (mod φ(N)) 即 e * d &#x3D; K * φ(N) + 1，K为任意正整数，代入得：</p>
+<p>&#x3D;&gt; (m^(K*φ(N)+1))%N</p>
+<p>&#x3D;&gt; (m^(K*φ(N)*m^1)%N # 同底数相乘，指数相加</p>
+<p>&#x3D;&gt; (m^(K*φ(N)*m)%N</p>
+<p>&#x3D;&gt; ((m^φ(N)^K%N*m)%N # 幂的乘方，底数不变，指数相乘</p>
+<p>&#x3D;&gt; ((m^φ(N)^K%N*m%N)%N # (a * b) % p &#x3D; (a % p * b % p) % p</p>
+<p>&#x3D;&gt; ((m^φ(N)%N)^K%N*m%N)%N # a ^ b % p &#x3D; ((a % p) ^ b) % p</p>
+<p>&#x3D;&gt; (1^K%N*m%N)%N # 根据欧拉定理：a^φ(n)≡1 mod n 即 a^φ(n) mod n &#x3D; 1</p>
+<p>&#x3D;&gt; (m%N)%N # 1^K%N&#x3D;1</p>
+<p>&#x3D;&gt; (m%N)%N</p>
+<p>&#x3D;&gt; (m%N)^1%N</p>
+<p>&#x3D;&gt; (m^1)%N   # a ^ b % p &#x3D; ((a % p) ^ b) % p</p>
+<p>&#x3D;&gt; m%N</p>
+<p>m  #因为 m &lt; N</p>
+<h3 id="公钥生成"><a href="#公钥生成" class="headerlink" title="公钥生成"></a>公钥生成</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line">p= <span class="number">787228223375328491232514653709</span></span><br><span class="line">q= <span class="number">814212346998672554509751911073</span></span><br><span class="line">n= <span class="number">640970939378021470187479083920100737340912672709639557619757</span></span><br><span class="line">d= <span class="number">590103645243332826117029128695341159496883001869370080307201</span></span><br><span class="line">e= <span class="number">65537</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">rsa_components = (n, e)</span><br><span class="line">keypair = RSA.construct(rsa_components)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;pubckey.pem&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f :</span><br><span class="line">    f.write(keypair.exportKey())</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="私钥生成"><a href="#私钥生成" class="headerlink" title="私钥生成"></a>私钥生成</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line">p= <span class="number">787228223375328491232514653709</span></span><br><span class="line">q= <span class="number">814212346998672554509751911073</span></span><br><span class="line">n= <span class="number">640970939378021470187479083920100737340912672709639557619757</span></span><br><span class="line">d= <span class="number">590103645243332826117029128695341159496883001869370080307201</span></span><br><span class="line">e= <span class="number">65537</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">rsa_components = (n,e,d,p,q)</span><br><span class="line">keypair = RSA.construct(rsa_components)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;private1.pem&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f :</span><br><span class="line">    f.write(keypair.exportKey())</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="公钥求读取"><a href="#公钥求读取" class="headerlink" title="公钥求读取"></a>公钥求读取</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line">path = <span class="string">&#x27;&lt;key file path here&gt;&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path) <span class="keyword">as</span> f:</span><br><span class="line">    key = RSA.import_key(f.read())</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;e = %d&#x27;</span> % key.e)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;n = %d&#x27;</span> % key.n)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="私钥读取"><a href="#私钥读取" class="headerlink" title="私钥读取"></a>私钥读取</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;private1.pem&quot;</span>,<span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    key = RSA.import_key(f.read())</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;n = %d&#x27;</span> % key.n)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;e = %d&#x27;</span> % key.e)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;d = %d&#x27;</span> % key.d)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;p = %d&#x27;</span> % key.p)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;q = %d&#x27;</span> % key.q)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="rsa模块"><a href="#rsa模块" class="headerlink" title="rsa模块"></a>rsa模块</h2><h4 id="公钥生成-1"><a href="#公钥生成-1" class="headerlink" title="公钥生成"></a>公钥生成</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> rsa</span><br><span class="line"></span><br><span class="line">p= <span class="number">787228223375328491232514653709</span></span><br><span class="line">q= <span class="number">814212346998672554509751911073</span></span><br><span class="line">n= <span class="number">640970939378021470187479083920100737340912672709639557619757</span></span><br><span class="line">d= <span class="number">590103645243332826117029128695341159496883001869370080307201</span></span><br><span class="line">e= <span class="number">65537</span></span><br><span class="line"></span><br><span class="line">pubkey = rsa.PublicKey(n , e )</span><br><span class="line"><span class="built_in">print</span>(pubkey)</span><br><span class="line">pub=rsa.PublicKey.save_pkcs1(pubkey)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;pub.pem&quot;</span>,<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(pub)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="私钥生成-1"><a href="#私钥生成-1" class="headerlink" title="私钥生成"></a>私钥生成</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> rsa</span><br><span class="line"></span><br><span class="line">p= <span class="number">787228223375328491232514653709</span></span><br><span class="line">q= <span class="number">814212346998672554509751911073</span></span><br><span class="line">n= <span class="number">640970939378021470187479083920100737340912672709639557619757</span></span><br><span class="line">d= <span class="number">590103645243332826117029128695341159496883001869370080307201</span></span><br><span class="line">e= <span class="number">65537</span></span><br><span class="line">prikey = rsa.PrivateKey(n , e , d , p , q)</span><br><span class="line"><span class="built_in">print</span>(prikey)</span><br><span class="line">pri=rsa.PrivateKey.save_pkcs1(prikey)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;pri.pem&quot;</span>,<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(pri)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="公钥读取"><a href="#公钥读取" class="headerlink" title="公钥读取"></a>公钥读取</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> rsa</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;2.pem&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    keydata= f.read()</span><br><span class="line">pubckey = rsa.PublicKey.load_pkcs1(keydata)</span><br><span class="line"><span class="comment">#pubckey = rsa.PublicKey.load_pkcs1_openssl_pem(keydata)</span></span><br><span class="line"><span class="built_in">print</span>(pubckey.n)</span><br><span class="line"><span class="built_in">print</span>(pubckey.e)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="私钥读取-1"><a href="#私钥读取-1" class="headerlink" title="私钥读取"></a>私钥读取</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> rsa</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;1.pem&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    keydata= f.read()</span><br><span class="line">pubckey = rsa.PrivateKey.load_pkcs1(keydata)</span><br><span class="line"><span class="built_in">print</span>(pubckey.n)</span><br><span class="line"><span class="built_in">print</span>(pubckey.e)</span><br><span class="line"><span class="built_in">print</span>(pubckey.d)</span><br><span class="line"><span class="built_in">print</span>(pubckey.q)</span><br><span class="line"><span class="built_in">print</span>(pubckey.p)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="出题"><a href="#出题" class="headerlink" title="出题"></a>出题</h3><h4 id="随机生成flag"><a href="#随机生成flag" class="headerlink" title="随机生成flag"></a>随机生成flag</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line"><span class="comment">#字符串列表</span></span><br><span class="line">a=string.printable</span><br><span class="line"><span class="comment">#随机生成flag</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    flag = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        flag += a[random.randint(<span class="number">0</span>, <span class="number">99</span>)]</span><br><span class="line">    flag = hashlib.md5(flag.encode()).hexdigest()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;flag&#123;&quot;</span> + flag + <span class="string">&quot;&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="基于N分解的题目"><a href="#基于N分解的题目" class="headerlink" title="基于N分解的题目"></a>基于N分解的题目</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> libnum</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line">p=libnum.generate_prime(<span class="number">1024</span>)</span><br><span class="line"><span class="comment">#下一个素数</span></span><br><span class="line">q=<span class="built_in">int</span>(gmpy2.next_prime(p))</span><br><span class="line">e=<span class="number">65537</span></span><br><span class="line">m=<span class="string">&quot;flag&#123;a272722c1db834353ea3ce1d9c71feca&#125;&quot;</span></span><br><span class="line">m=libnum.s2n(m)</span><br><span class="line">n=p*q</span><br><span class="line">c=<span class="built_in">pow</span>(m,e,n)</span><br><span class="line">flag_c=libnum.n2s(c)</span><br><span class="line">rsa_components = (n, e)</span><br><span class="line">keypair = RSA.construct(rsa_components)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;pubckey1.pem&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f :</span><br><span class="line">    f.write(keypair.exportKey())</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;flag.txt&quot;</span>,<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(flag_c)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="解题脚本"><a href="#解题脚本" class="headerlink" title="解题脚本"></a>解题脚本</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> libnum</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">isqrt</span>(<span class="params">n</span>):</span><br><span class="line">  x = n</span><br><span class="line">  y = (x + n // x) // <span class="number">2</span></span><br><span class="line">  <span class="keyword">while</span> y &lt; x:</span><br><span class="line">    x = y</span><br><span class="line">    y = (x + n // x) // <span class="number">2</span></span><br><span class="line">  <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fermat</span>(<span class="params">n, verbose=<span class="literal">True</span></span>):</span><br><span class="line">    a = isqrt(n) <span class="comment"># int(ceil(n**0.5))</span></span><br><span class="line">    b2 = a*a - n</span><br><span class="line">    b = isqrt(n) <span class="comment"># int(b2**0.5)</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> b*b != b2:</span><br><span class="line">        <span class="comment"># if verbose:</span></span><br><span class="line">        <span class="comment">#     print(&#x27;Trying: a=%s b2=%s b=%s&#x27; % (a, b2, b))</span></span><br><span class="line">        a = a + <span class="number">1</span></span><br><span class="line">        b2 = a*a - n</span><br><span class="line">        b = isqrt(b2) <span class="comment"># int(b2**0.5)</span></span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">    p=a+b</span><br><span class="line">    q=a-b</span><br><span class="line">    <span class="keyword">assert</span> n == p * q</span><br><span class="line">    <span class="comment"># print(&#x27;a=&#x27;,a)</span></span><br><span class="line">    <span class="comment"># print(&#x27;b=&#x27;,b)</span></span><br><span class="line">    <span class="comment"># print(&#x27;p=&#x27;,p)</span></span><br><span class="line">    <span class="comment"># print(&#x27;q=&#x27;,q)</span></span><br><span class="line">    <span class="comment"># print(&#x27;pq=&#x27;,p*q)</span></span><br><span class="line">    <span class="keyword">return</span> p, q</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;pubckey1.pem&quot;</span>,<span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    key = RSA.import_key(f.read())</span><br><span class="line">    n=key.n</span><br><span class="line">    e=key.e</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;flag.txt&quot;</span>,<span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    c=f.read()</span><br><span class="line">    c=libnum.s2n(c)</span><br><span class="line">    </span><br><span class="line"><span class="comment">#费马分解,</span></span><br><span class="line">n1=fermat(n)</span><br><span class="line">p=n1[<span class="number">0</span>]</span><br><span class="line">q=n1[<span class="number">1</span>]</span><br><span class="line">phi_n=(p-<span class="number">1</span>)*(q-<span class="number">1</span>)</span><br><span class="line"><span class="comment">#求逆元</span></span><br><span class="line">d=libnum.invmod(e,phi_n)</span><br><span class="line">m=<span class="built_in">pow</span>(c,d,n)</span><br><span class="line"><span class="built_in">print</span>(m)</span><br><span class="line"><span class="built_in">print</span>(libnum.n2s(<span class="built_in">int</span>(m)).decode())</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/11/rsa/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/26/%E6%8A%A4%E7%BD%91%E8%A1%8C%E5%8A%A8/" class="archive-article-date">
-  	<time datetime="2023-07-26T13:28:45.741Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-26</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-png宽高爆破" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="png宽高爆破"><a href="#png宽高爆破" class="headerlink" title="png宽高爆破"></a>png宽高爆破</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#判断谁被修改了</span></span><br><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"> </span><br><span class="line">image_data=<span class="built_in">open</span>(<span class="string">&#x27;图片路径&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">bin_data=image_data.read()</span><br><span class="line">crc32key = zlib.crc32(bin_data[<span class="number">12</span>:<span class="number">29</span>])                 <span class="comment">#使用函数计算</span></span><br><span class="line"><span class="keyword">if</span> crc32key==<span class="built_in">int</span>(bin_data[<span class="number">29</span>:<span class="number">33</span>].<span class="built_in">hex</span>(), <span class="number">16</span>):<span class="comment">#对比算出的CRC和原本的CRC</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;宽高没有问题&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;宽高被改了&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#爆破高，需要自查查图片信息。Python2运行</span></span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line">crc32key = <span class="number">0xFF800203</span>    </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">65535</span>):</span><br><span class="line">  height = struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, i)</span><br><span class="line">  data = <span class="string">&#x27;\x49\x48\x44\x52\x00\x00\x00\x64&#x27;</span> + height + <span class="string">&#x27;\x08\x02\x00\x00\x00&#x27;</span></span><br><span class="line">  crc32result = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">  <span class="keyword">if</span> crc32result == crc32key:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">map</span>(<span class="keyword">lambda</span> c: <span class="string">&quot;%02X&quot;</span> % <span class="built_in">ord</span>(c), height))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#只需要填写图片路径，爆破宽和高，有点费电脑</span></span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line">crcbp = <span class="built_in">open</span>(<span class="string">&quot;E:\Desktop\cd83c00e-130c-47ba-b4d8-c0c0b8d8de31.png&quot;</span>, <span class="string">&quot;rb&quot;</span>).read()    </span><br><span class="line">crc32frombp = <span class="built_in">int</span>(crcbp[<span class="number">29</span>:<span class="number">33</span>].<span class="built_in">hex</span>(),<span class="number">16</span>)     </span><br><span class="line"><span class="built_in">print</span>(crc32frombp)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                       </span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                   </span><br><span class="line">        data = crcbp[<span class="number">12</span>:<span class="number">16</span>] + \</span><br><span class="line">            struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, i)+struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, j)+crcbp[<span class="number">24</span>:<span class="number">29</span>]</span><br><span class="line">        crc32 = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        <span class="built_in">print</span>(crc32)</span><br><span class="line">        <span class="keyword">if</span>(crc32 == crc32frombp):           </span><br><span class="line">            <span class="built_in">print</span>(i, j)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;hex:&#x27;</span>, <span class="built_in">hex</span>(i), <span class="built_in">hex</span>(j))</span><br><span class="line">            exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#单爆破宽度，只需输入图片地址</span></span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span>  binascii</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">fi=<span class="built_in">open</span>(<span class="string">&#x27;d21007e64ba84021875c3556ece71173.png&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line"><span class="comment">#12-15字节代表固定的文件头数据块的标示，16-19字节代表宽度，20-23字节代表高度，24-28字节分别代表</span></span><br><span class="line"><span class="comment"># Bit depth、ColorType、Compression method、Filter method、Interlace method</span></span><br><span class="line"><span class="comment">#29-32字节为CRC校验和</span></span><br><span class="line"> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10000</span>):<span class="comment">#宽度0-9999搜索</span></span><br><span class="line">    data=fi[<span class="number">12</span>:<span class="number">16</span>]+struct.pack(<span class="string">&#x27;&gt;I&#x27;</span>,i)+fi[<span class="number">20</span>:<span class="number">29</span>]  <span class="comment">#pack函数将int转为bytes,&gt;表示大端00 00 00 02,I表示4字节无符号int;&lt;表示小端 02 00 00 00</span></span><br><span class="line">    crc=binascii.crc32(data)&amp;<span class="number">0xffffffff</span> <span class="comment">#byte的大小为8bits而int的大小为32bits,转换时进行与运算避免补码问题0x932f8a6b</span></span><br><span class="line">    <span class="keyword">if</span> crc==struct.unpack(<span class="string">&#x27;&gt;I&#x27;</span>,fi[<span class="number">29</span>:<span class="number">33</span>])[<span class="number">0</span>]&amp;<span class="number">0xffffffff</span> : <span class="comment">#解开为无符号整数</span></span><br><span class="line">        <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/11/png%E5%AE%BD%E9%AB%98%E7%88%86%E7%A0%B4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/26/rocky%208.6/" class="archive-article-date">
-  	<time datetime="2023-07-26T13:28:34.841Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-26</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-My-New-Post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/06/11/My-New-Post/">test your nc</a>
+    </h1>
+  
+
+        
+        <a href="/2023/06/11/My-New-Post/" class="archive-article-date">
+  	<time datetime="2023-06-11T14:21:08.647Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先使用checksec查看一下文件属性，然后把文件放到IDA中，F5反汇编看到了system(‘&#x2F;bin&#x2F;sh’)（如果在程序中执行这串代码，我们的权限就会提高，我们就能够查看电脑上的其他文件，获取flag）<br>这道题直接给出了后门函数，所以我们直接链接到服务器就好了<br>链接到服务器的方法（直接在终端输入nc ip地址 ip端口）<br>链接到服务器后我们就获得了高级权限，直接cat flag就能得到flag </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/11/My-New-Post/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/22/%E7%88%AC%E8%99%AB/" class="archive-article-date">
-  	<time datetime="2023-07-22T15:06:24.599Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-22</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Metasploit渗透测试框架的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Metasploit渗透测试框架的基本使用"><a href="#Metasploit渗透测试框架的基本使用" class="headerlink" title="Metasploit渗透测试框架的基本使用"></a>Metasploit渗透测试框架的基本使用</h1><p>一.连接</p>
+<p>1.打开数据库</p>
+<p>​    systemctl start postgresql</p>
+<p>​    systemctl enable postgresql #设置成开机启动数据库，我们要经常用</p>
+<p>2.msf的打开</p>
+<p>   msfconsole  （postgresql数据库和msf同时打开msfdb run）</p>
+<p>3.连接：   connect ip（或域名) 端口(连接后get可以得到服务器版本号)</p>
+<p>二.</p>
+<p>1.show命令的使用</p>
+<p>​    show的有效参数：all, encoders, nops, exploits, payloads, auxiliary, post,  plugins, info, options</p>
+<p>三.search搜索的使用方法（search -h 列search命令的一些选项)</p>
+<p>1.通过 name 关键字进行查找</p>
+<p>​         search name:mysql   要查找 mysql 数据库的漏洞</p>
+<p>2.通过路径进行查找</p>
+<p>​          search path:mysql</p>
+<p>​           path：命令查找在该路 径下的所有模块</p>
+<p>3.缩小查询范围 </p>
+<p>​        search platform:mysql</p>
+<p>​         platform：列出可以影响此平台的模块，也就是比较好的漏洞 有时候我们会搜索到大量的模块，那么可以用 platform：命令来缩小查询范围。使用 platform 命 令后，所查询的结果会列出 rank 比较高的模块。如果我要查找 mysql 的漏洞</p>
+<p>4.通过类型进行查找</p>
+<p>​         search type:exploit</p>
+<p>​          type : 特定类型的模块(exploit, payload, auxiliary, encoder, evasion, post, or nop) 要搜索 exploit 模块</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/11/Metasploit%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/11/%E8%8A%B1%E7%94%9F%E5%A3%B3/" class="archive-article-date">
-  	<time datetime="2023-06-11T14:21:08.742Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-11</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Metasploits渗透测试之信息搜集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Metasploits渗透测试之信息搜集"><a href="#Metasploits渗透测试之信息搜集" class="headerlink" title="Metasploits渗透测试之信息搜集"></a>Metasploits渗透测试之信息搜集</h1><p>1.基于tcp协议搜集主机信息</p>
+<p>1.1使用Metasploit中的nmap和arp_sweep收集主机信息</p>
+<p>​       nmap</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/06/11/Metasploits%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B9%8B%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -401,9 +853,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="png宽高爆破12345678910#判断谁被修改了import zlib image_data&#x3D;open(&amp;#x27;图片路径&amp;#x27;,&amp;#x27;rb&amp;#x27;)bin_data&#x3D;image_data.read()crc32key &#x3D; zlib.crc32(bin_data[12:29])                 #使用函数计算if crc32key&#x3D;&#x3D;int(bin_data[">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/2023/06/11/png%E5%AE%BD%E9%AB%98%E7%88%86%E7%A0%B4/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="png宽高爆破12345678910#判断谁被修改了import zlib image_data&#x3D;open(&amp;#x27;图片路径&amp;#x27;,&amp;#x27;rb&amp;#x27;)bin_data&#x3D;image_data.read()crc32key &#x3D; zlib.crc32(bin_data[12:29])                 #使用函数计算if crc32key&#x3D;&#x3D;int(bin_data[">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-06-11T14:21:08.670Z">
+<meta property="article:modified_time" content="2023-05-18T06:48:26.786Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,235 +154,158 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-png宽高爆破" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="png宽高爆破"><a href="#png宽高爆破" class="headerlink" title="png宽高爆破"></a>png宽高爆破</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#判断谁被修改了</span></span><br><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"> </span><br><span class="line">image_data=<span class="built_in">open</span>(<span class="string">&#x27;图片路径&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">bin_data=image_data.read()</span><br><span class="line">crc32key = zlib.crc32(bin_data[<span class="number">12</span>:<span class="number">29</span>])                 <span class="comment">#使用函数计算</span></span><br><span class="line"><span class="keyword">if</span> crc32key==<span class="built_in">int</span>(bin_data[<span class="number">29</span>:<span class="number">33</span>].<span class="built_in">hex</span>(), <span class="number">16</span>):<span class="comment">#对比算出的CRC和原本的CRC</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;宽高没有问题&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;宽高被改了&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#爆破高，需要自查查图片信息。Python2运行</span></span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line">crc32key = <span class="number">0xFF800203</span>    </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">65535</span>):</span><br><span class="line">  height = struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, i)</span><br><span class="line">  data = <span class="string">&#x27;\x49\x48\x44\x52\x00\x00\x00\x64&#x27;</span> + height + <span class="string">&#x27;\x08\x02\x00\x00\x00&#x27;</span></span><br><span class="line">  crc32result = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">  <span class="keyword">if</span> crc32result == crc32key:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">map</span>(<span class="keyword">lambda</span> c: <span class="string">&quot;%02X&quot;</span> % <span class="built_in">ord</span>(c), height))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#只需要填写图片路径，爆破宽和高，有点费电脑</span></span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line">crcbp = <span class="built_in">open</span>(<span class="string">&quot;E:\Desktop\cd83c00e-130c-47ba-b4d8-c0c0b8d8de31.png&quot;</span>, <span class="string">&quot;rb&quot;</span>).read()    </span><br><span class="line">crc32frombp = <span class="built_in">int</span>(crcbp[<span class="number">29</span>:<span class="number">33</span>].<span class="built_in">hex</span>(),<span class="number">16</span>)     </span><br><span class="line"><span class="built_in">print</span>(crc32frombp)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                       </span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                   </span><br><span class="line">        data = crcbp[<span class="number">12</span>:<span class="number">16</span>] + \</span><br><span class="line">            struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, i)+struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, j)+crcbp[<span class="number">24</span>:<span class="number">29</span>]</span><br><span class="line">        crc32 = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        <span class="built_in">print</span>(crc32)</span><br><span class="line">        <span class="keyword">if</span>(crc32 == crc32frombp):           </span><br><span class="line">            <span class="built_in">print</span>(i, j)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;hex:&#x27;</span>, <span class="built_in">hex</span>(i), <span class="built_in">hex</span>(j))</span><br><span class="line">            exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#单爆破宽度，只需输入图片地址</span></span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span>  binascii</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">fi=<span class="built_in">open</span>(<span class="string">&#x27;d21007e64ba84021875c3556ece71173.png&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line"><span class="comment">#12-15字节代表固定的文件头数据块的标示，16-19字节代表宽度，20-23字节代表高度，24-28字节分别代表</span></span><br><span class="line"><span class="comment"># Bit depth、ColorType、Compression method、Filter method、Interlace method</span></span><br><span class="line"><span class="comment">#29-32字节为CRC校验和</span></span><br><span class="line"> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10000</span>):<span class="comment">#宽度0-9999搜索</span></span><br><span class="line">    data=fi[<span class="number">12</span>:<span class="number">16</span>]+struct.pack(<span class="string">&#x27;&gt;I&#x27;</span>,i)+fi[<span class="number">20</span>:<span class="number">29</span>]  <span class="comment">#pack函数将int转为bytes,&gt;表示大端00 00 00 02,I表示4字节无符号int;&lt;表示小端 02 00 00 00</span></span><br><span class="line">    crc=binascii.crc32(data)&amp;<span class="number">0xffffffff</span> <span class="comment">#byte的大小为8bits而int的大小为32bits,转换时进行与运算避免补码问题0x932f8a6b</span></span><br><span class="line">    <span class="keyword">if</span> crc==struct.unpack(<span class="string">&#x27;&gt;I&#x27;</span>,fi[<span class="number">29</span>:<span class="number">33</span>])[<span class="number">0</span>]&amp;<span class="number">0xffffffff</span> : <span class="comment">#解开为无符号整数</span></span><br><span class="line">        <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/10/20/sqli-labs%E9%9D%B6%E5%9C%BA%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2023-10-20T01:45:55.680Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-20</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/06/11/png%E5%AE%BD%E9%AB%98%E7%88%86%E7%A0%B4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/28/web%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2023-09-28T09:31:11.612Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/27/SH-misc/" class="archive-article-date">
-  	<time datetime="2023-09-27T08:21:55.040Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2023/06/11/rsa/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/11/My-New-Post/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">test your nc</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/21/H1ve%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2023-09-21T05:54:35.150Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-21</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/08/%E6%80%A5%E6%95%91%E7%9F%A5%E8%AF%86%E5%9F%B9%E8%AE%AD/" class="archive-article-date">
-  	<time datetime="2023-09-08T07:32:06.691Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-08</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/09/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88Mysql)/" class="archive-article-date">
-  	<time datetime="2023-08-09T10:49:11.877Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/26/%E6%8A%A4%E7%BD%91%E8%A1%8C%E5%8A%A8/" class="archive-article-date">
-  	<time datetime="2023-07-26T13:28:45.741Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-26</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/26/rocky%208.6/" class="archive-article-date">
-  	<time datetime="2023-07-26T13:28:34.841Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-26</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/22/%E7%88%AC%E8%99%AB/" class="archive-article-date">
-  	<time datetime="2023-07-22T15:06:24.599Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-22</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/11/%E8%8A%B1%E7%94%9F%E5%A3%B3/" class="archive-article-date">
-  	<time datetime="2023-06-11T14:21:08.742Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-11</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -402,8 +329,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

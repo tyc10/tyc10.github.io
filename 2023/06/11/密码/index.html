@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="密码1.猪圈密码（buu萌哒哒的八戒） 2.MD5（1）buu获得权限的第一步Administrator:500:806EDC27AA52E314AAD3B435B51404EE:F4AD50F57683D4260DFD48AA351A17A8::: 将F4AD50F57683D4260DFD48AA351A17A8MD5解密即可 （2）丢失的MD5   题目中给的代码 123456789impo">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/2023/06/11/%E5%AF%86%E7%A0%81/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="密码1.猪圈密码（buu萌哒哒的八戒） 2.MD5（1）buu获得权限的第一步Administrator:500:806EDC27AA52E314AAD3B435B51404EE:F4AD50F57683D4260DFD48AA351A17A8::: 将F4AD50F57683D4260DFD48AA351A17A8MD5解密即可 （2）丢失的MD5   题目中给的代码 123456789impo">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="e:\Desktop\Crypto\bajie.jpg">
+<meta property="article:published_time" content="2023-06-11T14:21:08.727Z">
+<meta property="article:modified_time" content="2023-09-03T07:17:42.816Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="e:\Desktop\Crypto\bajie.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,235 +156,168 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-密码" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h1><h2 id="1-猪圈密码（buu萌哒哒的八戒）"><a href="#1-猪圈密码（buu萌哒哒的八戒）" class="headerlink" title="1.猪圈密码（buu萌哒哒的八戒）"></a>1.猪圈密码（buu萌哒哒的八戒）</h2><p><img src="E:\Desktop\Crypto\bajie.jpg" alt="bajie"></p>
+<h2 id="2-MD5"><a href="#2-MD5" class="headerlink" title="2.MD5"></a>2.MD5</h2><p>（1）buu获得权限的第一步Administrator:500:806EDC27AA52E314AAD3B435B51404EE:F4AD50F57683D4260DFD48AA351A17A8:::</p>
+<p>将F4AD50F57683D4260DFD48AA351A17A8MD5解密即可</p>
+<p>（2）丢失的MD5</p>
+<p>  题目中给的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib   </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>):</span><br><span class="line">            m=hashlib.md5()</span><br><span class="line">            m.update(<span class="string">&#x27;TASC&#x27;</span>+<span class="built_in">chr</span>(i)+<span class="string">&#x27;O3RJMV&#x27;</span>+<span class="built_in">chr</span>(j)+<span class="string">&#x27;WDJKX&#x27;</span>+<span class="built_in">chr</span>(k)+<span class="string">&#x27;ZM&#x27;</span>)</span><br><span class="line">            des=m.hexdigest()</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&#x27;e9032&#x27;</span> <span class="keyword">in</span> des <span class="keyword">and</span> <span class="string">&#x27;da&#x27;</span> <span class="keyword">in</span> des <span class="keyword">and</span> <span class="string">&#x27;911513&#x27;</span> <span class="keyword">in</span> des:</span><br><span class="line">                <span class="built_in">print</span> des</span><br></pre></td></tr></table></figure>
+
+<p> 修改后的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>)：</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>)：</span><br><span class="line">		<span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>,<span class="number">127</span>)：</span><br><span class="line">			m = hashlib.md5()</span><br><span class="line">			s = <span class="string">&#x27;TASC&#x27;</span> + <span class="built_in">chr</span>(i) + <span class="string">&#x27;O3RJMV&#x27;</span> +<span class="built_in">chr</span>(j) +<span class="string">&#x27;WDJKX&#x27;</span> +<span class="built_in">chr</span>(k) + <span class="string">&#x27;ZM&#x27;</span></span><br><span class="line">			m.update(s.encode(<span class="string">&quot;utf8&quot;</span>))</span><br><span class="line">			des = m.hexdigest()</span><br><span class="line">			<span class="keyword">if</span> <span class="string">&#x27;e9032&#x27;</span> <span class="keyword">in</span> des <span class="keyword">and</span> <span class="string">&#x27;da&#x27;</span> <span class="keyword">in</span> des <span class="keyword">and</span> <span class="string">&#x27;911513&#x27;</span> <span class="keyword">in</span> des:</span><br><span class="line">				<span class="built_in">print</span>(des)</span><br><span class="line">				<span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-栅栏密码"><a href="#2-栅栏密码" class="headerlink" title="2.栅栏密码"></a>2.栅栏密码</h2><p>特征U2开头需要密钥，一种流加密<br>把要加密的明文分成N个一组，然后把每组的第一个字连起来，形成一段无规律的话。<br>不过栅栏密码本身有一个潜规则，就是组成栅栏的字母一般不会太多。<br>参考<br>加密原理<br>举例：<br>n &#x3D; 7, m &#x3D; 2<br>假设明文为：have a good night<br>加密过程如下：<br>将其去掉空格：haveagoodnight<br>分成7组：ha ve ag oo dn ig ht<br>ha<br>ve<br>ag<br>oo<br>dn<br>ig<br>ht<br>按照竖排来组合，则它的栅栏密码为：hvaodihaegongt<br>解密过程如下：<br>先将其分为2组：hvaodih aegongt<br>hvaodih<br>aegongt<br>然后按照每组按次序取一个进行重新组合：ha ve ag oo dn ig ht<br>拼起来即可：haveagoodnight<br>添加上必需的空格即可：have a good night</p>
+<h2 id="3-中文电码"><a href="#3-中文电码" class="headerlink" title="3.中文电码"></a>3.中文电码</h2><p>606046152623600817831216121621196386</p>
+<pre><code>中文电码采用了四位阿拉伯数字作代号，
+从0001到9999按四位数顺序排列，用四位数字表示最多一万个汉字、字母和符号。
+汉字先按部首，后按笔划排列。
+字母和符号放到电码表的最尾。
+后来由于一万个汉字不足以应付户籍管理的要求，又有第二字面汉字的出现。
+在香港，两个字面都采用同一编码，由输入员人手选择字面；
+在台湾，第二字面的汉字会在开首补上“1”字，变成5个数字的编码。
+</code></pre>
+<h2 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h2>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/10/20/sqli-labs%E9%9D%B6%E5%9C%BA%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2023-10-20T01:45:55.680Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-20</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/06/11/%E5%AF%86%E7%A0%81/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/28/web%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2023-09-28T09:31:11.612Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/27/SH-misc/" class="archive-article-date">
-  	<time datetime="2023-09-27T08:21:55.040Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2023/06/11/%E8%8A%B1%E7%94%9F%E5%A3%B3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/11/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/21/H1ve%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2023-09-21T05:54:35.150Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-21</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/08/%E6%80%A5%E6%95%91%E7%9F%A5%E8%AF%86%E5%9F%B9%E8%AE%AD/" class="archive-article-date">
-  	<time datetime="2023-09-08T07:32:06.691Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-08</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/09/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88Mysql)/" class="archive-article-date">
-  	<time datetime="2023-08-09T10:49:11.877Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/26/%E6%8A%A4%E7%BD%91%E8%A1%8C%E5%8A%A8/" class="archive-article-date">
-  	<time datetime="2023-07-26T13:28:45.741Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-26</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/26/rocky%208.6/" class="archive-article-date">
-  	<time datetime="2023-07-26T13:28:34.841Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-26</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/22/%E7%88%AC%E8%99%AB/" class="archive-article-date">
-  	<time datetime="2023-07-22T15:06:24.599Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-22</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/11/%E8%8A%B1%E7%94%9F%E5%A3%B3/" class="archive-article-date">
-  	<time datetime="2023-06-11T14:21:08.742Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-11</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -402,8 +341,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

