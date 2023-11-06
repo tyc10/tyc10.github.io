@@ -12,8 +12,9 @@
     <meta name="keywords" content="Fechin,"> 
     <meta name="description" content="签到题一眼下去全是http协议
 
-jwt2.1简单的流量审计，查看登录后的 cookie 格式可知使用了 jwt 的认证方式。
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ,"> 
+jwt常见的web认证方式
+HTTP Basic Auth：
+​		这是一种最古老的安全认证方式，简单地在访问API时带上访问的username和password，,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="tyc的小窝" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -24,8 +25,9 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ,">
     <meta name="twitter:title" content=" - tyc的小窝"/>
     <meta name="twitter:description" content="签到题一眼下去全是http协议
 
-jwt2.1简单的流量审计，查看登录后的 cookie 格式可知使用了 jwt 的认证方式。
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ,"/>
+jwt常见的web认证方式
+HTTP Basic Auth：
+​		这是一种最古老的安全认证方式，简单地在访问API时带上访问的username和password，,"/>
     
     
     
@@ -35,8 +37,9 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ,"/>
     <meta property="og:title" content=" - tyc的小窝"/>
     <meta property="og:description" content="签到题一眼下去全是http协议
 
-jwt2.1简单的流量审计，查看登录后的 cookie 格式可知使用了 jwt 的认证方式。
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ,"/>
+jwt常见的web认证方式
+HTTP Basic Auth：
+​		这是一种最古老的安全认证方式，简单地在访问API时带上访问的username和password，,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -78,7 +81,19 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ,"/>
         <div class="content markdown">
             <h4 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h4><p>一眼下去全是http协议</p>
 <p><img src="C:\Users\tong\Pictures\2e0f0fe3d95540b58d3dbd114b498185.png"></p>
-<h3 id="jwt"><a href="#jwt" class="headerlink" title="jwt"></a>jwt</h3><h4 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h4><p>简单的流量审计，查看登录后的 cookie 格式可知使用了 jwt 的认证方式。</p>
+<h3 id="jwt"><a href="#jwt" class="headerlink" title="jwt"></a>jwt</h3><p>常见的web认证方式</p>
+<p>HTTP Basic Auth：</p>
+<p>​		这是一种最古老的安全认证方式，简单地在访问API时带上访问的username和password，这是一种最古老的安全认证方式，这种方式就是简单的访问API的时候，带上访问的username和password，由于信息会暴露出去，所以现在也越来越少用了，现在都用更加安全保密的认证方式(<a target="_blank" rel="noopener" href="https://www.cnblogs.com/66w66/p/13845792.html)[1](https://www.cnblogs.com/66w66/p/13845792.html)%E3%80%82">https://www.cnblogs.com/66w66/p/13845792.html)[1](https://www.cnblogs.com/66w66/p/13845792.html)。</a></p>
+<p>OAuth2：</p>
+<p>​		OAuth（开放授权）是一个开放标准，允许用户让第三方应用访问该用户在某一网站上存储的私密资源，而无需将用户名和密码提供给第三方](<a target="_blank" rel="noopener" href="https://www.cnblogs.com/66w66/p/13845792.html)[1](https://www.cnblogs.com/66w66/p/13845792.html)%E3%80%82">https://www.cnblogs.com/66w66/p/13845792.html)[1](https://www.cnblogs.com/66w66/p/13845792.html)。</a></p>
+<p>Cookie-Session Auth：</p>
+<p>​		这种认证机制是为一次请求认证在服务端创建一个Session对象，同时在客户端的浏览器端创建了一个Cookie对象](<a target="_blank" rel="noopener" href="https://www.cnblogs.com/66w66/p/13845792.html)[1](https://www.cnblogs.com/66w66/p/13845792.html)%E3%80%82">https://www.cnblogs.com/66w66/p/13845792.html)[1](https://www.cnblogs.com/66w66/p/13845792.html)。</a></p>
+<p>表单认证：</p>
+<p>​		这种方式是最基础、最常见的认证方式。客户端通过post或get请求参数的方式，把用户名、密码上传到服务器端](<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/590149659)[2](https://zhuanlan.zhihu.com/p/590149659)%E3%80%82">https://zhuanlan.zhihu.com/p/590149659)[2](https://zhuanlan.zhihu.com/p/590149659)。</a></p>
+<p>HTTP身份验证框架：</p>
+<p>​		包括基本认证、摘要认证、Hawk认证](<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/590149659)[2](https://zhuanlan.zhihu.com/p/590149659)%E3%80%82">https://zhuanlan.zhihu.com/p/590149659)[2](https://zhuanlan.zhihu.com/p/590149659)。</a></p>
+<p>令牌方式：包括Session&amp;Cookie认证、JWT认证](<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/590149659)[2](https://zhuanlan.zhihu.com/p/590149659)%E3%80%82">https://zhuanlan.zhihu.com/p/590149659)[2](https://zhuanlan.zhihu.com/p/590149659)。</a></p>
+<h4 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h4><p>简单的流量审计，查看登录后的 cookie 格式可知使用了 jwt 的认证方式。</p>
 <p>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAwODYsIk1hcENsYWltcyI6eyJhdWQiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4ifX0.dJArtwXjas3_Cg9a3tr8COXF7DRsuX8UjmbC1nKf8fc</p>
 <p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-11-05 223456.png)</p>
 <h4 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h4><p>黑客绕过验证使用的jwt中，id和username是_10087#admin _。</p>
