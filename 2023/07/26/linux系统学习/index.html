@@ -76,8 +76,8 @@
 
         </div>
         <div class="content markdown">
-            <h1 id="rocky-8-6"><a href="#rocky-8-6" class="headerlink" title="rocky 8.6"></a>rocky 8.6</h1><h3 id="1-环境搭建"><a href="#1-环境搭建" class="headerlink" title="1.环境搭建"></a>1.环境搭建</h3><p>虚拟机安装成功并联网</p>
-<h3 id="2-linux基本命令操作和文件管理"><a href="#2-linux基本命令操作和文件管理" class="headerlink" title="2.linux基本命令操作和文件管理"></a>2.linux基本命令操作和文件管理</h3><p>​		ctrl+shift+T 快速打开一个终端；</p>
+            <h1 id="rocky-8-6"><a href="#rocky-8-6" class="headerlink" title="rocky 8.6"></a>rocky 8.6</h1><h4 id="1-环境搭建"><a href="#1-环境搭建" class="headerlink" title="1.环境搭建"></a>1.环境搭建</h4><p>虚拟机安装成功并联网</p>
+<h4 id="2-linux基本命令操作和文件管理"><a href="#2-linux基本命令操作和文件管理" class="headerlink" title="2.linux基本命令操作和文件管理"></a>2.linux基本命令操作和文件管理</h4><p>​		ctrl+shift+T 快速打开一个终端；</p>
 <p>​		 shift+ctrl+加号 终端字体放大 ;</p>
 <pre><code>     终端字体缩小：ctrl+ 减号
 </code></pre>
@@ -91,28 +91,57 @@
 <p>​		#表示是 root 用户登录，管理员账号登陆</p>
 <p>​		#表示普通用户登录</p>
 <p>​		su 用户名（切换登录用户）</p>
-<h3 id="3-文件的基本管理与vim编辑器"><a href="#3-文件的基本管理与vim编辑器" class="headerlink" title="3.文件的基本管理与vim编辑器"></a>3.文件的基本管理与vim编辑器</h3><p>根下的目录作用说明： </p>
-<p>目 录 说 明 </p>
-<p>​		 &#x2F; 处于 linux 系统树形结构的最顶端，它是 linux 文件系统的入口，所有的目录、 文件、设备都在 &#x2F; 之下 </p>
-<p>​		&#x2F;bin bin 是 Binary 的缩写。常用的二进制命令目录。比如 ls、cp、mkdir、cut 等；和&#x2F;usr&#x2F;bin 类似，一些用户级工具 </p>
-<p>​		&#x2F;boot 存放的系统启动相关的文件，例如：kernel.grub(引导装载程序) </p>
-<p>​		&#x2F;dev dev 是 Device 的缩写。设备文件目录，比如声卡、磁盘……在 Linux 中 一切都被看做文件。终端设备、磁盘等等都被看做文件 设备文件: &#x2F;dev&#x2F;sda,&#x2F;dev&#x2F;sda1,&#x2F;dev&#x2F;tty1,&#x2F;dev&#x2F;tty2,&#x2F;dev&#x2F;pts&#x2F;1,  &#x2F;dev&#x2F;zero, &#x2F;dev&#x2F;null, &#x2F;dev&#x2F;cdrom </p>
-<p>​		&#x2F;etc 常用系统及二进制安装包配置文件默认路径和服务器启动命令目录，</p>
+<h4 id="3-根下的目录作用说明："><a href="#3-根下的目录作用说明：" class="headerlink" title="3.根下的目录作用说明："></a>3.根下的目录作用说明：</h4><h4 id><a href="#" class="headerlink" title></a></h4><h5 id="1-x2F"><a href="#1-x2F" class="headerlink" title="1. &#x2F;"></a>1. &#x2F;</h5><p>​		 &#x2F; 处于 linux 系统树形结构的最顶端，它是 linux 文件系统的入口，所有的目录、 文件、设备都在 &#x2F; 之下 </p>
+<h5 id="2-x2F-bin"><a href="#2-x2F-bin" class="headerlink" title="2. &#x2F;bin"></a>2. &#x2F;bin</h5><p>   bin 是 Binary 的缩写。常用的二进制命令目录。比如 ls、cp、mkdir、cut 等；和&#x2F;usr&#x2F;bin 类似，一些用户级工具 </p>
+<h5 id="3-x2F-boot"><a href="#3-x2F-boot" class="headerlink" title="3. &#x2F;boot"></a>3. &#x2F;boot</h5><p>​		&#x2F;boot 存放的系统启动相关的文件，例如：kernel.grub(引导装载程序) </p>
+<h5 id="4-x2F-dev"><a href="#4-x2F-dev" class="headerlink" title="4. &#x2F;dev"></a>4. &#x2F;dev</h5><p>​		&#x2F;dev dev 是 Device 的缩写。设备文件目录，比如声卡、磁盘……在 Linux 中 一切都被看做文件。终端设备、磁盘等等都被看做文件 设备文件: &#x2F;dev&#x2F;sda,&#x2F;dev&#x2F;sda1,&#x2F;dev&#x2F;tty1,&#x2F;dev&#x2F;tty2,&#x2F;dev&#x2F;pts&#x2F;1,  &#x2F;dev&#x2F;zero, &#x2F;dev&#x2F;null, &#x2F;dev&#x2F;cdrom </p>
+<h5 id="5-x2F-etc"><a href="#5-x2F-etc" class="headerlink" title="5. &#x2F;etc"></a>5. &#x2F;etc</h5><p>​		&#x2F;etc 常用系统及二进制安装包配置文件默认路径和服务器启动命令目录，</p>
 <p>​		如：&#x2F;etc&#x2F;passwd 用户信息文件 	</p>
 <p>​				&#x2F;etc&#x2F;shadow 用户密码文件	</p>
 <p>​				&#x2F;etc&#x2F;group 存储用户组信息 	</p>
 <p>​				&#x2F;etc&#x2F;fstab 系统开机启动自动挂载分区列表 	</p>
 <p>​				&#x2F;etc&#x2F;hosts 设定用户自己的 IP 与主机名对应的信息</p>
-<p>​		 &#x2F;home 普通用户的家目录默认存放目录</p>
-<p>​		 &#x2F;lib 库文件存放目录,函数库目录</p>
-<p>​		 &#x2F;mnt &#x2F;media &#x2F;mnt 和&#x2F;media 一般用来临时挂载存储设备的挂载目录，比如有 cdrom、U 盘 等目录 &#x2F;mnt&#x2F;hgfs: 安装 vmware-tools 后，使用共享文件夹功能，可以共享虚 拟机和真机的目录，实现文件相互复制，一般这个功能没有用。我们直接使用 xshell 来上传文件 </p>
-<p>​		&#x2F;opt 表示的是可选择的意思，有些软件包也会被安装在这里。如：gitlab &#x2F;proc 操作系统运行时，进程（正在运行中的程序）信息及内核信息（比如 cpu、硬盘 分区、内存信息等）存放在这里。</p>
-<p>​		&#x2F;proc 目录是伪装的文件系统 proc 的挂载目 录，proc 并不是真正的文件系统。因此，这个目录是一个虚拟的目录，它是系统 内存的映射，我们可以通过直接访问这个目录来获取系统信息。也就是说，这个 目录的内容不在硬盘上而是在内存里 查看咱们的 CPU 信息 cat &#x2F;proc&#x2F;cpuinfo &#x2F;sys 系统目录，存放硬件信息的相关文件</p>
-<p>​		 &#x2F;run 运行目录，存放的是系统运行时的数据，比如进程的 PID 文件</p>
-<p>​		 &#x2F;srv 服务目录，存放的是我们本地服务的相关文件</p>
-<p>​		 &#x2F;sbin 大多数涉及系统管理的命令都存放在该目录中，它是超级权限用户 root 的可 执行命令存放地，普通用户无权限执行这个目录下的命令，凡是目录 sbin 中包含 的命令都是 root 权限才能执行的 </p>
-<p>​		 &#x2F;tmp 该目录用于存放临时文件，有时用户运行程序的时候，会产生一些临时文 件。&#x2F;tmp 就是用来存放临时文件的。&#x2F;var&#x2F;tmp 目录和该目录的作用是相似的, 不能存放重要数据，系统会定期删除这个目录下的没有被使用的文件。 它的权限比较特殊 [root@xuegod63 ~]# ls -ld &#x2F;tmp drwxrwxrwt 10 root root 12288 Oct 3 20:45 &#x2F;tmp&#x2F; →粘滞位（sticky bit）目录的 sticky 位表示这个目录里的文件只能被文件的 owner（所有者）和 root 删除 &#x2F;var 系统运行和软件运行时产生的日志信息，该目录的内容是经常变动的，存放的是 一些变化的文件。比如&#x2F;var 下有&#x2F;var&#x2F;log 目录用来存放系统日志的目录，还有 mail、&#x2F;var&#x2F;spool&#x2F;cron </p>
-<p>​		 &#x2F;usr 存放应用程序和文件， &#x2F;usr&#x2F;bin 普通用户使用的应用程序 &#x2F;usr&#x2F;sbin 管理员使用的应用程序 &#x2F;usr&#x2F;lib 库文件 Glibc(32 位) &#x2F;usr&#x2F;lib64 库文件 Glibc &#x2F;lib &#x2F;lib64 是 &#x2F;usr&#x2F;lib 和 这个目录里存放着系统最基本的动态链接共享库，包含许多被&#x2F;bin&#x2F;和&#x2F;sbin&#x2F;中的 程序使用的库文件，目录&#x2F;usr&#x2F;lib&#x2F;中含有更多用于用户程序的库文件。作用类似 于 windows 里的 DLL 文件，几乎所有的应用程序都需要用到这些共享库 注：lib***.a 是静态库 ， lib***.so 是动态库</p>
+<h5 id="6-x2F-home"><a href="#6-x2F-home" class="headerlink" title="6. &#x2F;home"></a>6. &#x2F;home</h5><p>&#x2F;home 普通用户的家目录默认存放目录</p>
+<h5 id="7-x2F-lib"><a href="#7-x2F-lib" class="headerlink" title="7. &#x2F;lib"></a>7. &#x2F;lib</h5><p>​		 &#x2F;lib 库文件存放目录,函数库目录</p>
+<h5 id="8-x2F-mnt"><a href="#8-x2F-mnt" class="headerlink" title="8. &#x2F;mnt"></a>8. &#x2F;mnt</h5><p> &#x2F;mnt &#x2F;media &#x2F;mnt 和&#x2F;media 一般用来临时挂载存储设备的挂载目录，比如有 cdrom、U 盘 等目录 &#x2F;mnt&#x2F;hgfs: 安装 vmware-tools 后，使用共享文件夹功能，可以共享虚 拟机和真机的目录，实现文件相互复制，一般这个功能没有用。我们直接使用 xshell 来上传文件 </p>
+<h5 id="9-x2F-opt"><a href="#9-x2F-opt" class="headerlink" title="9. &#x2F;opt"></a>9. &#x2F;opt</h5><p>&#x2F;opt 表示的是可选择的意思，有些软件包也会被安装在这里。如：gitlab &#x2F;proc 操作系统运行时，进程（正在运行中的程序）信息及内核信息（比如 cpu、硬盘 分区、内存信息等）存放在这里。</p>
+<h5 id="10-x2F-proc"><a href="#10-x2F-proc" class="headerlink" title="10. &#x2F;proc"></a>10. &#x2F;proc</h5><p>​	&#x2F;proc 目录是伪装的文件系统 proc 的挂载目 录，proc 并不是真正的文件系统。因此，这个目录是一个虚拟的目录，它是系统 内存的映射，我们可以通过直接访问这个目录来获取系统信息。也就是说，这个 目录的内容不在硬盘上而是在内存里 查看咱们的 CPU 信息 cat &#x2F;proc&#x2F;cpuinfo &#x2F;sys 系统目录，存放硬件信息的相关文件</p>
+<h5 id="11-x2F-run"><a href="#11-x2F-run" class="headerlink" title="11. &#x2F;run"></a>11. &#x2F;run</h5><p> &#x2F;run 运行目录，存放的是系统运行时的数据，比如进程的 PID 文件</p>
+<h5 id="12-x2F-srv"><a href="#12-x2F-srv" class="headerlink" title="12. &#x2F;srv"></a>12. &#x2F;srv</h5><p> &#x2F;srv 服务目录，存放的是我们本地服务的相关文件</p>
+<h5 id="13-x2F-sbin"><a href="#13-x2F-sbin" class="headerlink" title="13. &#x2F;sbin"></a>13. &#x2F;sbin</h5><p>​	 &#x2F;sbin 大多数涉及系统管理的命令都存放在该目录中，它是超级权限用户 root 的可 执行命令存放地，普通用户无权限执行这个目录下的命令，凡是目录 sbin 中包含 的命令都是 root 权限才能执行的 </p>
+<h5 id="14-x2F-tmp"><a href="#14-x2F-tmp" class="headerlink" title="14. &#x2F;tmp"></a>14. &#x2F;tmp</h5><p>​		 &#x2F;tmp 该目录用于存放临时文件，有时用户运行程序的时候，会产生一些临时文 件。&#x2F;tmp 就是用来存放临时文件的。&#x2F;var&#x2F;tmp 目录和该目录的作用是相似的, 不能存放重要数据，系统会定期删除这个目录下的没有被使用的文件。 它的权限比较特殊 [root@xuegod63 ~]# ls -ld &#x2F;tmp drwxrwxrwt 10 root root 12288 Oct 3 20:45 &#x2F;tmp&#x2F; →粘滞位（sticky bit）目录的 sticky 位表示这个目录里的文件只能被文件的 owner（所有者）和 root 删除 &#x2F;var 系统运行和软件运行时产生的日志信息，该目录的内容是经常变动的，存放的是 一些变化的文件。比如&#x2F;var 下有&#x2F;var&#x2F;log 目录用来存放系统日志的目录，还有 mail、&#x2F;var&#x2F;spool&#x2F;cron </p>
+<h5 id="15-x2F-usr"><a href="#15-x2F-usr" class="headerlink" title="15. &#x2F;usr"></a>15. &#x2F;usr</h5><p>&#x2F;usr 存放应用程序和文件， &#x2F;usr&#x2F;bin 普通用户使用的应用程序 &#x2F;usr&#x2F;sbin 管理员使用的应用程序 &#x2F;usr&#x2F;lib 库文件 Glibc(32 位) &#x2F;usr&#x2F;lib64 库文件 Glibc &#x2F;lib &#x2F;lib64 是 &#x2F;usr&#x2F;lib 和 这个目录里存放着系统最基本的动态链接共享库，包含许多被&#x2F;bin&#x2F;和&#x2F;sbin&#x2F;中的 程序使用的库文件，目录&#x2F;usr&#x2F;lib&#x2F;中含有更多用于用户程序的库文件。作用类似 于 windows 里的 DLL 文件，几乎所有的应用程序都需要用到这些共享库 注：lib***.a 是静态库 ， lib***.so 是动态库</p>
+<h4 id="4-基本文件操作"><a href="#4-基本文件操作" class="headerlink" title="4.基本文件操作"></a>4.基本文件操作</h4><p>绝对路径：一切从根目录开始的路径</p>
+<p>相对路径：非从根目录开始的路径</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">当前目录.   上一个目录..</span><br><span class="line"></span><br><span class="line">1.删除</span><br><span class="line"> rm</span><br><span class="line"> </span><br><span class="line"> -rf  表示递归强制删除所有</span><br><span class="line"> </span><br><span class="line"> /*  根目录下所有目录</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">2.查看目录下内容</span><br><span class="line"> ls</span><br><span class="line"> </span><br><span class="line"> ls -l   列出文件详细信息</span><br><span class="line"> </span><br><span class="line">3.查看当前所在目录</span><br><span class="line"> pwd</span><br><span class="line">   </span><br><span class="line">4.创建文件夹</span><br><span class="line">mkdir -p 文件夹</span><br><span class="line"></span><br><span class="line">5.进入文件</span><br><span class="line">cd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-查看文件权限"><a href="#5-查看文件权限" class="headerlink" title="5. 查看文件权限"></a>5. 查看文件权限</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.用户名创建（root创建）</span><br><span class="line">useradd 用户名</span><br><span class="line"></span><br><span class="line">2.添加用户密码</span><br><span class="line">passwd 用户名</span><br><span class="line"></span><br><span class="line">3.切换登录用户</span><br><span class="line">su 用户名</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-如何让淘宝网在linux上运行起来"><a href="#6-如何让淘宝网在linux上运行起来" class="headerlink" title="6.如何让淘宝网在linux上运行起来"></a>6.如何让淘宝网在linux上运行起来</h4><p>linux软件：xxx.rpm</p>
+<p>软件管理工具 ：yum软件管理仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.安装应用程序</span><br><span class="line">yum install 软件名 -y</span><br><span class="line">wget安装   yum install wget -y</span><br><span class="line"></span><br><span class="line">2.配置yum源</span><br><span class="line">阿里云源</span><br><span class="line">https://developer.aliyun.com/mirror/?spm=a2c6h.12883283.J_eBhO-wcawiLJRkGqHmozR.72.5f1f4307RqvxrE</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-apache安装"><a href="#7-apache安装" class="headerlink" title="7. apache安装"></a>7. apache安装</h4><h5 id="1、检查是否安装了Apache服务器软件"><a href="#1、检查是否安装了Apache服务器软件" class="headerlink" title="1、检查是否安装了Apache服务器软件"></a>1、检查是否安装了Apache服务器软件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep -i httpd</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、卸载已安装的Apache服务器软件"><a href="#2、卸载已安装的Apache服务器软件" class="headerlink" title="2、卸载已安装的Apache服务器软件"></a>2、卸载已安装的Apache服务器软件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf remove httpd*</span><br></pre></td></tr></table></figure>
+
+<p>注：如果提示bash: dnf:未找到命令则需要安装dnf命令，分别执行下列两个命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release</span><br><span class="line">yum install dnf</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、再次检查是否安装了Apache服务器软件"><a href="#3、再次检查是否安装了Apache服务器软件" class="headerlink" title="3、再次检查是否安装了Apache服务器软件"></a>3、再次检查是否安装了Apache服务器软件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep -i httpd</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、安装Apache服务器软件"><a href="#4、安装Apache服务器软件" class="headerlink" title="4、安装Apache服务器软件"></a>4、安装Apache服务器软件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf  -y install httpd*</span><br></pre></td></tr></table></figure>
+
+<h5 id="5、可以使用rpm-qa-grep-i-httpd命令来查询是否安装成功"><a href="#5、可以使用rpm-qa-grep-i-httpd命令来查询是否安装成功" class="headerlink" title="5、可以使用rpm -qa | grep -i httpd命令来查询是否安装成功"></a>5、可以使用rpm -qa | grep -i httpd命令来查询是否安装成功</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep -i httpd</span><br></pre></td></tr></table></figure>
+
+<h5 id="6、启动httpd服务程序并将其加入到开机启动项中，使其能够随系统开机而运行"><a href="#6、启动httpd服务程序并将其加入到开机启动项中，使其能够随系统开机而运行" class="headerlink" title="6、启动httpd服务程序并将其加入到开机启动项中，使其能够随系统开机而运行"></a>6、启动httpd服务程序并将其加入到开机启动项中，使其能够随系统开机而运行</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start httpd</span><br><span class="line">systemctl enable httpd</span><br></pre></td></tr></table></figure>
+
+<h5 id="7、在浏览器中输入服务器的IP地址，测试服务是否开启"><a href="#7、在浏览器中输入服务器的IP地址，测试服务是否开启" class="headerlink" title="7、在浏览器中输入服务器的IP地址，测试服务是否开启"></a>7、在浏览器中输入服务器的IP地址，测试服务是否开启</h5><h4 id="配置Apache服务"><a href="#配置Apache服务" class="headerlink" title="配置Apache服务"></a>配置Apache服务</h4><h5 id="1、Apache服务常见配置文件介绍"><a href="#1、Apache服务常见配置文件介绍" class="headerlink" title="1、Apache服务常见配置文件介绍"></a>1、Apache服务常见配置文件介绍</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">文件名称	                                                          作用</span><br><span class="line">/etc/httpd	                                                      服务目录</span><br><span class="line">/etc/httpd/conf/httpd.conf	                                      主配置文件</span><br><span class="line">/var/www/html	                                                  网站数据目录</span><br><span class="line">/var/log/httpd/access_log                                         访问日志</span><br><span class="line">/var/log/httpd/error_log                                          错误日志</span><br><span class="line">/etc/httpd/conf.d                                                 附加模块配置文件</span><br><span class="line">/etc/httpd/modules                                                模块文件路径链接</span><br><span class="line">/etc/httpd/bin/                                                   二进制命令</span><br><span class="line">/etc/httpd/logs                                                   默认日志文件位置</span><br></pre></td></tr></table></figure>
+
+<p>2、Apache主配置文件介绍</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    在httpd服务程序的主配置文件中，存在三种类型的信息：注释行信息、全局配置、区域配置。（位置：/etc/httpd/conf/httpd.conf）</span><br><span class="line"></span><br><span class="line">vim /etc/httpd/conf/httpd.conf</span><br></pre></td></tr></table></figure>
+
+
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">

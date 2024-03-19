@@ -10,10 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="Metasploit渗透测试框架的基本使用一.连接
-1.打开数据库
-​    systemctl start postgresql
-​    systemctl enable postgresql ,"> 
+    <meta name="description" content="123456789101112131415161718192021import java.io.*;public class FileIOExp &amp;#123; public static void ,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="tyc的小窝" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -22,10 +19,7 @@
     
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:title" content=" - tyc的小窝"/>
-    <meta name="twitter:description" content="Metasploit渗透测试框架的基本使用一.连接
-1.打开数据库
-​    systemctl start postgresql
-​    systemctl enable postgresql ,"/>
+    <meta name="twitter:description" content="123456789101112131415161718192021import java.io.*;public class FileIOExp &amp;#123; public static void ,"/>
     
     
     
@@ -33,10 +27,7 @@
     <meta property="og:site_name" content="tyc的小窝"/>
     <meta property="og:type" content="object"/>
     <meta property="og:title" content=" - tyc的小窝"/>
-    <meta property="og:description" content="Metasploit渗透测试框架的基本使用一.连接
-1.打开数据库
-​    systemctl start postgresql
-​    systemctl enable postgresql ,"/>
+    <meta property="og:description" content="123456789101112131415161718192021import java.io.*;public class FileIOExp &amp;#123; public static void ,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -71,34 +62,13 @@
     <div class='main'>
         <h1 class="title"></h1>
         <div class="stuff">
-            <span>六月 11, 2023</span>
+            <span>十二月 22, 2023</span>
             
 
         </div>
         <div class="content markdown">
-            <h4 id="Metasploit渗透测试框架的基本使用"><a href="#Metasploit渗透测试框架的基本使用" class="headerlink" title="Metasploit渗透测试框架的基本使用"></a>Metasploit渗透测试框架的基本使用</h4><p>一.连接</p>
-<p>1.打开数据库</p>
-<p>​    systemctl start postgresql</p>
-<p>​    systemctl enable postgresql #设置成开机启动数据库，我们要经常用</p>
-<p>2.msf的打开</p>
-<p>   msfconsole  （postgresql数据库和msf同时打开msfdb run）</p>
-<p>3.连接：   connect ip（或域名) 端口(连接后get可以得到服务器版本号)</p>
-<p>二.</p>
-<p>1.show命令的使用</p>
-<p>​    show的有效参数：all, encoders, nops, exploits, payloads, auxiliary, post,  plugins, info, options</p>
-<p>三.search搜索的使用方法（search -h 列search命令的一些选项)</p>
-<p>1.通过 name 关键字进行查找</p>
-<p>​         search name:mysql   要查找 mysql 数据库的漏洞</p>
-<p>2.通过路径进行查找</p>
-<p>​          search path:mysql</p>
-<p>​           path：命令查找在该路 径下的所有模块</p>
-<p>3.缩小查询范围 </p>
-<p>​        search platform:mysql</p>
-<p>​         platform：列出可以影响此平台的模块，也就是比较好的漏洞 有时候我们会搜索到大量的模块，那么可以用 platform：命令来缩小查询范围。使用 platform 命 令后，所查询的结果会列出 rank 比较高的模块。如果我要查找 mysql 的漏洞</p>
-<p>4.通过类型进行查找</p>
-<p>​         search type:exploit</p>
-<p>​          type : 特定类型的模块(exploit, payload, auxiliary, encoder, evasion, post, or nop) 要搜索 exploit 模块</p>
-<h4 id="常见端口渗透"><a href="#常见端口渗透" class="headerlink" title="常见端口渗透"></a>常见端口渗透</h4><h5 id="1-ftp服务"><a href="#1-ftp服务" class="headerlink" title="1.ftp服务"></a>1.ftp服务</h5><p>(默认端口：20（数据端口）；21（控制端口）；69（tftp小型文件传输协议）)</p>
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FileIOExp</span> &#123;</span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(System.in));</span><br><span class="line">            System.out.print(<span class="string">&quot;请输入：&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">input</span> <span class="operator">=</span> reader.readLine();</span><br><span class="line">            <span class="type">FileWriter</span> <span class="variable">writer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;infile.txt&quot;</span>);</span><br><span class="line">            writer.write(input);</span><br><span class="line">            writer.close();</span><br><span class="line">            System.out.println(<span class="string">&quot;成功写入文件&quot;</span>);</span><br><span class="line">            <span class="type">FileReader</span> <span class="variable">fileReader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;infile.txt&quot;</span>);</span><br><span class="line">            <span class="type">BufferedReader</span> <span class="variable">bufferedReader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(fileReader);</span><br><span class="line">            System.out.println(<span class="string">&quot;从文件读取：infile.txt&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;读取输出内容：&quot;</span> + bufferedReader.readLine());</span><br><span class="line">            bufferedReader.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">

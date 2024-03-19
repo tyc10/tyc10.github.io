@@ -95,7 +95,7 @@
 <p>运行前要修改数据库版本</p>
 <p>docker-compose -f single.yml up （跑起）</p>
 <p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-09-17 201855.png)</p>
-<h3 id="Hfish蜜罐搭建"><a href="#Hfish蜜罐搭建" class="headerlink" title="Hfish蜜罐搭建"></a>Hfish蜜罐搭建</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">docker search hfish</span><br><span class="line">docker pull imdevops/hfish</span><br><span class="line">docker run -d --name hfish -p 21:21 -p 22:22 -p 23:23 -p 69:69 -p 3306:3306 -p 5900:5900 -p 6379:6379 -p 8080:8080 -p 8081:8081 -p 8989:8989 -p 9000:9000 -p 9001:9001 -p 9200:9200 -p 11211:11211 --restart=always imdevops/hfish:latest</span><br></pre></td></tr></table></figure>
+<h3 id="Hfish蜜罐搭建-docker"><a href="#Hfish蜜罐搭建-docker" class="headerlink" title="Hfish蜜罐搭建(docker)"></a>Hfish蜜罐搭建(docker)</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">docker search hfish</span><br><span class="line">docker pull imdevops/hfish</span><br><span class="line">docker run -d --name hfish -p 21:21 -p 22:22 -p 23:23 -p 69:69 -p 3306:3306 -p 5900:5900 -p 6379:6379 -p 8080:8080 -p 8081:8081 -p 8989:8989 -p 9000:9000 -p 9001:9001 -p 9200:9200 -p 11211:11211 --restart=always imdevops/hfish:latest</span><br></pre></td></tr></table></figure>
 
 <p><a target="_blank" rel="noopener" href="https://www.v0n.top/2020/05/01/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8Docker%E5%87%BA%E4%B8%80%E9%81%93CTF%E9%A2%98%E7%9B%AE/">如何正确使用Docker出一道CTF题目 - Von的博客 | Von Blog (v0n.top)</a></p>
 <h3 id="hexo迁移"><a href="#hexo迁移" class="headerlink" title="hexo迁移"></a>hexo迁移</h3><p>首先配置好git,node环境</p>
@@ -112,6 +112,34 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm installnpm install hexo-deployer-git --save  // 文章部署到 git 的模块（下面为选择安装）</span><br><span class="line">npm install hexo-generator-feed --save  // 建立 RSS 订阅</span><br><span class="line">npm install hexo-generator-sitemap --save // 建立站点地图</span><br></pre></td></tr></table></figure>
 
 <p>hexo三连</p>
+<h3 id="HFfish"><a href="#HFfish" class="headerlink" title="HFfish"></a>HFfish</h3><h4 id="1-放行端口或关闭防火墙"><a href="#1-放行端口或关闭防火墙" class="headerlink" title="1. 放行端口或关闭防火墙"></a>1. 放行端口或关闭防火墙</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">放通4433、4434端口命令</span><br><span class="line">firewall-cmd --add-port=4433/tcp --permanent   #（用于web界面启动）</span><br><span class="line">firewall-cmd --add-port=4434/tcp --permanent   #（用于节点与管理端通信）</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CentOS 7 关闭防火墙命令</span><br><span class="line">systemctl stop firewalld.service    #关闭防火墙</span><br><span class="line">systemctl disable firewalld   #禁止开机启动防火墙</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sS -L https://hfish.net/webinstall.sh)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="雷池waf安装"><a href="#雷池waf安装" class="headerlink" title="雷池waf安装"></a>雷池waf安装</h3><h4 id="1-在线安装"><a href="#1-在线安装" class="headerlink" title="1. 在线安装"></a>1. 在线安装</h4><p>复制以下命令执行，即可完成安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">&quot;<span class="subst">$(curl -fsSLk https://waf-ce.chaitin.cn/release/latest/setup.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果需要使用华为云加速，可使用</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CDN=1 bash -c <span class="string">&quot;<span class="subst">$(curl -fsSLk https://waf-ce.chaitin.cn/release/latest/setup.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果需要安装最新版本流式检测模式，可使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STREAM=1 bash -c &quot;$(curl -fsSLk https://waf-ce.chaitin.cn/release/latest/setup.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="碎遮-SZhe-Scan"><a href="#碎遮-SZhe-Scan" class="headerlink" title="碎遮  SZhe Scan"></a>碎遮  SZhe Scan</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Cl0udG0d/SZhe_Scan</span><br><span class="line">cd SZhe_Scan</span><br><span class="line">docker-compose up -d  或 docker-compose up --build</span><br><span class="line">运行结束后访问 http://ip:5000</span><br></pre></td></tr></table></figure>
+
+<p>docker换源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">error； pulling image configuration: download failed after attempts=6: dial tcp 104.16.100.207:443: i/o timeout</span><br><span class="line"></span><br><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://yxzrazem.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h4 id="防火墙常用命令"><a href="#防火墙常用命令" class="headerlink" title="防火墙常用命令"></a>防火墙常用命令</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1.systemctl start firewalld.service（开启防火墙）</span><br><span class="line"></span><br><span class="line">2.systemctl stop firewalld.service（关闭防火墙）</span><br><span class="line"></span><br><span class="line">3.service firewalld restart（从启防火墙）</span><br><span class="line"></span><br><span class="line">4.firewall-cmd --zone=public --add-port=4400-4600/udp --permanen(指定端口范围为4400-4600通过防火墙)</span><br><span class="line"></span><br><span class="line">Warning: ALREADY_ENABLED: 3306:tcp（说明3306端口通过成功）</span><br><span class="line"></span><br><span class="line">5.firewall-cmd --zone=public --remove-port=80/tcp --permanent（关闭指定端口）</span><br><span class="line"></span><br><span class="line">6.firewall-cmd --zone=public --list-ports（查看通过的端口）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
