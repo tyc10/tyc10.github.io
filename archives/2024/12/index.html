@@ -6,17 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>tyc的小窝</title>
+  <title>Archives: 2024/12 | tyc的小窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="rocky 8.6一.前期准备1.环境搭建虚拟机安装成功并联网 2.linux基本命令操作和文件管理（1）根下的目录作用说明：1. &#x2F;​		 &#x2F; 处于 linux 系统树形结构的最顶端，它是 linux 文件系统的入口，所有的目录、 文件、设备都在 &#x2F; 之下  2. &#x2F;bin   bin 是 Binary 的缩写。常用的二进制命令目录。比如 ls、cp、mk">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="tyc的小窝">
-<meta property="og:url" content="http://example.com/2023/07/26/linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:url" content="http://example.com/archives/2024/12/index.html">
 <meta property="og:site_name" content="tyc的小窝">
-<meta property="og:description" content="rocky 8.6一.前期准备1.环境搭建虚拟机安装成功并联网 2.linux基本命令操作和文件管理（1）根下的目录作用说明：1. &#x2F;​		 &#x2F; 处于 linux 系统树形结构的最顶端，它是 linux 文件系统的入口，所有的目录、 文件、设备都在 &#x2F; 之下  2. &#x2F;bin   bin 是 Binary 的缩写。常用的二进制命令目录。比如 ls、cp、mk">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-07-26T13:28:34.841Z">
-<meta property="article:modified_time" content="2024-03-23T10:12:40.227Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -154,206 +150,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-linux系统学习" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-    <div class="article-entry" itemprop="articleBody">
+    
       
-        <h1 id="rocky-8-6"><a href="#rocky-8-6" class="headerlink" title="rocky 8.6"></a>rocky 8.6</h1><h2 id="一-前期准备"><a href="#一-前期准备" class="headerlink" title="一.前期准备"></a>一.前期准备</h2><h3 id="1-环境搭建"><a href="#1-环境搭建" class="headerlink" title="1.环境搭建"></a>1.环境搭建</h3><p>虚拟机安装成功并联网</p>
-<h3 id="2-linux基本命令操作和文件管理"><a href="#2-linux基本命令操作和文件管理" class="headerlink" title="2.linux基本命令操作和文件管理"></a>2.linux基本命令操作和文件管理</h3><h4 id="（1）根下的目录作用说明："><a href="#（1）根下的目录作用说明：" class="headerlink" title="（1）根下的目录作用说明："></a>（1）根下的目录作用说明：</h4><h5 id="1-x2F"><a href="#1-x2F" class="headerlink" title="1. &#x2F;"></a>1. &#x2F;</h5><p>​		 &#x2F; 处于 linux 系统树形结构的最顶端，它是 linux 文件系统的入口，所有的目录、 文件、设备都在 &#x2F; 之下 </p>
-<h5 id="2-x2F-bin"><a href="#2-x2F-bin" class="headerlink" title="2. &#x2F;bin"></a>2. &#x2F;bin</h5><p>   bin 是 Binary 的缩写。常用的二进制命令目录。比如 ls、cp、mkdir、cut 等；和&#x2F;usr&#x2F;bin 类似，一些用户级工具 </p>
-<h5 id="3-x2F-boot"><a href="#3-x2F-boot" class="headerlink" title="3. &#x2F;boot"></a>3. &#x2F;boot</h5><p>​		&#x2F;boot 存放的系统启动相关的文件，例如：kernel.grub(引导装载程序) </p>
-<h5 id="4-x2F-dev"><a href="#4-x2F-dev" class="headerlink" title="4. &#x2F;dev"></a>4. &#x2F;dev</h5><p>​		&#x2F;dev dev 是 Device 的缩写。设备文件目录，比如声卡、磁盘……在 Linux 中 一切都被看做文件。终端设备、磁盘等等都被看做文件 设备文件: &#x2F;dev&#x2F;sda,&#x2F;dev&#x2F;sda1,&#x2F;dev&#x2F;tty1,&#x2F;dev&#x2F;tty2,&#x2F;dev&#x2F;pts&#x2F;1,  &#x2F;dev&#x2F;zero, &#x2F;dev&#x2F;null, &#x2F;dev&#x2F;cdrom </p>
-<h5 id="5-x2F-etc"><a href="#5-x2F-etc" class="headerlink" title="5. &#x2F;etc"></a>5. &#x2F;etc</h5><p>​		&#x2F;etc 常用系统及二进制安装包配置文件默认路径和服务器启动命令目录，</p>
-<p>​		如：&#x2F;etc&#x2F;passwd 用户信息文件 	</p>
-<p>​				&#x2F;etc&#x2F;shadow 用户密码文件	</p>
-<p>​				&#x2F;etc&#x2F;group 存储用户组信息 	</p>
-<p>​				&#x2F;etc&#x2F;fstab 系统开机启动自动挂载分区列表 	</p>
-<p>​				&#x2F;etc&#x2F;hosts 设定用户自己的 IP 与主机名对应的信息</p>
-<h5 id="6-x2F-home"><a href="#6-x2F-home" class="headerlink" title="6. &#x2F;home"></a>6. &#x2F;home</h5><p>&#x2F;home 普通用户的家目录默认存放目录</p>
-<h5 id="7-x2F-lib"><a href="#7-x2F-lib" class="headerlink" title="7. &#x2F;lib"></a>7. &#x2F;lib</h5><p>​		 &#x2F;lib 库文件存放目录,函数库目录</p>
-<h5 id="8-x2F-mnt"><a href="#8-x2F-mnt" class="headerlink" title="8. &#x2F;mnt"></a>8. &#x2F;mnt</h5><p> &#x2F;mnt &#x2F;media &#x2F;mnt 和&#x2F;media 一般用来临时挂载存储设备的挂载目录，比如有 cdrom、U 盘 等目录 &#x2F;mnt&#x2F;hgfs: 安装 vmware-tools 后，使用共享文件夹功能，可以共享虚 拟机和真机的目录，实现文件相互复制，一般这个功能没有用。我们直接使用 xshell 来上传文件 </p>
-<h5 id="9-x2F-opt"><a href="#9-x2F-opt" class="headerlink" title="9. &#x2F;opt"></a>9. &#x2F;opt</h5><p>&#x2F;opt 表示的是可选择的意思，有些软件包也会被安装在这里。如：gitlab &#x2F;proc 操作系统运行时，进程（正在运行中的程序）信息及内核信息（比如 cpu、硬盘 分区、内存信息等）存放在这里。</p>
-<h5 id="10-x2F-proc"><a href="#10-x2F-proc" class="headerlink" title="10. &#x2F;proc"></a>10. &#x2F;proc</h5><p>​	&#x2F;proc 目录是伪装的文件系统 proc 的挂载目 录，proc 并不是真正的文件系统。因此，这个目录是一个虚拟的目录，它是系统 内存的映射，我们可以通过直接访问这个目录来获取系统信息。也就是说，这个 目录的内容不在硬盘上而是在内存里 查看咱们的 CPU 信息 cat &#x2F;proc&#x2F;cpuinfo &#x2F;sys 系统目录，存放硬件信息的相关文件</p>
-<h5 id="11-x2F-run"><a href="#11-x2F-run" class="headerlink" title="11. &#x2F;run"></a>11. &#x2F;run</h5><p> &#x2F;run 运行目录，存放的是系统运行时的数据，比如进程的 PID 文件</p>
-<h5 id="12-x2F-srv"><a href="#12-x2F-srv" class="headerlink" title="12. &#x2F;srv"></a>12. &#x2F;srv</h5><p> &#x2F;srv 服务目录，存放的是我们本地服务的相关文件</p>
-<h5 id="13-x2F-sbin"><a href="#13-x2F-sbin" class="headerlink" title="13. &#x2F;sbin"></a>13. &#x2F;sbin</h5><p>​	 &#x2F;sbin 大多数涉及系统管理的命令都存放在该目录中，它是超级权限用户 root 的可 执行命令存放地，普通用户无权限执行这个目录下的命令，凡是目录 sbin 中包含 的命令都是 root 权限才能执行的 </p>
-<h5 id="14-x2F-tmp"><a href="#14-x2F-tmp" class="headerlink" title="14. &#x2F;tmp"></a>14. &#x2F;tmp</h5><p>​		 &#x2F;tmp 该目录用于存放临时文件，有时用户运行程序的时候，会产生一些临时文 件。&#x2F;tmp 就是用来存放临时文件的。&#x2F;var&#x2F;tmp 目录和该目录的作用是相似的, 不能存放重要数据，系统会定期删除这个目录下的没有被使用的文件。 它的权限比较特殊 [root@xuegod63 ~]# ls -ld &#x2F;tmp drwxrwxrwt 10 root root 12288 Oct 3 20:45 &#x2F;tmp&#x2F; →粘滞位（sticky bit）目录的 sticky 位表示这个目录里的文件只能被文件的 owner（所有者）和 root 删除 &#x2F;var 系统运行和软件运行时产生的日志信息，该目录的内容是经常变动的，存放的是 一些变化的文件。比如&#x2F;var 下有&#x2F;var&#x2F;log 目录用来存放系统日志的目录，还有 mail、&#x2F;var&#x2F;spool&#x2F;cron </p>
-<h5 id="15-x2F-usr"><a href="#15-x2F-usr" class="headerlink" title="15. &#x2F;usr"></a>15. &#x2F;usr</h5><p>&#x2F;usr 存放应用程序和文件， &#x2F;usr&#x2F;bin 普通用户使用的应用程序 &#x2F;usr&#x2F;sbin 管理员使用的应用程序 &#x2F;usr&#x2F;lib 库文件 Glibc(32 位) &#x2F;usr&#x2F;lib64 库文件 Glibc &#x2F;lib &#x2F;lib64 是 &#x2F;usr&#x2F;lib 和 这个目录里存放着系统最基本的动态链接共享库，包含许多被&#x2F;bin&#x2F;和&#x2F;sbin&#x2F;中的 程序使用的库文件，目录&#x2F;usr&#x2F;lib&#x2F;中含有更多用于用户程序的库文件。作用类似 于 windows 里的 DLL 文件，几乎所有的应用程序都需要用到这些共享库 注：lib***.a 是静态库 ， lib***.so 是动态库</p>
-<h4 id="（2）基本文件操作"><a href="#（2）基本文件操作" class="headerlink" title="（2）基本文件操作"></a>（2）基本文件操作</h4><p>​     内部命令：在系统启动时就调入内存，是常驻内存的，所以执行效率高 </p>
-<p>​	外部命令：是系统软件的功能，用户需要时才从硬盘中读入内存	</p>
-<p>​	如何区分内外部命令？ </p>
-<p>​	使用 type 命令 ，语法 : type 要检测的命令</p>
-<p>​	例：	type cat </p>
-<p>​				cat 是 &#x2F;usr&#x2F;bin&#x2F;cat</p>
-<p>绝对路径：一切从根目录开始的路径</p>
-<p>相对路径：非从根目录开始的路径</p>
-<p>Linux的两种时钟<br>系统时钟：由Linux内核通过CPU的工作频率进行的<br>硬件时钟：主板</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"> 当前目录.   上一个目录..</span><br><span class="line"> </span><br><span class="line"> 1.删除</span><br><span class="line">  rm</span><br><span class="line">  </span><br><span class="line">  -rf  表示递归强制删除所有</span><br><span class="line">  </span><br><span class="line">  /*  根目录下所有目录</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"> 2.查看目录下内容</span><br><span class="line">  ls</span><br><span class="line">  </span><br><span class="line">  ls -l   列出文件详细信息</span><br><span class="line">  </span><br><span class="line"> 3.查看当前所在目录</span><br><span class="line">  pwd</span><br><span class="line">    </span><br><span class="line"> 4.创建文件夹</span><br><span class="line"> mkdir -p 文件夹</span><br><span class="line"> </span><br><span class="line"> 5.进入文件</span><br><span class="line"> cd</span><br><span class="line"> </span><br><span class="line"> 6.快速打开一个终端</span><br><span class="line"> ctrl+shift+T</span><br><span class="line"> </span><br><span class="line"> 7.终端字体放大</span><br><span class="line">  shift+ctrl+加号</span><br><span class="line">  </span><br><span class="line"> 8.终端字体缩小：</span><br><span class="line">   ctrl+ 减号</span><br><span class="line">   </span><br><span class="line"> 9.命令可以查看cpu信息</span><br><span class="line"> lscpu</span><br><span class="line"> cat /proc/cpuinfo也可看查看到</span><br><span class="line"> </span><br><span class="line"> 10.查看内存大小</span><br><span class="line"> free</span><br><span class="line"> cat /proc/meminfo </span><br><span class="line"> </span><br><span class="line"> 11.查看硬盘和分区情况</span><br><span class="line"> lsblk</span><br><span class="line"> cat /proc/partitions</span><br><span class="line"> </span><br><span class="line"> 12.查看内核版本</span><br><span class="line"> uname -r</span><br><span class="line"> </span><br><span class="line"> 13.查看操作系统发行版本</span><br><span class="line">centos: cat /etc/os-release </span><br><span class="line"></span><br><span class="line"> 14.用户登录信息查看命令</span><br><span class="line">whoami: 显示当前登录有效用户</span><br><span class="line">who: 系统当前所有的登录会话</span><br><span class="line">w: 系统当前所有的登录会话及所做的操作</span><br><span class="line"></span><br><span class="line">15.关机和重启</span><br><span class="line"></span><br><span class="line">关机：</span><br><span class="line">halt</span><br><span class="line">poweroff</span><br><span class="line"></span><br><span class="line">重启：</span><br><span class="line"> reboot</span><br><span class="line"> -f: 强制，不调用shutdown</span><br><span class="line"> -p: 切断电源</span><br><span class="line"></span><br><span class="line">关机或重启：shutdown</span><br><span class="line"></span><br><span class="line">shutdown [OPTION]...  [TIME] [MESSAGE]</span><br><span class="line"> -r: reboot</span><br><span class="line"> -h: halt</span><br><span class="line"> -c：cancel</span><br><span class="line"> TIME：无指定，默认相当于+1（CentOS7）</span><br><span class="line"> now: 立刻,相当于+0</span><br><span class="line"> +#: 相对时间表示法，几分钟之后；例如 +3</span><br><span class="line"> hh:mm: 绝对时间表示，指明具体时间</span><br><span class="line"> </span><br><span class="line"> 16. date 显示和设置系统时间</span><br><span class="line"> 时区：</span><br><span class="line"> /etc/localtime</span><br><span class="line"> timedatectl set-timezone Asia/Shanghai</span><br><span class="line"> /etc/timezone </span><br><span class="line"> </span><br><span class="line"> 17.whatis 使用数据库来显示命令的简短描述</span><br><span class="line">  刚安装后不可立即使用，需要制作数据库</span><br><span class="line"><span class="meta prompt_">  #</span><span class="language-bash">CentOS 7 版本以后</span></span><br><span class="line">  mandb </span><br><span class="line"><span class="meta prompt_">  #</span><span class="language-bash">CentOS 6 版本之前</span></span><br><span class="line">  makewhatis</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-<h5 id="查看文件权限"><a href="#查看文件权限" class="headerlink" title="查看文件权限"></a>查看文件权限</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">1.用户名创建（root创建）</span><br><span class="line">useradd 用户名</span><br><span class="line"></span><br><span class="line">2.添加用户密码</span><br><span class="line">passwd 用户名</span><br><span class="line"></span><br><span class="line">3.切换登录用户</span><br><span class="line">su 用户名</span><br><span class="line">（#表示是 root 用户登录，管理员账号登陆  #表示普通用户登录    #su 用户名（切换登录用户）</span><br><span class="line"></span><br><span class="line">4.ls</span><br><span class="line"> -a 包含隐藏文件</span><br><span class="line"> -l 显示额外的信息</span><br><span class="line"> -R 目录递归</span><br><span class="line"> -ld 目录和符号链接信息</span><br><span class="line"> -1 文件分行显示</span><br><span class="line"> -S 按从大到小排序</span><br><span class="line"> -t 按mtime排序</span><br><span class="line"> -u 配合-t选项，显示并按atime从新到旧排序</span><br><span class="line"> -U 按目录存放顺序显示</span><br><span class="line"> -X 按文件后缀排序</span><br><span class="line"> </span><br><span class="line">5.查看文件状态 stat</span><br><span class="line">文件相关信息：metadata, data</span><br><span class="line"></span><br><span class="line">每个文件有三个时间戳：</span><br><span class="line"></span><br><span class="line">access time 访问时间，atime，读取文件内容</span><br><span class="line">modify time 修改时间，mtime，改变文件内容（数据）</span><br><span class="line">change time 改变时间，ctime，元数据发生改变</span><br><span class="line"></span><br><span class="line">6.文件可以包含多种类型的数据，使用file命令检查文件的类型，然后确定适当的打开命令或应用程序使用</span><br><span class="line"></span><br><span class="line">file [options] &lt;filename&gt;...</span><br><span class="line">常用选项:</span><br><span class="line">	-b 列出文件辨识结果时，不显示文件名称</span><br><span class="line">	-f filelist 列出文件filelist中文件名的文件类型</span><br><span class="line">	-F 使用指定分隔符号替换输出文件名后默认的”:”分隔符</span><br><span class="line">	-L 查看对应软链接对应文件的文件类型</span><br><span class="line">	–help 显示命令在线帮助</span><br></pre></td></tr></table></figure>
-
-<h4 id="（3）-软件安装及镜像源配置"><a href="#（3）-软件安装及镜像源配置" class="headerlink" title="（3）.软件安装及镜像源配置"></a>（3）.软件安装及镜像源配置</h4><p>linux软件：xxx.rpm</p>
-<p>软件管理工具 ：yum软件管理仓库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.安装wget</span><br><span class="line">yum install 软件名 -y</span><br><span class="line">wget安装   yum install wget -y</span><br><span class="line"></span><br><span class="line">2.配置yum源</span><br><span class="line">阿里云源</span><br><span class="line">https://developer.aliyun.com/mirror/?spm=a2c6h.12883283.J_eBhO-wcawiLJRkGqHmozR.72.5f1f4307RqvxrE</span><br></pre></td></tr></table></figure>
-
-<h3 id="apache安装"><a href="#apache安装" class="headerlink" title="apache安装"></a>apache安装</h3><h5 id="1、检查是否安装了Apache服务器软件"><a href="#1、检查是否安装了Apache服务器软件" class="headerlink" title="1、检查是否安装了Apache服务器软件"></a>1、检查是否安装了Apache服务器软件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep -i httpd</span><br></pre></td></tr></table></figure>
-
-<h5 id="2、卸载已安装的Apache服务器软件"><a href="#2、卸载已安装的Apache服务器软件" class="headerlink" title="2、卸载已安装的Apache服务器软件"></a>2、卸载已安装的Apache服务器软件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf remove httpd*</span><br></pre></td></tr></table></figure>
-
-<p>注：如果提示bash: dnf:未找到命令则需要安装dnf命令，分别执行下列两个命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release</span><br><span class="line">yum install dnf</span><br></pre></td></tr></table></figure>
-
-<h5 id="3、再次检查是否安装了Apache服务器软件"><a href="#3、再次检查是否安装了Apache服务器软件" class="headerlink" title="3、再次检查是否安装了Apache服务器软件"></a>3、再次检查是否安装了Apache服务器软件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep -i httpd</span><br></pre></td></tr></table></figure>
-
-<h5 id="4、安装Apache服务器软件"><a href="#4、安装Apache服务器软件" class="headerlink" title="4、安装Apache服务器软件"></a>4、安装Apache服务器软件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf  -y install httpd*</span><br></pre></td></tr></table></figure>
-
-<h5 id="5、可以使用rpm-qa-grep-i-httpd命令来查询是否安装成功"><a href="#5、可以使用rpm-qa-grep-i-httpd命令来查询是否安装成功" class="headerlink" title="5、可以使用rpm -qa | grep -i httpd命令来查询是否安装成功"></a>5、可以使用rpm -qa | grep -i httpd命令来查询是否安装成功</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep -i httpd</span><br></pre></td></tr></table></figure>
-
-<h5 id="6、启动httpd服务程序并将其加入到开机启动项中，使其能够随系统开机而运行"><a href="#6、启动httpd服务程序并将其加入到开机启动项中，使其能够随系统开机而运行" class="headerlink" title="6、启动httpd服务程序并将其加入到开机启动项中，使其能够随系统开机而运行"></a>6、启动httpd服务程序并将其加入到开机启动项中，使其能够随系统开机而运行</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start httpd</span><br><span class="line">systemctl enable httpd</span><br></pre></td></tr></table></figure>
-
-<h5 id="7、在浏览器中输入服务器的IP地址，测试服务是否开启"><a href="#7、在浏览器中输入服务器的IP地址，测试服务是否开启" class="headerlink" title="7、在浏览器中输入服务器的IP地址，测试服务是否开启"></a>7、在浏览器中输入服务器的IP地址，测试服务是否开启</h5><h4 id="配置Apache服务"><a href="#配置Apache服务" class="headerlink" title="配置Apache服务"></a>配置Apache服务</h4><h5 id="1、Apache服务常见配置文件介绍"><a href="#1、Apache服务常见配置文件介绍" class="headerlink" title="1、Apache服务常见配置文件介绍"></a>1、Apache服务常见配置文件介绍</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">文件名称	                                                          作用</span><br><span class="line">/etc/httpd	                                                      服务目录</span><br><span class="line">/etc/httpd/conf/httpd.conf	                                      主配置文件</span><br><span class="line">/var/www/html	                                                  网站数据目录</span><br><span class="line">/var/log/httpd/access_log                                         访问日志</span><br><span class="line">/var/log/httpd/error_log                                          错误日志</span><br><span class="line">/etc/httpd/conf.d                                                 附加模块配置文件</span><br><span class="line">/etc/httpd/modules                                                模块文件路径链接</span><br><span class="line">/etc/httpd/bin/                                                   二进制命令</span><br><span class="line">/etc/httpd/logs                                                   默认日志文件位置</span><br></pre></td></tr></table></figure>
-
-<h5 id="2、Apache主配置文件介绍"><a href="#2、Apache主配置文件介绍" class="headerlink" title="2、Apache主配置文件介绍"></a>2、Apache主配置文件介绍</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    在httpd服务程序的主配置文件中，存在三种类型的信息：注释行信息、全局配置、区域配置。（位置：/etc/httpd/conf/httpd.conf）</span><br><span class="line"></span><br><span class="line">vim /etc/httpd/conf/httpd.conf</span><br></pre></td></tr></table></figure>
-
-
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2024" class="archive-year">2024</a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2024/12/12/%E6%8A%A4%E7%BD%91%E8%A1%8C%E5%8A%A8/" class="archive-article-date">
+  	<time datetime="2024-12-12T13:06:48.300Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-12-12</time>
+</a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
+    	 
+        <div class="article-info info-on-right">
+          
+          
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/07/26/linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2023/08/09/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88Mysql)/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2023/07/22/%E7%88%AC%E8%99%AB/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2024/12/12/%E9%B9%8F%E7%A8%8B%E6%9D%AFmisc/" class="archive-article-date">
+  	<time datetime="2024-12-12T13:06:44.698Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-12-12</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
+    	 
+        <div class="article-info info-on-right">
+          
+          
 
-
-
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -376,8 +230,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
