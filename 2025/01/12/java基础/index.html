@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="字面量作用：告诉程序员，数据在程序中的书写格式。    字面量类型 说明 程序中的写法    整数 不带小数的数字 666，-88   小数 带小数的数字 13.14，-5.21   字符 必须使用单引号，有且仅能一个字符 ‘A’，‘0’，   ‘我’   字符串 必须使用双引号，内容可有可无 “HelloWorld”，“黑马程序员”   布尔值 布尔值，表示真假，只有两个值：true，false">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础">
+<meta property="og:url" content="http://example.com/2025/01/12/java%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="tyc的小窝">
+<meta property="og:description" content="字面量作用：告诉程序员，数据在程序中的书写格式。    字面量类型 说明 程序中的写法    整数 不带小数的数字 666，-88   小数 带小数的数字 13.14，-5.21   字符 必须使用单引号，有且仅能一个字符 ‘A’，‘0’，   ‘我’   字符串 必须使用双引号，内容可有可无 “HelloWorld”，“黑马程序员”   布尔值 布尔值，表示真假，只有两个值：true，false">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-01-11T16:00:14.884Z">
+<meta property="article:modified_time" content="2025-01-11T16:26:45.517Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/01/12/java%E5%9F%BA%E7%A1%80/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>java基础 | tyc的小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">tyc的小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/12/java%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tyc的小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java基础
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-01-12 00:00:14 / Modified: 00:26:45" itemprop="dateCreated datePublished" datetime="2025-01-12T00:00:14+08:00">2025-01-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h2><p>作用：告诉程序员，数据在程序中的书写格式。</p>
+<table>
+<thead>
+<tr>
+<th><strong>字面量类型</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>程序中的写法</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>整数</td>
+<td>不带小数的数字</td>
+<td>666，-88</td>
+</tr>
+<tr>
+<td>小数</td>
+<td>带小数的数字</td>
+<td>13.14，-5.21</td>
+</tr>
+<tr>
+<td>字符</td>
+<td>必须使用单引号，有且仅能一个字符</td>
+<td>‘A’，‘0’，   ‘我’</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>必须使用双引号，内容可有可无</td>
+<td>“HelloWorld”，“黑马程序员”</td>
+</tr>
+<tr>
+<td>布尔值</td>
+<td>布尔值，表示真假，只有两个值：true，false</td>
+<td>true 、false</td>
+</tr>
+<tr>
+<td>空值</td>
+<td>一个特殊的值，空值</td>
+<td>值是：null</td>
+</tr>
+</tbody></table>
+<ol>
+<li>不带小数点的数字都是整数类型的字面量。</li>
+<li>只要带了小数点，那么就是小数类型的字面量。</li>
+<li>只要用双引号引起来的，不管里面的内容是什么，不管里面有没有内容，都是字符串类型的字面量。</li>
+<li>字符类型的字面量必须用单引号引起来，不管内容是什么，但是个数有且只能有一个。</li>
+<li>字符类型的字面量只有两个值，true、false。</li>
+<li>空类型的字面量只有一个值，null。</li>
+</ol>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="1-什么是变量？"><a href="#1-什么是变量？" class="headerlink" title="1 什么是变量？"></a>1 什么是变量？</h3><p>​	变量就在程序中临时存储数据的容器。但是这个容器中只能存一个值。</p>
+<h3 id="2-变量的定义格式"><a href="#2-变量的定义格式" class="headerlink" title="2 变量的定义格式"></a>2 变量的定义格式</h3><p>​	数据类型 变量名 &#x3D; 数据值；</p>
+<h4 id="2-1-格式详解"><a href="#2-1-格式详解" class="headerlink" title="2.1 格式详解"></a>2.1 格式详解</h4><p>​	数据类型：限定了变量当中能存储什么类型的数据。</p>
+<p>​			   如果要存10，那么数据类型就需要写整数类型。</p>
+<p>​			   如果要存10.0，那么数据类型就需要写小数类型。</p>
+<p>​	变量名：其实就是这个容器的名字。</p>
+<p>​			当以后想要使用变量里面的数据时，直接使用变量名就可以了。</p>
+<p>​	数据值：真正存储在容器中的数据。</p>
+<p>​	分号：表示语句的结束，就跟以前写作文时候的句号是一样的。</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="1-Java语言数据类型的分类"><a href="#1-Java语言数据类型的分类" class="headerlink" title="1. Java语言数据类型的分类"></a>1. Java语言数据类型的分类</h3><ul>
+<li>基本数据类型</li>
+<li>引用数据类型（面向对象的时候再深入学习）</li>
+</ul>
+<h3 id="2-基本数据类型的四类八种"><a href="#2-基本数据类型的四类八种" class="headerlink" title="2. 基本数据类型的四类八种"></a>2. 基本数据类型的四类八种</h3><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">关键字</th>
+<th align="center">内存占用</th>
+<th align="center">取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">整数</td>
+<td align="center">byte</td>
+<td align="center">1</td>
+<td align="center">负的2的7次方 ~ 2的7次方-1(-128~127)</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">short</td>
+<td align="center">2</td>
+<td align="center">负的2的15次方 ~ 2的15次方-1(-32768~32767)</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">int</td>
+<td align="center">4</td>
+<td align="center">负的2的31次方 ~ 2的31次方-1</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">long</td>
+<td align="center">8</td>
+<td align="center">负的2的63次方 ~ 2的63次方-1</td>
+</tr>
+<tr>
+<td align="center">浮点数</td>
+<td align="center">float</td>
+<td align="center">4</td>
+<td align="center">1.401298e-45 ~ 3.402823e+38</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">double</td>
+<td align="center">8</td>
+<td align="center">4.9000000e-324 ~ 1.797693e+308</td>
+</tr>
+<tr>
+<td align="center">字符</td>
+<td align="center">char</td>
+<td align="center">2</td>
+<td align="center">0-65535</td>
+</tr>
+<tr>
+<td align="center">布尔</td>
+<td align="center">boolean</td>
+<td align="center">1</td>
+<td align="center">true，false</td>
+</tr>
+</tbody></table>
+<ul>
+<li>如果要定义 一个整数类型的变量，不知道选择哪种数据类型了，默认使用int。</li>
+<li>如果要定义 一个小数类型的变量，不知道选择哪种数据类型了，默认使用double。</li>
+<li>如果要定义一个long类型的变量，那么在数据值的后面需要加上L后缀。（大小写都可以，建议大写。）</li>
+<li>如果要定义一个float类型的变量，那么在数据值的后面需要加上F后缀。（大小写都可以）</li>
+</ul>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p>业内大多数程序员都在遵守阿里巴巴的命名规则。</p>
+<h3 id="1-硬性要求："><a href="#1-硬性要求：" class="headerlink" title="1 硬性要求："></a>1 硬性要求：</h3><p>​	必须要这么做，否则代码会报错。</p>
+<ul>
+<li>必须由数字、字母、下划线_、美元符号$组成。</li>
+<li>数字不能开头</li>
+<li>不能是关键字</li>
+<li>区分大小写的。</li>
+</ul>
+<h3 id="2-软件建议："><a href="#2-软件建议：" class="headerlink" title="2 软件建议："></a>2 软件建议：</h3><p>​	如果不这么做，代码不会报错，但是会让代码显得比较low。</p>
+<h3 id="2-1-小驼峰命名法"><a href="#2-1-小驼峰命名法" class="headerlink" title="2.1 小驼峰命名法"></a>2.1 小驼峰命名法</h3><p>适用于变量名和方法名</p>
+<ul>
+<li><p>如果是一个单词，那么全部小写，比如：name</p>
+</li>
+<li><p>如果是多个单词，那么从第二个单词开始，首字母大写，比如：firstName、maxAge</p>
+</li>
+</ul>
+<h3 id="2-2-大驼峰命名法"><a href="#2-2-大驼峰命名法" class="headerlink" title="2.2 大驼峰命名法"></a>2.2 大驼峰命名法</h3><p>适用于类名</p>
+<ul>
+<li><p>如果是一个单词，那么首字母大写。比如：Demo、Test。</p>
+</li>
+<li><p>如果是多个单词，那么每一个单词首字母都需要大写。比如：HelloWorld</p>
+</li>
+</ul>
+<p>不管起什么名字，都要做到见名知意。</p>
+<h3 id="阿里巴巴命名规范细节："><a href="#阿里巴巴命名规范细节：" class="headerlink" title="阿里巴巴命名规范细节："></a>阿里巴巴命名规范细节：</h3><ol>
+<li><p>尽量不要用拼音。但是一些国际通用的拼音可视为英文单词。</p>
+<p>正确：alibaba、hangzhou、nanjing</p>
+<p>错误：jiage、dazhe</p>
+</li>
+<li><p>平时在给变量名、方法名、类名起名字的时候，不要使用下划线或美元符号。</p>
+<p>错误：_name</p>
+<p>正确：name</p>
+</li>
+</ol>
+<h2 id="键盘录入"><a href="#键盘录入" class="headerlink" title="键盘录入"></a>键盘录入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//导包，其实就是先找到Scanner这个类在哪</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ScannerDemo1</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="comment">//2.创建对象，其实就是申明一下，我准备开始用Scanner这个类了。</span></span><br><span class="line">		<span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">		<span class="comment">//3.接收数据</span></span><br><span class="line">		<span class="comment">//当程序运行之后，我们在键盘输入的数据就会被变量i给接收了</span></span><br><span class="line">		System.out.println(<span class="string">&quot;请输入一个数字&quot;</span>);</span><br><span class="line">		<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">		System.out.println(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/01/11/redis/" rel="prev" title="redis快速入门">
+      <i class="fa fa-chevron-left"></i> redis快速入门
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">字面量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%98%E9%87%8F%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">1 什么是变量？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">2 变量的定义格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 格式详解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Java%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">3.1.</span> <span class="nav-text">1. Java语言数据类型的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%9B%9B%E7%B1%BB%E5%85%AB%E7%A7%8D"><span class="nav-number">3.2.</span> <span class="nav-text">2. 基本数据类型的四类八种</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">标识符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%A1%AC%E6%80%A7%E8%A6%81%E6%B1%82%EF%BC%9A"><span class="nav-number">4.1.</span> <span class="nav-text">1 硬性要求：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BD%AF%E4%BB%B6%E5%BB%BA%E8%AE%AE%EF%BC%9A"><span class="nav-number">4.2.</span> <span class="nav-text">2 软件建议：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B0%8F%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95"><span class="nav-number">4.3.</span> <span class="nav-text">2.1 小驼峰命名法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%A4%A7%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95"><span class="nav-number">4.4.</span> <span class="nav-text">2.2 大驼峰命名法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%E7%BB%86%E8%8A%82%EF%BC%9A"><span class="nav-number">4.5.</span> <span class="nav-text">阿里巴巴命名规范细节：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%AE%E7%9B%98%E5%BD%95%E5%85%A5"><span class="nav-number">5.</span> <span class="nav-text">键盘录入</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
