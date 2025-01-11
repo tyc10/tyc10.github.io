@@ -145,6 +145,442 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/27/misc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tyc的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/27/misc/" class="post-title-link" itemprop="url">Misc</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-09-27 16:21:55" itemprop="dateCreated datePublished" datetime="2023-09-27T16:21:55+08:00">2023-09-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-01-10 18:30:08" itemprop="dateModified" datetime="2025-01-10T18:30:08+08:00">2025-01-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="我的壁纸"><a href="#我的壁纸" class="headerlink" title="我的壁纸"></a>我的壁纸</h5><p>1.图片分离得到一个压缩包，一个文本一个图片，一个音频，压缩包有个注释snowday,是snow隐写的密钥</p>
+<p>对flag.txt解snow得一部分flag</p>
+<p>2.音频解SSTV得二维码，解二维码的部分flag</p>
+<p>3.图片的备注信息里有一个password,尝试steghide解出另外一部分flag</p>
+<h4 id="snow隐写"><a href="#snow隐写" class="headerlink" title="snow隐写"></a>snow隐写</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SNOW.EXE  -C -p 他朝若是同淋雪  flag.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="F5隐写"><a href="#F5隐写" class="headerlink" title="F5隐写"></a>F5隐写</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java Extract “待提取的图片路径” -p 密码</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="outguess隐写"><a href="#outguess隐写" class="headerlink" title="outguess隐写"></a>outguess隐写</h4><p>输入outguess -help即可获得相关命令。<br>加密：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">outguess -k “my secret key” -d hidden.txt demo.jpg out.jpg</span><br></pre></td></tr></table></figure>
+
+<p>加密之后，demo.jpg会覆盖out.jpg，hidden.txt的内容是要隐藏的东西。<br>解密：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">outguess -k “my secret key” -r out.jpg hidden.txt</span><br></pre></td></tr></table></figure>
+
+<p>解密之后，紧密内容放在hidden.txt中</p>
+<h4 id="栅栏里的大帝"><a href="#栅栏里的大帝" class="headerlink" title="栅栏里的大帝"></a>栅栏里的大帝</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">decode</span>(<span class="params">string,number</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> string:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;a&#x27;</span> &lt;= i &lt;= <span class="string">&#x27;z&#x27;</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>)+(<span class="built_in">ord</span>(i)-<span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>)-space2)%<span class="number">26</span>),end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> <span class="string">&#x27;A&#x27;</span> &lt;= i &lt;= <span class="string">&#x27;Z&#x27;</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="built_in">ord</span>(<span class="string">&#x27;A&#x27;</span>)+(<span class="built_in">ord</span>(i)-<span class="built_in">ord</span>(<span class="string">&#x27;A&#x27;</span>)-space2)%<span class="number">26</span>),end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(i,end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">            </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decipherin</span>(<span class="params">string,space1,space2</span>):</span><br><span class="line">    str1 = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> space1 &gt;= <span class="built_in">len</span>(string):</span><br><span class="line">        decode(string,space2)</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">len</span>(string)%space1 == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(string)//space1):</span><br><span class="line">            str1 += string[i:<span class="built_in">len</span>(string)+<span class="number">1</span>:<span class="built_in">len</span>(string)//space1]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">         <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(string)//space1+<span class="number">1</span>):</span><br><span class="line">            str1 += string[i:<span class="built_in">len</span>(string)+<span class="number">1</span>:<span class="built_in">len</span>(string)//space1+<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    decode(str1,space2)</span><br><span class="line"></span><br><span class="line">text = <span class="built_in">input</span>(<span class="string">&#x27;请输入密文&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> space1 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">15</span>):</span><br><span class="line">    <span class="keyword">for</span> space <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">26</span>):</span><br><span class="line">        space2 = space%<span class="number">26</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27; &#x27;</span> <span class="keyword">in</span> text:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;密文有误&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            decipherin(text,space1,space2)</span><br></pre></td></tr></table></figure>
+
+<p>flag{th1s_1s_f149}</p>
+<h4 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a>LSB</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line">crcbp = <span class="built_in">open</span>(<span class="string">&quot;e:\Desktop\python\丁真和他的小马.png&quot;</span>, <span class="string">&quot;rb&quot;</span>).read()        </span><br><span class="line">crc32frombp = <span class="built_in">int</span>(crcbp[<span class="number">29</span>:<span class="number">33</span>].<span class="built_in">hex</span>(),<span class="number">16</span>)     </span><br><span class="line"><span class="built_in">print</span>(crc32frombp)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                       </span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                   </span><br><span class="line">        data = crcbp[<span class="number">12</span>:<span class="number">16</span>] + \</span><br><span class="line">            struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, i)+struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, j)+crcbp[<span class="number">24</span>:<span class="number">29</span>]</span><br><span class="line">        crc32 = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        <span class="built_in">print</span>(crc32)</span><br><span class="line">        <span class="keyword">if</span>(crc32 == crc32frombp):           </span><br><span class="line">            <span class="built_in">print</span>(i, j)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;hex:&#x27;</span>, <span class="built_in">hex</span>(i), <span class="built_in">hex</span>(j))</span><br><span class="line">            exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>修复图片后LSB隐写查看可以zhi_shi_xue_bao,包上flag{}，提交</p>
+<h4 id="png宽高爆破"><a href="#png宽高爆破" class="headerlink" title="png宽高爆破"></a>png宽高爆破</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#判断谁被修改了</span></span><br><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"> </span><br><span class="line">image_data=<span class="built_in">open</span>(<span class="string">&#x27;图片路径&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">bin_data=image_data.read()</span><br><span class="line">crc32key = zlib.crc32(bin_data[<span class="number">12</span>:<span class="number">29</span>])                 <span class="comment">#使用函数计算</span></span><br><span class="line"><span class="keyword">if</span> crc32key==<span class="built_in">int</span>(bin_data[<span class="number">29</span>:<span class="number">33</span>].<span class="built_in">hex</span>(), <span class="number">16</span>):<span class="comment">#对比算出的CRC和原本的CRC</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;宽高没有问题&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;宽高被改了&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#爆破高，需要自查查图片信息。Python2运行</span></span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line">crc32key = <span class="number">0xFF800203</span>    </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">65535</span>):</span><br><span class="line">  height = struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, i)</span><br><span class="line">  data = <span class="string">&#x27;\x49\x48\x44\x52\x00\x00\x00\x64&#x27;</span> + height + <span class="string">&#x27;\x08\x02\x00\x00\x00&#x27;</span></span><br><span class="line">  crc32result = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">  <span class="keyword">if</span> crc32result == crc32key:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">map</span>(<span class="keyword">lambda</span> c: <span class="string">&quot;%02X&quot;</span> % <span class="built_in">ord</span>(c), height))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#只需要填写图片路径，爆破宽和高，有点费电脑</span></span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line">crcbp = <span class="built_in">open</span>(<span class="string">&quot;E:\Desktop\cd83c00e-130c-47ba-b4d8-c0c0b8d8de31.png&quot;</span>, <span class="string">&quot;rb&quot;</span>).read()    </span><br><span class="line">crc32frombp = <span class="built_in">int</span>(crcbp[<span class="number">29</span>:<span class="number">33</span>].<span class="built_in">hex</span>(),<span class="number">16</span>)     </span><br><span class="line"><span class="built_in">print</span>(crc32frombp)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                       </span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4000</span>):                   </span><br><span class="line">        data = crcbp[<span class="number">12</span>:<span class="number">16</span>] + \</span><br><span class="line">            struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, i)+struct.pack(<span class="string">&#x27;&gt;i&#x27;</span>, j)+crcbp[<span class="number">24</span>:<span class="number">29</span>]</span><br><span class="line">        crc32 = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        <span class="built_in">print</span>(crc32)</span><br><span class="line">        <span class="keyword">if</span>(crc32 == crc32frombp):           </span><br><span class="line">            <span class="built_in">print</span>(i, j)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;hex:&#x27;</span>, <span class="built_in">hex</span>(i), <span class="built_in">hex</span>(j))</span><br><span class="line">            exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#单爆破宽度，只需输入图片地址</span></span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span>  binascii</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">fi=<span class="built_in">open</span>(<span class="string">&#x27;d21007e64ba84021875c3556ece71173.png&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line"><span class="comment">#12-15字节代表固定的文件头数据块的标示，16-19字节代表宽度，20-23字节代表高度，24-28字节分别代表</span></span><br><span class="line"><span class="comment"># Bit depth、ColorType、Compression method、Filter method、Interlace method</span></span><br><span class="line"><span class="comment">#29-32字节为CRC校验和</span></span><br><span class="line"> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10000</span>):<span class="comment">#宽度0-9999搜索</span></span><br><span class="line">    data=fi[<span class="number">12</span>:<span class="number">16</span>]+struct.pack(<span class="string">&#x27;&gt;I&#x27;</span>,i)+fi[<span class="number">20</span>:<span class="number">29</span>]  <span class="comment">#pack函数将int转为bytes,&gt;表示大端00 00 00 02,I表示4字节无符号int;&lt;表示小端 02 00 00 00</span></span><br><span class="line">    crc=binascii.crc32(data)&amp;<span class="number">0xffffffff</span> <span class="comment">#byte的大小为8bits而int的大小为32bits,转换时进行与运算避免补码问题0x932f8a6b</span></span><br><span class="line">    <span class="keyword">if</span> crc==struct.unpack(<span class="string">&#x27;&gt;I&#x27;</span>,fi[<span class="number">29</span>:<span class="number">33</span>])[<span class="number">0</span>]&amp;<span class="number">0xffffffff</span> : <span class="comment">#解开为无符号整数</span></span><br><span class="line">        <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="base64隐写"><a href="#base64隐写" class="headerlink" title="base64隐写"></a>base64隐写</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">d=<span class="built_in">open</span>(<span class="string">&quot;文件路径&quot;</span>,<span class="string">&quot;r&quot;</span>).read()</span><br><span class="line">e=d.splitlines()</span><br><span class="line">binstr=<span class="string">&quot;&quot;</span></span><br><span class="line">base64=<span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> e :</span><br><span class="line">    <span class="keyword">if</span> i.find(<span class="string">&quot;==&quot;</span>)&gt;<span class="number">0</span>:</span><br><span class="line">        temp=<span class="built_in">bin</span>((base64.find(i[-<span class="number">3</span>])&amp;<span class="number">15</span>))[<span class="number">2</span>:]</span><br><span class="line">    <span class="comment">#取倒数第3个字符，在base64找到对应的索引数（就是编码数），取低4位，再转换为二进制字符</span></span><br><span class="line">        binstr=binstr + <span class="string">&quot;0&quot;</span>*(<span class="number">4</span>-<span class="built_in">len</span>(temp))+temp <span class="comment">#二进制字符补高位0后，连接字符到binstr</span></span><br><span class="line">    <span class="keyword">elif</span> i.find(<span class="string">&quot;=&quot;</span>)&gt;<span class="number">0</span>:</span><br><span class="line">        temp=<span class="built_in">bin</span>((base64.find(i[-<span class="number">2</span>])&amp;<span class="number">3</span>))[<span class="number">2</span>:] <span class="comment">#取倒数第2个字符，在base64找到对应的索引数（就是编码数），取低2位，再转换为二进制字符</span></span><br><span class="line">        binstr=binstr + <span class="string">&quot;0&quot;</span>*(<span class="number">2</span>-<span class="built_in">len</span>(temp))+temp <span class="comment">#二进制字符补高位0后，连接字符到binstr</span></span><br><span class="line"><span class="built_in">str</span>=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(binstr),<span class="number">8</span>):</span><br><span class="line">    <span class="built_in">str</span>=<span class="built_in">str</span>+<span class="built_in">chr</span>(<span class="built_in">int</span>(binstr[i:i+<span class="number">8</span>],<span class="number">2</span>)) <span class="comment">#从左到右，每取8位转换为ascii字符，连接字符到字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>) <span class="comment">#结果是 Base_sixty_four_point_five转换为</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="stegdetect"><a href="#stegdetect" class="headerlink" title="stegdetect"></a>stegdetect</h4><p>stegdetect 就是用来检测jpg类型的图片是否隐藏着其他文件或内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">q – 仅显示可能包含隐藏内容的图像</span><br><span class="line"></span><br><span class="line">n – 启用检查JPEG文件头功能，以降低误报率。如果启用，所有带有批注区域的文件将被视为没有被嵌入信息。如果JPEG文件的JFIF标识符中的版本号不是1.1，则禁用OutGuess检测。</span><br><span class="line"></span><br><span class="line">s – 修改检测算法的敏感度，该值的默认值为1。检测结果的匹配度与检测算法的敏感度成正比，算法敏感度的值越大，检测出的可疑文件包含敏感信息的可能性越大。</span><br><span class="line"></span><br><span class="line">d – 打印带行号的调试信息。</span><br><span class="line"></span><br><span class="line">t – 设置要检测哪些隐写工具（默认检测jopi），可设置的选项如下：</span><br><span class="line"></span><br><span class="line">j – 检测图像中的信息是否是用jsteg嵌入的。</span><br><span class="line"></span><br><span class="line">o – 检测图像中的信息是否是用outguess嵌入的。</span><br><span class="line"></span><br><span class="line">p – 检测图像中的信息是否是用jphide嵌入的。</span><br><span class="line"></span><br><span class="line">i – 检测图像中的信息是否是用invisible secrets嵌入的。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="梅花香自苦寒来-坐标画二维码"><a href="#梅花香自苦寒来-坐标画二维码" class="headerlink" title="梅花香自苦寒来(坐标画二维码)"></a>梅花香自苦寒来(坐标画二维码)</h4><p>提示图穷匕现，010打开，拉到最下方不是FF D9 ,搜FFD9 后面跟着一大串好像16进制的文本，进行16进制转字符串，得到很多坐标，用gnuplot，来绘制坐标得到二维码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#十六进制转文本</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;E:\Desktop\data.txt&quot;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> h:     <span class="comment"># hex.txt为要转换的文本文件</span></span><br><span class="line">    val = h.read()</span><br><span class="line">    h.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;result.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> re: <span class="comment"># 转换完成后写入result.txt</span></span><br><span class="line">    tem = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(val), <span class="number">2</span>):</span><br><span class="line">        tem = <span class="string">&#x27;0x&#x27;</span> + val[i] + val[i+<span class="number">1</span>]</span><br><span class="line">        tem = <span class="built_in">int</span>(tem, base=<span class="number">16</span>)</span><br><span class="line">        re.write(<span class="built_in">chr</span>(tem))</span><br><span class="line">    re.close()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#转换成gnuplotTXt能看懂的格式</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;result.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> res:  <span class="comment"># 坐标格式文件比如(7,7)</span></span><br><span class="line">    re = res.read()</span><br><span class="line">    res.close()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;gnuplotTxt.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> gnup:   <span class="comment"># 将转换后的坐标写入gnuplotTxt.txt</span></span><br><span class="line">    re = re.split()</span><br><span class="line">    tem = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(re)):</span><br><span class="line">        tem = re[i]</span><br><span class="line">        tem = tem.lstrip(<span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">        tem = tem.rstrip(<span class="string">&#x27;)&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(tem)):</span><br><span class="line">            <span class="keyword">if</span> tem[j] == <span class="string">&#x27;,&#x27;</span>:</span><br><span class="line">                tem = tem[:j] + <span class="string">&#x27; &#x27;</span> + tem[j+<span class="number">1</span>:]</span><br><span class="line">        gnup.write(tem + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    gnup.close()</span><br><span class="line">    </span><br><span class="line">    http://wenming.xinye.gov.cn/robots.txt</span><br><span class="line">        </span><br><span class="line">        <span class="number">218.28</span><span class="number">.78</span><span class="number">.118</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="excel破解"><a href="#excel破解" class="headerlink" title="excel破解"></a>excel破解</h4><p>下载xls文件有密码，改成rar,用010打开搜flag，直接用010打开xls文件会有乱码，但也能找到flag，一般ofiice文件都可以尝试把文件改成压缩包查看，同时有的压缩包文件可能是office文件转换的。</p>
+<p> CTF{office_easy_cracked}</p>
+<h4 id="取证volatility"><a href="#取证volatility" class="headerlink" title="取证volatility"></a>取证volatility</h4><h5 id="volatility参数"><a href="#volatility参数" class="headerlink" title="volatility参数"></a>volatility参数</h5><p>volatility -f 文件名 imageinfo  		     	 得到镜像的基本信息。<br>volatility -f 文件名 –profile&#x3D;系统 pslist		查看进程信息<br>volatility -f 文件名 –profile&#x3D;系统 pstree	    查看进程树<br>volatility -f 文件名 –profile&#x3D;系统 hashdump		查看用户名密码信息<br>volatility -f 文件名 –profile&#x3D;系统 john			爆破密码<br>volatility -f 文件名 –profile&#x3D;系统 lsadump		查看用户强密码<br>volatility -f 文件名 –profile&#x3D;系统 svcscan		查看服务<br>volatility -f 文件名 –profile&#x3D;系统 iehistory	查看IE浏览器历史记录<br>volatility -f 文件名 –profile&#x3D;系统 netscan		查看网络连接<br>volatility -f 文件名 –profile&#x3D;系统 cmdscan		cmd历史命令<br>volatility -f 文件名 –profile&#x3D;系统 consoles		命令历史记录<br>volatility -f 文件名 –profile&#x3D;系统 cmdline		查看cmd输出， 获取命令行下运行的程序<br>volatility -f 文件名 –profile&#x3D;系统 envars 		查看环境变量，一般很多配合grep筛选，可也是使用-p指定pid<br>volatility -f 文件名 –profile&#x3D;系统 filescan		查看文件<br>volatility -f 文件名 –profile&#x3D;系统 notepad		查看当前展示的notepad内容<br>volatility -f 文件名 –profile&#x3D;系统 hivelist		查看注册表配置单元<br>volatility -f 文件名 –profile&#x3D;系统 userassist	查看运行程序相关的记录，比如最后一次更新时间，运行过的次数等。<br>volatility -f 文件名 –profile&#x3D;系统 clipboard  	查看剪贴板的信息<br>volatility -f 文件名 –profile&#x3D;系统 timeliner	最大程序提取信息<br>volatility -f 文件名 –profile&#x3D;系统 Dumpregistry	提取日志文件<br>volatility -f 文件名 –profile&#x3D;系统 dlllist		进程相关的dll文件列表<br>volatility -f 文件名 –profile&#x3D;系统 memdump -p xxx –dump-dir&#x3D;.&#x2F; 	提取进程<br>volatility -f 文件名 –profile&#x3D;系统 dumpfiles -Q 0xxxxxxxx -D .&#x2F; 	提取文件<br>volatility -f 文件名 –profile&#x3D;系统 procdump -p pid -D .&#x2F;			转存可执行程序<br>volatility -f 文件名 –profile&#x3D;系统 screenshot –dump-dir&#x3D;.&#x2F;			屏幕截图<br>volatility -f 文件名 –profile&#x3D;系统 hivedump -o 0xfffff8a001032410 查看注册表键名<br>volatility -f 文件名 –profile&#x3D;系统 printkey -K “xxxxxxx”			查看注册表键值<br>volatility -f &#x2F;root&#x2F;hacker.raw –profile&#x3D;Win7SP1x64 filescan |grep Desktop    查看桌面文件</p>
+<p>amcache    	查看AmCache应用程序痕迹信息<br>apihooks    检测内核及进程的内存空间中的API hook<br>atoms     	列出会话及窗口站atom表<br>atomscan    Atom表的池扫描(Pool scanner)<br>auditpol    列出注册表HKLMSECURITYPolicyPolAdtEv的审计策略信息<br>bigpools    使用BigPagePoolScanner转储大分页池(big page pools)<br>bioskbd    	从实时模式内存中读取键盘缓冲数据(早期电脑可以读取出BIOS开机密码)<br>cachedump   	获取内存中缓存的域帐号的密码哈希<br>callbacks   	打印全系统通知例程<br>clipboard   	提取Windows剪贴板中的内容<br>cmdline    	显示进程命令行参数<br>cmdscan    	提取执行的命令行历史记录（扫描_COMMAND_HISTORY信息）<br>connections  	打印系统打开的网络连接(仅支持Windows XP 和2003)<br>connscan    打印TCP连接信息<br>consoles    提取执行的命令行历史记录（扫描_CONSOLE_INFORMATION信息）<br>crashinfo   	提取崩溃转储信息<br>deskscan    tagDESKTOP池扫描(Poolscaner)<br>devicetree   显示设备树信息<br>dlldump    	从进程地址空间转储动态链接库<br>dlllist    	打印每个进程加载的动态链接库列表<br>driverirp   	IRP hook驱动检测<br>drivermodule  关联驱动对象至内核模块<br>driverscan   驱动对象池扫描<br>dumpcerts   	提取RAS私钥及SSL公钥<br>dumpfiles   	提取内存中映射或缓存的文件<br>dumpregistry  转储内存中注册表信息至磁盘<br>editbox    	查看Edit编辑控件信息 (Listbox正在实验中)<br>envars     显示进程的环境变量<br>eventhooks   打印Windows事件hook详细信息<br>evtlogs    	提取Windows事件日志（仅支持XP&#x2F;2003)<br>filescan    提取文件对象（file objects）池信息<br>gahti     	转储用户句柄（handle）类型信息<br>gditimers   	打印已安装的GDI计时器(timers)及回调(callbacks)<br>gdt      	显示全局描述符表(Global Deor Table)<br>getservicesids 获取注册表中的服务名称并返回SID信息<br>getsids    	打印每个进程的SID信息<br>handles    	打印每个进程打开的句柄的列表<br>hashdump    转储内存中的Windows帐户密码哈希(LM&#x2F;NTLM)<br>hibinfo    	转储休眠文件信息<br>hivedump    打印注册表配置单元信息<br>hivelist    打印注册表配置单元列表<br>hivescan    注册表配置单元池扫描<br>hpakextract  	从HPAK文件（Fast Dump格式）提取物理内存数据<br>hpakinfo    查看HPAK文件属性及相关信息<br>idt      	显示中断描述符表(Interrupt Deor Table)<br>iehistory   	重建IE缓存及访问历史记录<br>imagecopy   	将物理地址空间导出原生DD镜像文件<br>imageinfo   	查看&#x2F;识别镜像信息<br>impscan    	扫描对导入函数的调用<br>joblinks    打印进程任务链接信息<br>kdbgscan    搜索和转储潜在KDBG值<br>kpcrscan    搜索和转储潜在KPCR值<br>ldrmodules   检测未链接的动态链接DLL<br>lsadump    	从注册表中提取LSA密钥信息（已解密）<br>machoinfo   	转储Mach-O 文件格式信息<br>malfind    	查找隐藏的和插入的代码<br>mbrparser   	扫描并解析潜在的主引导记录(MBR)<br>memdump    	转储进程的可寻址内存<br>memmap     打印内存映射<br>messagehooks  桌面和窗口消息钩子的线程列表<br>mftparser   	扫描并解析潜在的MFT条目<br>moddump    	转储内核驱动程序到可执行文件的示例<br>modscan    	内核模块池扫描<br>modules    	打印加载模块的列表<br>multiscan   	批量扫描各种对象<br>mutantscan   对互斥对象池扫描<br>notepad    	查看记事本当前显示的文本<br>objtypescan  	扫描窗口对象类型对象<br>patcher    	基于页面扫描的补丁程序内存<br>poolpeek    可配置的池扫描器插件<br>printkey    打印注册表项及其子项和值<br>privs     	显示进程权限<br>procdump    进程转储到一个可执行文件示例<br>pslist     按照EPROCESS列表打印所有正在运行的进程<br>psscan     进程对象池扫描<br>pstree     以树型方式打印进程列表<br>psxview    	查找带有隐藏进程的所有进程列表<br>qemuinfo    转储 Qemu 信息<br>raw2dmp    	将物理内存原生数据转换为windbg崩溃转储格式<br>screenshot   基于GDI Windows的虚拟屏幕截图保存<br>servicediff  	Windows服务列表(ala Plugx)<br>sessions    _MM_SESSION_SPACE的详细信息列表(用户登录会话)<br>shellbags   	打印Shellbags信息<br>shimcache   	解析应用程序兼容性Shim缓存注册表项<br>shutdowntime  从内存中的注册表信息获取机器关机时间<br>sockets    	打印已打开套接字列表<br>sockscan    TCP套接字对象池扫描<br>ssdt      显示SSDT条目<br>strings    	物理到虚拟地址的偏移匹配(需要一些时间，带详细信息)<br>svcscan    	Windows服务列表扫描<br>symlinkscan  	符号链接对象池扫描<br>thrdscan    线程对象池扫描<br>threads    	调查_ETHREAD 和_KTHREADs<br>timeliner   	创建内存中的各种痕迹信息的时间线<br>timers     打印内核计时器及关联模块的DPC<br>truecryptmaster	Recover 恢复TrueCrypt 7.1a主密钥<br>truecryptpassphrase		查找并提取TrueCrypt密码<br>truecryptsummary	TrueCrypt摘要信息<br>unloadedmodules	打印卸载的模块信息列表<br>userassist   打印注册表中UserAssist相关信息<br>userhandles  	转储用户句柄表<br>vaddump    	转储VAD数据为文件<br>vadinfo    	转储VAD信息<br>vadtree    	以树形方式显示VAD树信息<br>vadwalk    	显示遍历VAD树<br>vboxinfo    转储Virtualbox信息（虚拟机）<br>verinfo    	打印PE镜像中的版本信息<br>vmwareinfo   转储VMware VMSS&#x2F;VMSN 信息<br>volshell    内存镜像中的shell<br>windows    	打印桌面窗口(详细信息)<br>wintree    	Z顺序打印桌面窗口树<br>wndscan    	池扫描窗口站<br>yarascan    以Yara签名扫描进程或内核内存</p>
+<h5 id="1-例子（忘了是哪个比赛的题目了）"><a href="#1-例子（忘了是哪个比赛的题目了）" class="headerlink" title="1.例子（忘了是哪个比赛的题目了）"></a>1.例子（忘了是哪个比赛的题目了）</h5><p>你作为 A 公司的应急响应人员，请分析提供的内存文件按照下面的要求找到 相关关键信息，完成应急响应事件。</p>
+<p>1、从内存中获取到用户admin的密码并且破解密码，以Flag{admin,password} 形式提交(密码为 6 位)；   </p>
+<p>2、获取当前系统 ip 地址及主机名，以 Flag{ip:主机名}形式提交；</p>
+<p>3、获取当前系统浏览器搜索过的关键词，作为 Flag 提交；</p>
+<p>4、当前系统中存在挖矿进程，请获取指向的矿池地址，以 Flag{ip:端口}形式 提交；</p>
+<p>5、恶意进程在系统中注册了服务，请将服务名以 Flag{服务名}形式提交。</p>
+<p>上题已经看到进程</p>
+<p>解析<br> 1.从内存中获取到用户admin的密码并且破解密码，以Flag{admin,password} 形式提交(密码为 6 位)；<br>      不管什么题内存取证的第一步肯定是去判断当前的镜像信息，分析出是哪个操作系统   使用参数  imageinfo 查看系统信息</p>
+<pre><code>  volatility -f 1.vmem imageinfo
+</code></pre>
+<p>操作系统我们一般取第一个就可以了</p>
+<p>接下来就可以输入参数</p>
+<p>可以先查看当前内存镜像中的用户</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 printkey -K “SAM\Domains\Account\Users\Names”</p>
+<p> 使用hashdump获取sam</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 hashdump</p>
+<p> 可以通过john工具来进行爆破，但是好像跑不出来结果。应该是设定了强密码。于是只能使用了lasdump命令来查看</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 lsadump</p>
+<p>  flag{admin.dfsddew}</p>
+<p>2.获取当前系统 ip 地址及主机名，以 Flag{ip:主机名}形式提交；<br> Netscan 可以查ip</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 netscan</p>
+<p> Ip:192.168.85.129</p>
+<p>主机名需要通过查询注册表，先用hivelist</p>
+<p>Volatility -f  1.vmem –profile&#x3D;Win7SP1x64 hivelist</p>
+<p> 然后我们需要一步一步去找键名</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 -o 0xfffff8a000024010 printkey</p>
+<p> volatility -f 1.vmem –profile&#x3D;Win7SP1x64 -o 0xfffff8a000024010 printkey -K “ControlSet001”</p>
+<p>继续</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64  -o 0xfffff8a000024010 printkey -K “ControlSet001\Control “</p>
+<p>继续</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 -o 0xfffff8a000024010 printkey -K “ControlSet001\Control\ComputerName”</p>
+<p>再来</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 -o 0xfffff8a000024010 printkey -K “ControlSet001\Control\ComputerName\ComputerName”</p>
+<p>得到主机名WIN-9FBAEH4UV8C</p>
+<p>也可以直接通过 hivedump查询相应的键名 但比较慢</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 hivedump -o 0xfffff8a000024010 &gt; system.txt</p>
+<p>3.获取当前系统浏览器搜索过的关键词，作为 Flag 提交；<br>这里使用iehistory</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 iehistory</p>
+<p>  flag{admin@file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;admin&#x2F;Desktop&#x2F;flag.txt}</p>
+<p>4.当前系统中存在挖矿进程，请获取指向的矿池地址，以 Flag{ip:端口}形式 提交；<br>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 netscan </p>
+<p>唯一一个已建立的</p>
+<p>  flag{54.36.109.161:2222}</p>
+<p>5.恶意进程在系统中注册了服务，请将服务名以 Flag{服务名}形式提交。<br>上一题中已经知道了进程号为2588</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 pslist -p 2588</p>
+<p>查到父进程是3036</p>
+<p>然后在通过通过svcscan可以查询服务名称，找到对应服务名</p>
+<p>volatility -f 1.vmem –profile&#x3D;Win7SP1x64 svcscan</p>
+<p> flag{VMnetDHCP}</p>
+<h3 id="wireshark的使用"><a href="#wireshark的使用" class="headerlink" title="wireshark的使用"></a>wireshark的使用</h3><p>1.使用wireshark进行抓包，学会用混淆模式抓包</p>
+<p>2.（1）过滤器使用时 过滤arp udp tcp dns http等协议时要输入小写字母进行过滤</p>
+<p>​    （2）对ip进行过滤：ip.src_host &#x3D;&#x3D; 192.168.1.53 表示源 IP 地址 </p>
+<p>​                                         ip.dst_host &#x3D;&#x3D; 192.168.1.1 表示目的地址</p>
+<p>​    （3）or和and的使用</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">基于名称的HTTP显示过滤器</span><br><span class="line">1、让wireshark只显示访问某指定域名（www.bt2bn.cn)的HTTP请求数据包：http.host == “www.bt2bn.cn”.</span><br><span class="line"></span><br><span class="line">2、让wireshark只显示访问包含了指定字符串的域名（比如，包含bt2bn的域名）的HTTP请求数据包：http.host contains “bt2bn”.</span><br><span class="line"></span><br><span class="line">3、让wireshark只显示Referer头部内容为“http://www.bt2bn.cn/“的HTTP请求数据包：http.referer == “http://www.bt2bn.cn/”</span><br><span class="line"></span><br><span class="line">基于HTTP请求方法的显示过滤器</span><br><span class="line">1、要让wireshark显示包含GET请求的所有HTTP数据包，显示过滤器的写法为:http.request.method == GET。</span><br><span class="line"></span><br><span class="line">2、要让Wireshark显示所有HTTP请求数据包，显示过滤器的写法为:http.request。</span><br><span class="line"></span><br><span class="line">3、要让Wireshark显示所有HTTP响应数据包，显示过滤器的写法为:http.response。</span><br><span class="line"></span><br><span class="line">4、要让Wireshark显示包含所有HTTP数据包，但包含GET方法的HTTP请求数据包除外，显示过滤器的写法为:http.request and not http.request.method == GET。</span><br><span class="line"></span><br><span class="line">基于HTTP状态码的显示过滤器</span><br><span class="line">1、要让Wireshark显示包含HTTP错误状态码的HTTP响应数据包:http.request.code &gt;= 400。</span><br><span class="line"></span><br><span class="line">2、要让Wireshark只显示包含HTTP客户端错误状态码的HTTP响应数据包:http.response.code &gt;=400 and http.response.code &lt;= 499。</span><br><span class="line"></span><br><span class="line">3、要让Wireshark只显示包含HTTP服务器端错误状态码的HTTP响应数据包:http.response.code &lt;=599。</span><br><span class="line"></span><br><span class="line">4、要让Wireshark只显示状态码为404的HTTP响应数据包:http.response.code == 404。</span><br><span class="line"></span><br><span class="line">5、过滤所有的http响应包：http.response==1</span><br><span class="line"></span><br><span class="line">6、过滤所有的http请求，貌似也可以使用http.request：http.request==1</span><br><span class="line"></span><br><span class="line">7、wireshark过滤所有请求方式为POST的http请求包，注意POST为大写：http.request.method==POST</span><br><span class="line"></span><br><span class="line">8、过滤含有指定cookie的http数据包：http.cookie contains guid</span><br><span class="line"></span><br><span class="line">9、过滤请求的uri，取值是域名后的部分：http.request.uri==”/online/setpoint”</span><br><span class="line"></span><br><span class="line">10、过滤含域名的整个url则需要使用http.request.full_uri：http.request.full_uri==” http://task.browser.360.cn/online/setpoint”</span><br><span class="line"></span><br><span class="line">11、过滤http头中server字段含有nginx字符的数据包：http.server contains “nginx”</span><br><span class="line"></span><br><span class="line">12、过滤content_type是text/html的http响应、post包，即根据文件类型过滤http数据包：http.content_type == “text/html”</span><br><span class="line"></span><br><span class="line">13、过滤content_encoding是gzip的http包：http.content_encoding == “gzip”</span><br><span class="line"></span><br><span class="line">14、根据transfer_encoding过滤：http.transfer_encoding == “chunked”</span><br><span class="line"></span><br><span class="line">15、根据content_length的数值过滤：http.content_length == 279 或 http.content_length_header == “279″</span><br><span class="line"></span><br><span class="line">16、过滤所有含有http头中含有server字段的数据包：http.server</span><br><span class="line"></span><br><span class="line">17、过滤HTTP/1.1版本的http包，包括请求和响应：http.request.version == “HTTP/1.1″</span><br><span class="line"></span><br><span class="line">18、过滤http响应中的phrase：http.response.phrase == “OK”</span><br><span class="line"></span><br><span class="line">19、显示前1000个数据包：fream.number &lt;= 1000</span><br><span class="line"></span><br><span class="line">20、显示序列号10-20内的数据包：fream.number &lt;= 10 and fream.number &lt;= 20</span><br></pre></td></tr></table></figure>
+
+<p>​       我们中间用 or 进行了拼接，表示或 当然我们也可以使用 and 表示与，or 表示满足左右其中一个条 件就会显示符合条件的数据包，and 表示左右 2 个条件都满足才会显示</p>
+<p>3.常用协议分析。</p>
+<p>​    icmp,http,tcp,dns</p>
+<h4 id="常见流量分析题目"><a href="#常见流量分析题目" class="headerlink" title="常见流量分析题目"></a>常见流量分析题目</h4><h5 id="1-直接搜flag-flag明文"><a href="#1-直接搜flag-flag明文" class="headerlink" title="1.  直接搜flag(flag明文)"></a>1.  直接搜flag(flag明文)</h5><h5 id="2-flag-编码"><a href="#2-flag-编码" class="headerlink" title="2.flag(编码)"></a>2.flag(编码)</h5><p>flag十六进制：666c6167</p>
+<p>asiic转Unicode：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;#102;&amp;#108;&amp;#97;&amp;#103;</span><br></pre></td></tr></table></figure>
+
+<p>base64:   Zmxh</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> os.path</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印可打印字符串</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">str_re</span>(<span class="params">str1</span>):</span><br><span class="line">    str2 = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> str1.decode(<span class="string">&#x27;utf8&#x27;</span>, <span class="string">&#x27;ignore&#x27;</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment"># print(ord(i))</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">ord</span>(i) &lt;= <span class="number">126</span> <span class="keyword">and</span> <span class="built_in">ord</span>(i) &gt;= <span class="number">33</span>:</span><br><span class="line">                str2 += i</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            str2 += <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="comment"># print(str2)</span></span><br><span class="line">    <span class="keyword">return</span> str2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 写入文本函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">txt_wt</span>(<span class="params">name, txt1</span>):</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;output.txt&quot;</span>, <span class="string">&quot;a&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(<span class="string">&#x27;filename:&#x27;</span> + name)</span><br><span class="line">        f.write(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        f.write(<span class="string">&#x27;flag:&#x27;</span> + txt1)</span><br><span class="line">        f.write(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第一次运行，清空output文件</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">clear_txt</span>():</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;output.txt&quot;</span>, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;clear output.txt！！！&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 递归遍历的所有文件</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">file_bianli</span>():</span><br><span class="line">    <span class="comment"># 路径设置为当前目录</span></span><br><span class="line">    path = os.getcwd()</span><br><span class="line">    <span class="comment"># 返回文件下的所有文件列表</span></span><br><span class="line">    file_list = []</span><br><span class="line">    <span class="keyword">for</span> i, j, k <span class="keyword">in</span> os.walk(path):</span><br><span class="line">        <span class="keyword">for</span> dd <span class="keyword">in</span> k:</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;.py&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> dd <span class="keyword">and</span> <span class="string">&quot;output.txt&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> dd:</span><br><span class="line">                file_list.append(os.path.join(i, dd))</span><br><span class="line">    <span class="keyword">return</span> file_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找文件中可能为flag的字符串</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">flag</span>(<span class="params">file_list, flag</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> file_list:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(i, <span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> f.readlines():</span><br><span class="line">                    j1 = str_re(j)  <span class="comment"># 可打印字符串</span></span><br><span class="line">                    <span class="comment"># print j1</span></span><br><span class="line">                    <span class="keyword">for</span> k <span class="keyword">in</span> flag:</span><br><span class="line">                        <span class="keyword">if</span> k <span class="keyword">in</span> j1:</span><br><span class="line">                            txt_wt(i, j1)</span><br><span class="line">                            <span class="built_in">print</span>(<span class="string">&#x27;filename:&#x27;</span>, i)</span><br><span class="line">                            <span class="built_in">print</span>(<span class="string">&#x27;flag:&#x27;</span>, j1)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;err&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#这里可以自行添加一些flag编码后的形式</span></span><br><span class="line">flag_txt = [<span class="string">&#x27;flag&#123;&#x27;</span>, <span class="string">&#x27;666c6167&#x27;</span>, <span class="string">&#x27;flag&#x27;</span>, <span class="string">&#x27;Zmxh&#x27;</span>, <span class="string">&#x27;&amp;#102&#x27;</span>, <span class="string">&#x27;666C6167&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清空输出的文本文件</span></span><br><span class="line">clear_txt()</span><br><span class="line"><span class="comment"># 遍历文件名</span></span><br><span class="line">file_lt = file_bianli()</span><br><span class="line"><span class="comment"># 查找flag关键字</span></span><br><span class="line">flag(file_lt, flag_txt)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="3-压缩包"><a href="#3-压缩包" class="headerlink" title="3.压缩包"></a>3.压缩包</h5><p>找到压缩包对应的字节流</p>
+<p>红色就是发送包，蓝色就是返回包</p>
+<p>菜刀流量的一个特征应该是有 X@Y</p>
+<h5 id="4、不可打印字符-telnet协议"><a href="#4、不可打印字符-telnet协议" class="headerlink" title="4、不可打印字符(telnet协议)"></a>4、不可打印字符(telnet协议)</h5><h5 id="5-蓝牙协议"><a href="#5-蓝牙协议" class="headerlink" title="5.蓝牙协议"></a>5.蓝牙协议</h5><h5 id="6-usb键盘鼠标流量"><a href="#6-usb键盘鼠标流量" class="headerlink" title="6.usb键盘鼠标流量"></a>6.usb键盘鼠标流量</h5><h5 id="7-无线流量"><a href="#7-无线流量" class="headerlink" title="7.无线流量"></a>7.无线流量</h5><h5 id="8-流量包修复"><a href="#8-流量包修复" class="headerlink" title="8.流量包修复"></a>8.流量包修复</h5><blockquote>
+<p>题目：第一届 “百度杯” 信息安全攻防总决赛 线上选拔赛：find the flag</p>
+<p>WP：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ECJTUACM-873284962/p/9884447.html">https://www.cnblogs.com/ECJTUACM-873284962/p/9884447.html</a></p>
+</blockquote>
+<p>首先我们拿到这样一道流量包的题目，题目名称为 <code>find the flag</code> 。这里面给了很多提示信息，要我们去找到 <code>flag</code> 。</p>
+<p><strong>第一步，搜索 <code>flag</code> 字样</strong></p>
+<p>我们先去搜索看看流量包里面有没有 <code>flag</code> 。我们使用 <code>strings</code> 命令去找一下流量包， <code>Windows</code> 的朋友可以用 <code>notepad++</code> 的搜索功能去寻找。</p>
+<p>搜索命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings findtheflag.cap | grep flag</span><br></pre></td></tr></table></figure>
+
+<p>搜索结果如下：</p>
+<p>我们发现搜出了一大堆的东西，我们通过管道去过滤出 <code>flag</code> 信息，似乎没有发现我们所需要找的答案。</p>
+<p><strong>第二步，流量包修复</strong></p>
+<p>我们用 <code>wireshark</code> 打开这个流量包</p>
+<p><img src="https://ctf-wiki.org/misc/traffic/figure/wireshark-to-error.png" alt="wireshark-to-error"></p>
+<p>我们发现这个流量包出现了异常现象，我们可以修复一下这个流量包。</p>
+<p>这里我们用到一个在线工具：<a target="_blank" rel="noopener" href="http://f00l.de/hacking/pcapfix.php">http://f00l.de/hacking/pcapfix.php</a></p>
+<p>这个工具可以帮助我们快速地将其流量包修复为 <code>pcap</code> 包。</p>
+<p>我们对其进行在线修复。</p>
+<p><img src="https://ctf-wiki.org/misc/traffic/figure/repaire-to-pcap.png" alt="repaire-to-pcap"></p>
+<p>修复完毕后点击 <code>Get your repaired PCAP-file here.</code> 即可下载流量包，然后我们用 <code>wireshark</code> 打开。</p>
+<p>既然还是要找 <code>flag</code> ，我们可以先看看这个流量包。</p>
+<p><strong>第三步，追踪 TCP 流</strong></p>
+<p>我们追踪一下 TCP 流，看看有没有什么突破？</p>
+<p><img src="https://ctf-wiki.org/misc/traffic/figure/wireshark-to-stream.png" alt="wireshark-to-stream"></p>
+<p>我们通过追踪 <code>TCP</code> 流，可以看到一些版本信息， <code>cookie</code> 等等，我们还是发现了一些很有意思的东西。</p>
+<p>从 <code>tcp.stream eq 29</code> 到 <code>tcp.stream eq 41</code> 只显示了 <code>where is the flag?</code> 这个字样，难道这是出题人在告诉我们 <code>flag</code> 在这里嘛？</p>
+<p><strong>第四步，查找分组字节流</strong></p>
+<p>我们追踪到 <code>tcp.stream eq 29</code> 的时候，在 <code>Identification</code> 信息中看到了 <code>flag</code> 中的 <code>lf</code> 字样，我们可以继续追踪下一个流，在 <code>tcp.stream eq 30</code> 的 <code>Identification</code> 信息中看到了 <code>flag</code> 中的 <code>ga</code> 字样，我们发现将两个包中 <code>Identification</code> 信息对应的字段从右至左组合，恰好就是 <code>flag</code> ！于是我们可以大胆地猜测， <code>flag</code> 肯定是藏在这里面。</p>
+<p>我们直接通过搜索 -&gt; 字符串搜索 -&gt; 分组字节流 -&gt; 搜索关键字 <code>flag</code> 即可，按照同样的方式连接后面相连数据包的 <code>Identification</code> 信息对应的字段，即可找到最终的 flag！</p>
+<p>下面是搜索的截图：</p>
+<p>所以最终的 <code>flag</code> 为：<strong>flag{aha!_you_found_it!}</strong></p>
+<h5 id="sql盲注"><a href="#sql盲注" class="headerlink" title="sql盲注"></a>sql盲注</h5><p>提取数据</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -r hack.pcap -T fields -e http.request.full_uri|<span class="built_in">tr</span> -s <span class="string">&#x27;\n&#x27;</span>|grep flag &gt; <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<p>处理数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;log&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    tmp = f.read()</span><br><span class="line">    flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    data = re.findall(<span class="string">r&#x27;=(\d*)%23&#x27;</span>,tmp)</span><br><span class="line">    data = [<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> data]</span><br><span class="line">    <span class="keyword">for</span> i,num <span class="keyword">in</span> <span class="built_in">enumerate</span>(data):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> num &gt; data[i+<span class="number">1</span>]:</span><br><span class="line">                flag += <span class="built_in">chr</span>(num)</span><br><span class="line">        <span class="keyword">except</span> Exception:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">    <span class="built_in">print</span> flag</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="一、文件头文件尾"><a href="#一、文件头文件尾" class="headerlink" title="一、文件头文件尾"></a><strong>一、文件头文件尾</strong></h3><h5 id="1、图片"><a href="#1、图片" class="headerlink" title="1、图片"></a><strong>1、图片</strong></h5><ul>
+<li>JPEG 文件头：<code>FF D8 FF</code>  文件尾：<code>FF D9</code></li>
+<li>TGA 未压缩的前4字节 <code>00 00 02 00</code> RLE压缩的前5字节 <code>00 00 10 00 00</code></li>
+<li>PNG 文件头：<code>89 50 4E 47 0D 0A 1A 0A</code>  文件尾：<code>AE 42 60 82</code></li>
+<li>GIF 文件头：<code>47 49 46 38 39(37) 61</code>  文件尾：<code>00 3B</code></li>
+<li>BMP 文件头：<code>42 4D</code> 文件头标识(2 bytes) 42(B) 4D(M)</li>
+<li>TIFF (tif) 文件头：<code>49 49 2A 00</code></li>
+<li>ico 文件头：<code>00 00 01 00</code></li>
+<li>Adobe Photoshop (psd) 文件头：<code>38 42 50 53</code></li>
+</ul>
+<h5 id="2、office文件"><a href="#2、office文件" class="headerlink" title="2、office文件"></a><strong>2、office文件</strong></h5><ul>
+<li>MS Word&#x2F;Excel (xls.or.doc) 文件头：<code>D0 CF 11 E0</code></li>
+<li>MS Access (mdb) 文件头：<code>53 74 61 6E 64 61 72 64 20 4A</code></li>
+<li>WordPerfect (wpd) 文件头：<code>FF 57 50 43</code></li>
+<li>Adobe Acrobat (pdf) 文件头：<code>25 50 44 46 2D 31 2E</code></li>
+<li>application&#x2F;vnd.visio(vsd) 文件头：<code>D0 CF 11 E0 A1 B1 1A E1</code></li>
+<li>Email [thorough only] (eml) 文件头：<code>44 65 6C 69 76 65 72 79 2D 64 61 74 65 3A</code></li>
+<li>Outlook Express (dbx) 文件头：<code>CF AD 12 FE C5 FD 74 6F</code></li>
+<li>Outlook (pst) 文件头：<code>21 42 44 4E</code></li>
+<li>Rich Text Format (rtf) 文件头：<code>7B 5C 72 74 66</code></li>
+<li>txt 文件(txt) 文件头：Unicode：<code>FE FF</code> &#x2F; Unicode big endian：<code>FF FE</code> &#x2F; UTF-8：<code>EF BB BF</code> &#x2F;ANSI编码是没有文件头的</li>
+</ul>
+<h5 id="3、压缩包文件"><a href="#3、压缩包文件" class="headerlink" title="3、压缩包文件"></a><strong>3、压缩包文件</strong></h5><ul>
+<li>ZIP Archive (zip) 文件头：<code>50 4B 03 04</code> 文件尾：<code>50 4B</code></li>
+<li>RAR Archive (rar) 文件头：<code>52 61 72 21</code></li>
+</ul>
+<h5 id="4、音频文件"><a href="#4、音频文件" class="headerlink" title="4、音频文件"></a><strong>4、音频文件</strong></h5><ul>
+<li>Wave (wav) 文件头：<code>57 41 56 45</code></li>
+<li>audio(Audio) 文件头： <code>4D 54 68 64</code></li>
+<li>audio&#x2F;x-aac（aac）</li>
+<li>文件头：<code>FF F1(9)</code></li>
+</ul>
+<h5 id="5、视频文件"><a href="#5、视频文件" class="headerlink" title="5、视频文件"></a><strong>5、视频文件</strong></h5><ul>
+<li>AVI (avi) 文件头：<code>41 56 49 20</code></li>
+<li>Real Audio (ram) 文件头：<code>2E 72 61 FD</code></li>
+<li>Real Media (rm) 文件头：<code>2E 52 4D 46</code></li>
+<li>MPEG (mpg) 文件头：<code>00 00 01 BA(3)</code></li>
+<li>Quicktime (mov) 文件头：<code>6D 6F 6F 76</code></li>
+<li>Windows Media (asf) 文件头：<code>30 26 B2 75 8E 66 CF 11</code></li>
+<li>MIDI (mid) 文件头：<code>4D 54 68 64</code></li>
+</ul>
+<h5 id="6、代码文件"><a href="#6、代码文件" class="headerlink" title="6、代码文件"></a><strong>6、代码文件</strong></h5><ul>
+<li>XML (xml) 文件头：<code>3C 3F 78 6D 6C</code></li>
+<li>HTML (html) 文件头：<code>68 74 6D 6C 3E</code></li>
+<li>Quicken (qdf) 文件头：<code>AC 9E BD 8F</code></li>
+<li>Windows Password (pwl) 文件头：<code>E3 82 85 96</code></li>
+</ul>
+<h5 id="7、其他类型"><a href="#7、其他类型" class="headerlink" title="7、其他类型"></a><strong>7、其他类型</strong></h5><ul>
+<li>windows证书文件(der) 文件头：<code>30 82 03 C9</code></li>
+<li>CAD (dwg) 文件头：<code>41 43 31 30</code></li>
+<li>Windows Shortcut (lnk) 文件头：<code>4C 00 00 00</code></li>
+<li>Windows reg(reg) 文件头：<code>52 45 47 45 44 49 54 34</code></li>
+</ul>
+<h4 id="rar-zip伪加密"><a href="#rar-zip伪加密" class="headerlink" title="rar,zip伪加密"></a>rar,zip伪加密</h4><p><img src="/2023/09/27/misc/Users\tong\Pictures\20190912082104676.png"></p>
+<p><img src="/2023/09/27/misc/Users\tong\Pictures\20201029104722308.png"></p>
+<p>找到第24个字节，该字节尾数为4表示加密，0表示无加密，将尾数改为0即可破解伪加密。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/21/%E9%9A%8F%E7%AC%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tyc的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/21/%E9%9A%8F%E7%AC%94/" class="post-title-link" itemprop="url">随笔</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-09-21 13:54:35" itemprop="dateCreated datePublished" datetime="2023-09-21T13:54:35+08:00">2023-09-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-01-10 18:36:58" itemprop="dateModified" datetime="2025-01-10T18:36:58+08:00">2025-01-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="H1ve平台搭建"><a href="#H1ve平台搭建" class="headerlink" title="H1ve平台搭建"></a>H1ve平台搭建</h3><p>H1ve最快捷的部署方式直接用docker搭建就好了，所以我们首先需要安装<strong>docker</strong>和<strong>docker-compose</strong></p>
+<h5 id="常见问题解决-Issues-·-D0g3-Lab-x2F-H1ve-·-GitHub"><a href="#常见问题解决-Issues-·-D0g3-Lab-x2F-H1ve-·-GitHub" class="headerlink" title="常见问题解决   Issues · D0g3-Lab&#x2F;H1ve · GitHub"></a>常见问题解决   <a target="_blank" rel="noopener" href="https://github.com/D0g3-Lab/H1ve/issues?page=1&q=is:issue+is:open">Issues · D0g3-Lab&#x2F;H1ve · GitHub</a></h5><h4 id="1-docker安装"><a href="#1-docker安装" class="headerlink" title="1.docker安装"></a>1.<strong>docker安装</strong></h4><h5 id="centos："><a href="#centos：" class="headerlink" title="centos："></a><strong>centos</strong>：</h5><p>sudo yum install -y git （安装git，一会要拉取源代码）</p>
+<p>yum update（升级一下yum，防止版本太低）</p>
+<p>yum install -y yum-utils device-mapper-persistent-data lvm2 （安装必须的东西）</p>
+<p>sudo yum-config-manager –add-repo <a target="_blank" rel="noopener" href="https://download.docker.com/linux/centos/docker-ce.repo">https://download.docker.com/linux/centos/docker-ce.repo</a> （设置yum源）</p>
+<p>sudo yum install docker-ce （安装docker）</p>
+<p>systemctl start docker （启动docker）</p>
+<p>systemctl enable docker （设置开机自启）</p>
+<h5 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu:"></a><strong>ubuntu</strong>:</h5><p> sudo apt-get update（更新一下）</p>
+<p> sudo apt-get upgrade （更新一下）</p>
+<p>sudo apt-get install docker.io -y （安装docker）</p>
+<p>systemctl start docker （启动docker）</p>
+<p>systemctl enable docker （设置开机自启）</p>
+<h4 id="2-docker-compose安装"><a href="#2-docker-compose安装" class="headerlink" title="2.docker-compose安装"></a>2.<strong>docker-compose安装</strong></h4><p><strong>ubuntu</strong>和<strong>centos</strong>一样:</p>
+<p> (下载并且安装)</p>
+<p>curl -L “<a target="_blank" rel="noopener" href="https://github.com/docker/compose/releases/download/1.27.2/docker-compose-$">https://github.com/docker/compose/releases/download/1.27.2/docker-compose-$</a>(uname -s)-$(uname -m)” -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</p>
+<p>（赋予权限）</p>
+<p>chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose </p>
+<p>（查看版本，应该是1.2x.x）</p>
+<p>docker-compose -version </p>
+<h4 id="3-安装H1ve（ubuntu和centos一样）"><a href="#3-安装H1ve（ubuntu和centos一样）" class="headerlink" title="3.安装H1ve（ubuntu和centos一样）"></a>3.安装H1ve（ubuntu和centos一样）</h4><p>git clone <a target="_blank" rel="noopener" href="https://github.com/D0g3-Lab/H1ve.git">https://github.com/D0g3-Lab/H1ve.git</a> （拉取源代码）</p>
+<p>cd H1ve （进入目录）</p>
+<p>运行前要修改数据库版本</p>
+<p>docker-compose -f single.yml up （跑起）</p>
+<p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-09-17 201855.png)</p>
+<h3 id="Hfish蜜罐搭建-docker"><a href="#Hfish蜜罐搭建-docker" class="headerlink" title="Hfish蜜罐搭建(docker)"></a>Hfish蜜罐搭建(docker)</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">docker search hfish</span><br><span class="line">docker pull imdevops/hfish</span><br><span class="line">docker run -d --name hfish -p 21:21 -p 22:22 -p 23:23 -p 69:69 -p 3306:3306 -p 5900:5900 -p 6379:6379 -p 8080:8080 -p 8081:8081 -p 8989:8989 -p 9000:9000 -p 9001:9001 -p 9200:9200 -p 11211:11211 --restart=always imdevops/hfish:latest</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.v0n.top/2020/05/01/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8Docker%E5%87%BA%E4%B8%80%E9%81%93CTF%E9%A2%98%E7%9B%AE/">如何正确使用Docker出一道CTF题目 - Von的博客 | Von Blog (v0n.top)</a></p>
+<h3 id="hexo迁移"><a href="#hexo迁移" class="headerlink" title="hexo迁移"></a>hexo迁移</h3><p>首先配置好git,node环境</p>
+<p>设置github用户认证</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的名字&quot;（注意前边是“- -global”，有两个横线）</span><br><span class="line">git config --global user.email &quot;你的邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p>npm换源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org/</span><br></pre></td></tr></table></figure>
+
+<p>安装hexo</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>进入 Blog 目录（拷贝到新电脑的目录），输入下面指令安装相关模块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm installnpm install hexo-deployer-git --save  // 文章部署到 git 的模块（下面为选择安装）</span><br><span class="line">npm install hexo-generator-feed --save  // 建立 RSS 订阅</span><br><span class="line">npm install hexo-generator-sitemap --save // 建立站点地图</span><br></pre></td></tr></table></figure>
+
+<p>hexo三连</p>
+<h3 id="HFfish"><a href="#HFfish" class="headerlink" title="HFfish"></a>HFfish</h3><h4 id="1-放行端口或关闭防火墙"><a href="#1-放行端口或关闭防火墙" class="headerlink" title="1. 放行端口或关闭防火墙"></a>1. 放行端口或关闭防火墙</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">放通4433、4434端口命令</span><br><span class="line">firewall-cmd --add-port=4433/tcp --permanent   #（用于web界面启动）</span><br><span class="line">firewall-cmd --add-port=4434/tcp --permanent   #（用于节点与管理端通信）</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CentOS 7 关闭防火墙命令</span><br><span class="line">systemctl stop firewalld.service    #关闭防火墙</span><br><span class="line">systemctl disable firewalld   #禁止开机启动防火墙</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sS -L https://hfish.net/webinstall.sh)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="雷池waf安装"><a href="#雷池waf安装" class="headerlink" title="雷池waf安装"></a>雷池waf安装</h3><h4 id="1-在线安装"><a href="#1-在线安装" class="headerlink" title="1. 在线安装"></a>1. 在线安装</h4><p>复制以下命令执行，即可完成安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">&quot;<span class="subst">$(curl -fsSLk https://waf-ce.chaitin.cn/release/latest/setup.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果需要使用华为云加速，可使用</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CDN=1 bash -c <span class="string">&quot;<span class="subst">$(curl -fsSLk https://waf-ce.chaitin.cn/release/latest/setup.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果需要安装最新版本流式检测模式，可使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STREAM=1 bash -c &quot;$(curl -fsSLk https://waf-ce.chaitin.cn/release/latest/setup.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="碎遮-SZhe-Scan"><a href="#碎遮-SZhe-Scan" class="headerlink" title="碎遮  SZhe Scan"></a>碎遮  SZhe Scan</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Cl0udG0d/SZhe_Scan</span><br><span class="line">cd SZhe_Scan</span><br><span class="line">docker-compose up -d  或 docker-compose up --build</span><br><span class="line">运行结束后访问 http://ip:5000</span><br></pre></td></tr></table></figure>
+
+<p>docker换源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">error； pulling image configuration: download failed after attempts=6: dial tcp 104.16.100.207:443: i/o timeout</span><br><span class="line"></span><br><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://yxzrazem.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h4 id="防火墙常用命令"><a href="#防火墙常用命令" class="headerlink" title="防火墙常用命令"></a>防火墙常用命令</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1.systemctl start firewalld.service（开启防火墙）</span><br><span class="line"></span><br><span class="line">2.systemctl stop firewalld.service（关闭防火墙）</span><br><span class="line"></span><br><span class="line">3.service firewalld restart（从启防火墙）</span><br><span class="line"></span><br><span class="line">4.firewall-cmd --zone=public --add-port=4400-4600/udp --permanen(指定端口范围为4400-4600通过防火墙)</span><br><span class="line"></span><br><span class="line">Warning: ALREADY_ENABLED: 3306:tcp（说明3306端口通过成功）</span><br><span class="line"></span><br><span class="line">5.firewall-cmd --zone=public --remove-port=80/tcp --permanent（关闭指定端口）</span><br><span class="line"></span><br><span class="line">6.firewall-cmd --zone=public --list-ports（查看通过的端口）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Windows下如何查看某个端口被谁占用"><a href="#Windows下如何查看某个端口被谁占用" class="headerlink" title="Windows下如何查看某个端口被谁占用"></a>Windows下如何查看某个端口被谁占用</h3><p>这里我们以8081端口为例讲解。</p>
+<ol>
+<li>按下Win+R调出命令行窗口，输入netstat -aon|findstr “8081”，找到指定行最后一列的数字（PID），我们这里是9548.</li>
+<li>输入tasklist|findstr “9548”，发现是javaw.exe占用了8081端口。</li>
+<li>再次输入taskkill &#x2F;f &#x2F;t &#x2F;im javaw.exe结束该进程。</li>
+</ol>
+<p> hexo迁移</p>
+<p>首先配置好git,node环境</p>
+<p>设置github用户认证</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的名字&quot;（注意前边是“- -global”，有两个横线）</span><br><span class="line">git config --global user.email &quot;你的邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p>npm换源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org/</span><br></pre></td></tr></table></figure>
+
+<p>安装hexo</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>进入 Blog 目录（拷贝到新电脑的目录），输入下面指令安装相关模块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm installnpm install hexo-deployer-git --save  // 文章部署到 git 的模块（下面为选择安装）</span><br><span class="line">npm install hexo-generator-feed --save  // 建立 RSS 订阅</span><br><span class="line">npm install hexo-generator-sitemap --save // 建立站点地图</span><br></pre></td></tr></table></figure>
+
+<p>hexo三连</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/09/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88Mysql)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1200,7 +1636,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
