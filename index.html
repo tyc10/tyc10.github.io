@@ -1248,7 +1248,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-01-11 10:32:40" itemprop="dateModified" datetime="2025-01-11T10:32:40+08:00">2025-01-11</time>
+                <time title="Modified: 2025-01-13 00:26:11" itemprop="dateModified" datetime="2025-01-13T00:26:11+08:00">2025-01-13</time>
               </span>
 
           
@@ -1294,6 +1294,38 @@
 <h5 id="需要注意的事项："><a href="#需要注意的事项：" class="headerlink" title="需要注意的事项："></a>需要注意的事项：</h5><ul>
 <li>由于使用 <code>@RequestBody</code> 会自动解析请求体，因此它只能用于 <code>POST</code>、<code>PUT</code>、<code>PATCH</code> 等请求类型。</li>
 <li>在使用 <code>@RequestBody</code> 时，通常需要客户端设置正确的 <code>Content-Type</code>，如 <code>application/json</code>。</li>
+</ul>
+<h3 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h3><p><code>@Autowired</code> 是 Spring Framework 中的一种注解，主要用于实现依赖注入（Dependency Injection）。它可以让 Spring 自动为你的类的字段、构造方法或 setter 方法注入所需的依赖对象。</p>
+<h4 id="用法和作用："><a href="#用法和作用：" class="headerlink" title="用法和作用："></a>用法和作用：</h4><ol>
+<li><strong>自动注入依赖</strong>：<code>@Autowired</code> 注解使得 Spring 可以自动将符合要求的 Bean 注入到你的类中，而无需手动配置。Spring 会根据类型、名称或者构造函数来寻找匹配的 Bean 并进行注入。</li>
+</ol>
+<h4 id="主要的使用方式："><a href="#主要的使用方式：" class="headerlink" title="主要的使用方式："></a>主要的使用方式：</h4><h5 id="1-字段注入"><a href="#1-字段注入" class="headerlink" title="1. 字段注入"></a>1. <strong>字段注入</strong></h5><p>通过 <code>@Autowired</code> 注解在类的成员变量上，Spring 会自动为这个字段赋值。最常见的使用方式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">javaCopy Code@Component</span><br><span class="line">public class Car &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private Engine engine; // 自动注入 Engine 类型的 Bean</span><br><span class="line"></span><br><span class="line">    public void start() &#123;</span><br><span class="line">        engine.run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的例子中，<code>Car</code> 类依赖 <code>Engine</code> 类，通过 <code>@Autowired</code> 注解，Spring 会自动注入一个 <code>Engine</code> 类型的 Bean 到 <code>Car</code> 的 <code>engine</code> 字段。</p>
+<h5 id="2-构造方法注入"><a href="#2-构造方法注入" class="headerlink" title="2. 构造方法注入"></a>2. <strong>构造方法注入</strong></h5><p><code>@Autowired</code> 也可以应用到构造方法上，Spring 会根据构造方法的参数类型来自动注入依赖的 Bean。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">javaCopy Code@Component</span><br><span class="line">public class Car &#123;</span><br><span class="line">    private final Engine engine;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    public Car(Engine engine) &#123; // 自动注入 Engine 类型的 Bean</span><br><span class="line">        this.engine = engine;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void start() &#123;</span><br><span class="line">        engine.run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种方式是推荐的做法，特别是当依赖项为必需时，可以更好地控制依赖关系。</p>
+<h5 id="3-Setter-方法注入"><a href="#3-Setter-方法注入" class="headerlink" title="3. Setter 方法注入"></a>3. <strong>Setter 方法注入</strong></h5><p>你也可以将 <code>@Autowired</code> 放在 setter 方法上，Spring 会在创建对象后通过调用 setter 方法注入依赖。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">javaCopy Code@Component</span><br><span class="line">public class Car &#123;</span><br><span class="line">    private Engine engine;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    public void setEngine(Engine engine) &#123; // 自动注入 Engine 类型的 Bean</span><br><span class="line">        this.engine = engine;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void start() &#123;</span><br><span class="line">        engine.run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这也是一种常见的依赖注入方式。</p>
+<h4 id="自动注入的原理："><a href="#自动注入的原理：" class="headerlink" title="自动注入的原理："></a>自动注入的原理：</h4><ul>
+<li>Spring 会根据 <code>@Autowired</code> 注解标记的字段、构造函数或 setter 方法，查找匹配的 Bean 实例并注入。默认情况下，它是根据 <strong>类型</strong> 来进行匹配。</li>
+<li>如果找到多个匹配的 Bean，且没有明确的标识，Spring 会抛出异常。在这种情况下，你可以使用 <code>@Qualifier</code> 来指定具体的 Bean。</li>
+</ul>
+<h4 id="例外和配置："><a href="#例外和配置：" class="headerlink" title="例外和配置："></a>例外和配置：</h4><ul>
+<li><p><strong>如果没有找到匹配的 Bean</strong>：如果没有符合要求的 Bean，Spring 会抛出异常，默认情况下是 <code>NoSuchBeanDefinitionException</code>。如果你希望在没有匹配 Bean 时不报错，可以使用 <code>@Autowired(required = false)</code> 来设置为非必需的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javaCopy Code@Autowired(required = false)</span><br><span class="line">private Engine engine; // 如果没有 Engine 类型的 Bean，Spring 不会抛出异常</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>多重 Bean 注入冲突</strong>：如果 Spring 容器中存在多个同类型的 Bean，Spring 默认会抛出 <code>NoUniqueBeanDefinitionException</code>。这时可以通过 <code>@Qualifier</code> 来明确指定要注入哪个 Bean：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">javaCopy Code@Autowired</span><br><span class="line">@Qualifier(&quot;carEngine&quot;) // 明确指定注入哪个 Bean</span><br><span class="line">private Engine engine;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><ul>
+<li><code>@Autowired</code> 是 Spring 中用于实现自动依赖注入的注解。它可以用于字段、构造函数或 setter 方法上。</li>
+<li>Spring 会根据 Bean 类型自动查找并注入依赖项。</li>
+<li>使用 <code>@Autowired</code> 可以大大减少手动配置和管理 Bean 之间的依赖关系，提高代码的可维护性和可扩展性。</li>
 </ul>
 
       
