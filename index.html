@@ -170,7 +170,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2025-01-12 00:00:14 / Modified: 12:10:13" itemprop="dateCreated datePublished" datetime="2025-01-12T00:00:14+08:00">2025-01-12</time>
+              <time title="Created: 2025-01-12 00:00:14 / Modified: 12:50:47" itemprop="dateCreated datePublished" datetime="2025-01-12T00:00:14+08:00">2025-01-12</time>
             </span>
 
           
@@ -184,7 +184,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h2><table>
+          <p><img src="/2025/01/12/java%E5%9F%BA%E7%A1%80/image-20250112125037961.png" alt="image-20250112125037961"></p>
+<h2 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h2><table>
 <thead>
 <tr>
 <th><strong>字面量类型</strong></th>
@@ -916,7 +917,7 @@
 <li><p><strong>方法不能嵌套定义</strong></p>
 <ul>
 <li><p><strong>示例代码</strong>：</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MethodDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">methodOne</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">methodTwo</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="comment">// 这里会引发编译错误!!!</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MethodDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">methodOne</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">methodTwo</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="comment">// 这里会引发编译错误!!!</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p><strong>void 表示无返回值，可以省略 return，也可以单独的书写 return，后面不加数据</strong></p>
@@ -979,7 +980,7 @@
 <p>  public class MethodDemo01 {<br>  public static void fn(int a) {<br>      &#x2F;&#x2F; 方法体<br>  }<br>  }<br>  public class MethodDemo02 {<br>  public static int fn(double a) { &#x2F;<em>错误原因：这是两个类的两个fn方法</em>&#x2F;<br>      &#x2F;&#x2F; 方法体<br>  }<br>  }</p>
 </li>
 </ul>
-
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2>
       
     </div>
 
