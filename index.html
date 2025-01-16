@@ -145,6 +145,74 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/16/Git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tyc的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/01/16/Git/" class="post-title-link" itemprop="url">git复习与整理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-01-16 22:47:29 / Modified: 22:47:11" itemprop="dateCreated datePublished" datetime="2025-01-16T22:47:29+08:00">2025-01-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>####本地仓库管理</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">初始化git仓库</span></span><br><span class="line">git init</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">####################创建文件并提交#####################</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将修改加入暂存区</span></span><br><span class="line">git add .</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将修改提交到本地仓库，提交记录内容为：commit1</span></span><br><span class="line">git commit -m &#x27;commit1&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看日志</span></span><br><span class="line">git log</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">###################修改文件并提交######################</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将修改加入暂存区</span></span><br><span class="line">git add .</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="comment"># 将修改提交到本地仓库，提交记录内容为：update file</span></span></span><br><span class="line">git commit --m &#x27;update file&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看日志</span></span><br><span class="line">git log</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">###################将最后一次修改还原##################</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">找到倒数第2次提交的commitID</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">版本回退</span></span><br><span class="line">git reset commitID --hard</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">##########################创建并切换到dev01分支，在dev01分支提交</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]创建分支dev01</span></span><br><span class="line">git branch dev01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]切换到dev01</span></span><br><span class="line">git checkout dev01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[dev01]创建文件file02.txt</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[dev01]将修改加入暂存区并提交到仓库,提交记录内容为：add file02 on dev</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m &#x27;add file02 on dev&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[dev01]以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">##########################切换到master分支，将dev01合并到master分支</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[dev01]切换到master分支</span></span><br><span class="line">git checkout master</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]合并dev01到master分支</span></span><br><span class="line">git merge dev01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]查看文件变化(目录下也出现了file02.txt)</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#########################删除dev01分支</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]删除dev01分支</span></span><br><span class="line">git branch -d dev01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将本地仓库推送到远程仓库</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">添加远程仓库</span></span><br><span class="line">git remote add origin git@gitee.com/**/**.git</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将master分支推送到远程仓库,并与远程仓库的master分支绑定关联关系</span></span><br><span class="line">git push --set-upstream origin master</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将远程仓库克隆到本地</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将远程仓库克隆到本地git_test02目录下</span></span><br><span class="line">git clone git@gitee.com/**/**.git git_test02</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[git_test02]以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#3-将本地修改推送到远程仓库</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[git_test01]创建文件file03.txt</span></span><br><span class="line">略</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[git_test01]将修改加入暂存区并提交到仓库,提交记录内容为：add file03</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m &#x27;add file03&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[git_test01]将master分支的修改推送到远程仓库</span></span><br><span class="line">git push origin master</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">##########################4-将远程仓库的修改更新到本地</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[git_test02]将远程仓库修改再拉取到本地</span></span><br><span class="line">git pull</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="idea中git操作"><a href="#idea中git操作" class="headerlink" title="idea中git操作"></a>idea中git操作</h4><p>略</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/12/java%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2244,119 +2312,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/05/CTF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="tyc的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/05/CTF/" class="post-title-link" itemprop="url">CTF</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-11-05 22:25:24" itemprop="dateCreated datePublished" datetime="2023-11-05T22:25:24+08:00">2023-11-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-01-11 11:16:32" itemprop="dateModified" datetime="2025-01-11T11:16:32+08:00">2025-01-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h4><p>一眼下去全是http协议</p>
-<p><img src="/2023/11/05/CTF/Users\tong\Pictures\2e0f0fe3d95540b58d3dbd114b498185.png"></p>
-<h3 id="jwt"><a href="#jwt" class="headerlink" title="jwt"></a>jwt</h3><p>常见的web认证方式</p>
-<p>HTTP Basic Auth：</p>
-<p>​		这是一种最古老的安全认证方式，简单地在访问API时带上访问的username和password，这是一种最古老的安全认证方式，这种方式就是简单的访问API的时候，带上访问的username和password，由于信息会暴露出去，所以现在也越来越少用了，现在都用更加安全保密的认证方式(<a target="_blank" rel="noopener" href="https://www.cnblogs.com/66w66/p/13845792.html)[1](https://www.cnblogs.com/66w66/p/13845792.html)%E3%80%82">https://www.cnblogs.com/66w66/p/13845792.html)[1](https://www.cnblogs.com/66w66/p/13845792.html)。</a></p>
-<p>OAuth2：</p>
-<p>​		OAuth（开放授权）是一个开放标准，允许用户让第三方应用访问该用户在某一网站上存储的私密资源，而无需将用户名和密码提供给第三方](<a target="_blank" rel="noopener" href="https://www.cnblogs.com/66w66/p/13845792.html)[1](https://www.cnblogs.com/66w66/p/13845792.html)%E3%80%82">https://www.cnblogs.com/66w66/p/13845792.html)[1](https://www.cnblogs.com/66w66/p/13845792.html)。</a></p>
-<p>Cookie-Session Auth：</p>
-<p>​		这种认证机制是为一次请求认证在服务端创建一个Session对象，同时在客户端的浏览器端创建了一个Cookie对象](<a target="_blank" rel="noopener" href="https://www.cnblogs.com/66w66/p/13845792.html)[1](https://www.cnblogs.com/66w66/p/13845792.html)%E3%80%82">https://www.cnblogs.com/66w66/p/13845792.html)[1](https://www.cnblogs.com/66w66/p/13845792.html)。</a></p>
-<p>表单认证：</p>
-<p>​		这种方式是最基础、最常见的认证方式。客户端通过post或get请求参数的方式，把用户名、密码上传到服务器端](<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/590149659)[2](https://zhuanlan.zhihu.com/p/590149659)%E3%80%82">https://zhuanlan.zhihu.com/p/590149659)[2](https://zhuanlan.zhihu.com/p/590149659)。</a></p>
-<p>HTTP身份验证框架：</p>
-<p>​		包括基本认证、摘要认证、Hawk认证](<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/590149659)[2](https://zhuanlan.zhihu.com/p/590149659)%E3%80%82">https://zhuanlan.zhihu.com/p/590149659)[2](https://zhuanlan.zhihu.com/p/590149659)。</a></p>
-<p>令牌方式：包括Session&amp;Cookie认证、JWT认证](<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/590149659)[2](https://zhuanlan.zhihu.com/p/590149659)%E3%80%82">https://zhuanlan.zhihu.com/p/590149659)[2](https://zhuanlan.zhihu.com/p/590149659)。</a></p>
-<h4 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h4><p>简单的流量审计，查看登录后的 cookie 格式可知使用了 jwt 的认证方式。</p>
-<p>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAwODYsIk1hcENsYWltcyI6eyJhdWQiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4ifX0.dJArtwXjas3_Cg9a3tr8COXF7DRsuX8UjmbC1nKf8fc</p>
-<p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-11-05 223456.png)</p>
-<h4 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h4><p>黑客绕过验证使用的jwt中，id和username是_10087#admin _。</p>
-<p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-11-05 224719.png)</p>
-<p>找到绕过验证的流量对应的token解码得到</p>
-<h5 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h5><p>黑客获取webshell之后，权限是_&#x3D;&#x3D; root&#x3D;&#x3D;_？</p>
-<h5 id="2-4"><a href="#2-4" class="headerlink" title="2.4"></a>2.4</h5><p>黑客上传的恶意文件文件名是1.c</p>
-<p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-11-05 225158.png)</p>
-<h5 id="2-5"><a href="#2-5" class="headerlink" title="2.5"></a>2.5</h5><p>黑客在服务器上编译的恶意so文件，文件名是looter.so</p>
-<p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-11-05 225457.png)</p>
-<h5 id="2-6"><a href="#2-6" class="headerlink" title="2.6"></a>2.6</h5><p>黑客在服务器上修改了一个配置文件，文件的绝对路径为__<code>/etc/pam.d/common-auth</code>__</p>
-<p>这里<code>looter.so</code>被移动到<code>/etc/pam.d/common-auth</code> 猜测是被修改的路径</p>
-<p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-11-05 225711.png)</p>
-<h4 id="3-webshell"><a href="#3-webshell" class="headerlink" title="3.webshell"></a>3.webshell</h4><h5 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h5><p>黑客登录系统使用的密码是__<code>Admin123!@#</code> _</p>
-<p>搜username跟踪tcp流</p>
-<p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-11-05 225947.png)</p>
-<h5 id="2"><a href="#2" class="headerlink" title="2"></a>2</h5><p>黑客修改了一个日志文件，文件的绝对路径为&#x2F;var&#x2F;www&#x2F;html&#x2F;data&#x2F;Runtime&#x2F;Logs&#x2F;Home&#x2F;21_08_07.log</p>
-<p>跟这字节流向后翻推断黑客的操作</p>
-<p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-11-05 230227.png)</p>
-<h5 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h5><p>黑客获取webshell之后，权限是__<code>www-data</code>_？</p>
-<p>其实这里可以猜 权限无非就是<code>root</code> 和www-data，跟踪字节流可以发现黑客进行里whoami</p>
-<p>搜whoami能找到对应流量</p>
-<p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-11-05 230747.png)</p>
-<h5 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h5><p>黑客写入的webshell文件名是1.php</p>
-<p>![](C:\Users\tong\Pictures\Screenshots\屏幕截图 2023-11-05 231001.png)</p>
-<h5 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h5><p>黑客上传的代理工具客户端名字是__<code>frpc</code>__。</p>
-<h5 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h5><p>黑客代理工具的回连服务端IP是192.168.239.123</p>
-<h5 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h5><p>黑客的socks5的连接账号、密码是0HDFt16cLQJ#JTN276Gp </p>
-<h3 id="4-日志分析"><a href="#4-日志分析" class="headerlink" title="4.日志分析"></a>4.日志分析</h3><p>cat 文件 |grep 200     </p>
-<p><a target="_blank" rel="noopener" href="http://www.zip/">www.zip</a></p>
-<h3 id="鹏程杯"><a href="#鹏程杯" class="headerlink" title="鹏程杯"></a>鹏程杯</h3><h3 id="我的壁纸"><a href="#我的壁纸" class="headerlink" title="我的壁纸"></a>我的壁纸</h3><p>1.图片分离得到一个压缩包，一个文本一个图片，一个音频，压缩包有个注释snowday,是snow隐写的密钥</p>
-<p>对flag.txt解snow得一部分flag</p>
-<p>2.音频解SSTV得二维码，解二维码的部分flag</p>
-<p>3.图片的备注信息里有一个password,尝试steghide解出另外一部分flag</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2426,7 +2381,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
