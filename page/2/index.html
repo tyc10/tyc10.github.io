@@ -191,7 +191,7 @@
 
       
           <h4 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h4><p>一眼下去全是http协议</p>
-<img src="/2023/11/05/CTF/11/05/CTF/2e0f0fe3d95540b58d3dbd114b498185.png" class>
+<img src="/2023/11/05/CTF/2e0f0fe3d95540b58d3dbd114b498185.png" class="">
 
 <h3 id="jwt"><a href="#jwt" class="headerlink" title="jwt"></a>jwt</h3><p>常见的web认证方式</p>
 <p>HTTP Basic Auth：</p>
@@ -761,7 +761,7 @@
 <td align="left">客户应该在Authorization头中提供什么类型的授权信息？在包含401（Unauthorized）状态行的应答中这个头是必需的。例如，response.setHeader(“WWW-Authenticate”, “BASIC realm&#x3D;＼”executives＼””)。 注意Servlet一般不进行这方面的处理，而是让Web服务器的专门机制来控制受密码保护页面的访问（例如.htaccess）。</td>
 </tr>
 </tbody></table>
-<h4 id="buuctf-PHP【极客大挑战】"><a href="#buuctf-PHP【极客大挑战】" class="headerlink" title="buuctf PHP【极客大挑战】"></a>buuctf PHP【极客大挑战】</h4><img src="/2023/09/28/web%E5%AD%A6%E4%B9%A0/09/28/web%E5%AD%A6%E4%B9%A0/image-20240409133715947.png" class title="image-20240409133715947">
+<h4 id="buuctf-PHP【极客大挑战】"><a href="#buuctf-PHP【极客大挑战】" class="headerlink" title="buuctf PHP【极客大挑战】"></a>buuctf PHP【极客大挑战】</h4><img src="/2023/09/28/web%E5%AD%A6%E4%B9%A0/image-20240409133715947.png" class="" title="image-20240409133715947">
 
 <p>dirsearch 扫后台备份文件  <a target="_blank" rel="noopener" href="http://www.zip/">www.zip</a></p>
 <p>index.php  :页面传入了一个select参数并把他反序列化</p>
@@ -970,19 +970,19 @@
 <p>我们发现搜出了一大堆的东西，我们通过管道去过滤出 <code>flag</code> 信息，似乎没有发现我们所需要找的答案。</p>
 <p><strong>第二步，流量包修复</strong></p>
 <p>我们用 <code>wireshark</code> 打开这个流量包</p>
-<img src="/2023/09/27/misc/09/27/misc/wireshark-to-error.png" class title="wireshark-to-error">
+<img src="/2023/09/27/misc/wireshark-to-error.png" class="" title="wireshark-to-error">
 
 <p>我们发现这个流量包出现了异常现象，我们可以修复一下这个流量包。</p>
 <p>这里我们用到一个在线工具：<a target="_blank" rel="noopener" href="http://f00l.de/hacking/pcapfix.php">http://f00l.de/hacking/pcapfix.php</a></p>
 <p>这个工具可以帮助我们快速地将其流量包修复为 <code>pcap</code> 包。</p>
 <p>我们对其进行在线修复。</p>
-<img src="/2023/09/27/misc/09/27/misc/repaire-to-pcap.png" class title="repaire-to-pcap">
+<img src="/2023/09/27/misc/repaire-to-pcap.png" class="" title="repaire-to-pcap">
 
 <p>修复完毕后点击 <code>Get your repaired PCAP-file here.</code> 即可下载流量包，然后我们用 <code>wireshark</code> 打开。</p>
 <p>既然还是要找 <code>flag</code> ，我们可以先看看这个流量包。</p>
 <p><strong>第三步，追踪 TCP 流</strong></p>
 <p>我们追踪一下 TCP 流，看看有没有什么突破？</p>
-<img src="/2023/09/27/misc/09/27/misc/wireshark-to-stream.png" class title="wireshark-to-stream">
+<img src="/2023/09/27/misc/wireshark-to-stream.png" class="" title="wireshark-to-stream">
 
 <p>我们通过追踪 <code>TCP</code> 流，可以看到一些版本信息， <code>cookie</code> 等等，我们还是发现了一些很有意思的东西。</p>
 <p>从 <code>tcp.stream eq 29</code> 到 <code>tcp.stream eq 41</code> 只显示了 <code>where is the flag?</code> 这个字样，难道这是出题人在告诉我们 <code>flag</code> 在这里嘛？</p>
@@ -1052,9 +1052,9 @@
 <li>Windows Shortcut (lnk) 文件头：<code>4C 00 00 00</code></li>
 <li>Windows reg(reg) 文件头：<code>52 45 47 45 44 49 54 34</code></li>
 </ul>
-<h4 id="rar-zip伪加密"><a href="#rar-zip伪加密" class="headerlink" title="rar,zip伪加密"></a>rar,zip伪加密</h4><img src="/2023/09/27/misc/09/27/misc/20190912082104676.png" class>
+<h4 id="rar-zip伪加密"><a href="#rar-zip伪加密" class="headerlink" title="rar,zip伪加密"></a>rar,zip伪加密</h4><img src="/2023/09/27/misc/20190912082104676.png" class="">
 
-<img src="/2023/09/27/misc/09/27/misc/20201029104722308.png" class>
+<img src="/2023/09/27/misc/20201029104722308.png" class="">
 
 <p>找到第24个字节，该字节尾数为4表示加密，0表示无加密，将尾数改为0即可破解伪加密。</p>
 
@@ -1917,7 +1917,7 @@
 <h4 id="rsa算法原理"><a href="#rsa算法原理" class="headerlink" title="rsa算法原理"></a>rsa算法原理</h4><h5 id="欧拉函数φ-n"><a href="#欧拉函数φ-n" class="headerlink" title="欧拉函数φ(n)"></a>欧拉函数φ(n)</h5><p>欧拉函数φ(n)的定义是小于n的自然数中与n互质的数的个数</p>
 <p>任何一个素数p的欧拉函数就是 p-1</p>
 <h5 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h5><p>若n,a为正整数，且n,a互质，gcd（n,a）&#x3D; 1 , 则:a^φ(n)≡1 mod n</p>
-<h5 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h5>   <img src="/2023/06/11/%E5%AF%86%E7%A0%81/06/11/%E5%AF%86%E7%A0%81/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86.png" class>
+<h5 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h5>   <img src="/2023/06/11/%E5%AF%86%E7%A0%81/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86.png" class="">
 
 <p>模运算<br>模运算与基本四则运算有些相似，但是除法除外。其规则如下：</p>
 <p>(a + b) % p &#x3D; (a % p + b % p) % p<br>(a - b) % p &#x3D; (a % p - b % p) % p<br>(a * b) % p &#x3D; (a % p * b % p) % p<br>a ^ b % p &#x3D; ((a % p) ^ b) % p<br>结合律<br>((a + b) % p + c) &#x3D; (a + (b + c) % p) % p<br>((a * b) % p * c) &#x3D; (a * (b * c) % p) % p<br>交换律<br>(a + b) % p &#x3D; (b + a) % p<br>(a * b) % p &#x3D; (b * a) % p<br>分配律<br>(a + b) % p &#x3D; (a % p + b % p) % p<br>((a + b) % p * c) % p &#x3D; ((a * c) % p + (b * c) % p<br>重要定理<br>若 a ≡ b (mod p)，则对于任意的 c，都有(a + c) ≡ (b + c) (mod p)<br>若 a ≡ b (mod p)，则对于任意的 c，都有(a * c) ≡ (b * c) (mod p)<br>若 a ≡ b (mod p)，c ≡ d (mod p)，则<br>(a + c) ≡ (b + d) (mod p)<br>(a - c) ≡ (b - d) (mod p)<br>(a * c) ≡ (b * d) (mod p)<br>(a &#x2F; c) ≡ (b &#x2F; d) (mod p)<br>逆元<br>a mod p的逆元便是可以使 a * a’ mod p &#x3D; 1 的最小a’。</p>
