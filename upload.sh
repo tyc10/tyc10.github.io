@@ -1,3 +1,3 @@
-hexo c
+hexo clean
 hexo g
 hexo d

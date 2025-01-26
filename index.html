@@ -145,6 +145,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/26/java%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tyc的小窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/01/26/java%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-01-26 20:28:57 / Modified: 21:10:19" itemprop="dateCreated datePublished" datetime="2025-01-26T20:28:57+08:00">2025-01-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h3><h5 id="pagehelp"><a href="#pagehelp" class="headerlink" title="pagehelp"></a>pagehelp</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.pagehelper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pagehelper-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;pagehelper&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> 	PageHelper.startPage(employeePageQueryDTO.getPage(), 			   	 employeePageQueryDTO.getPageSize());<span class="comment">//初始化page的页码和每页信息条数，这两条信息会由pagehelp拼接到mapper的sql语句中</span></span><br><span class="line"></span><br><span class="line">        Page&lt;Employee&gt; page = employeeMapper.pageQuery(employeePageQueryDTO);</span><br><span class="line"><span class="comment">//Page中有一个列表接受对象信息</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">total</span> <span class="operator">=</span> page.getTotal();<span class="comment">//获取信息条数</span></span><br><span class="line">        List&lt;Employee&gt; records = page.getResult();</span><br></pre></td></tr></table></figure>
+
+<h3 id="日期类型格式转换"><a href="#日期类型格式转换" class="headerlink" title="日期类型格式转换"></a>日期类型格式转换</h3><p><strong>1).  方式一</strong></p>
+<p>在属性上加上注解，对日期进行格式化</p>
+<style>.xskrznnswvse{zoom:67%;}</style><img src="/2025/01/26/java%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/image-20221112103501581.png" class="xskrznnswvse" alt="image-20221112103501581"> 
+
+<p>但这种方式，需要在每个时间属性上都要加上该注解，使用较麻烦，不能全局处理。</p>
+<p><strong>2).  方式二（推荐 )</strong></p>
+<p>在WebMvcConfiguration中扩展SpringMVC的消息转换器，统一对日期类型进行格式处理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 扩展Spring MVC框架的消息转化器</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> converters</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">extendMessageConverters</span><span class="params">(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters)</span> &#123;</span><br><span class="line">       log.info(<span class="string">&quot;扩展消息转换器...&quot;</span>);</span><br><span class="line">       <span class="comment">//创建一个消息转换器对象</span></span><br><span class="line">       <span class="type">MappingJackson2HttpMessageConverter</span> <span class="variable">converter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MappingJackson2HttpMessageConverter</span>();</span><br><span class="line">       <span class="comment">//需要为消息转换器设置一个对象转换器，对象转换器可以将Java对象序列化为json数据</span></span><br><span class="line">       converter.setObjectMapper(<span class="keyword">new</span> <span class="title class_">JacksonObjectMapper</span>());</span><br><span class="line">       <span class="comment">//将自己的消息转化器加入容器中</span></span><br><span class="line">       converters.add(<span class="number">0</span>,converter);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="路径参数"><a href="#路径参数" class="headerlink" title="路径参数"></a>路径参数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/status/&#123;status&#125;&quot;)</span></span><br><span class="line">   <span class="meta">@ApiOperation(&quot;启用禁用员工账号&quot;)</span></span><br><span class="line">   <span class="keyword">public</span> Result <span class="title function_">startOrStop</span><span class="params">(<span class="meta">@PathVariable</span> Integer status,Long id)</span>&#123;</span><br><span class="line">       employeeService.startOrStop(status,id);</span><br><span class="line">       <span class="keyword">return</span> Result.success();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/16/Git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1088,10 +1161,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2025-01-11 10:32:52 / Modified: 11:39:35" itemprop="dateCreated datePublished" datetime="2025-01-11T10:32:52+08:00">2025-01-11</time>
+              <time title="Created: 2025-01-11 10:32:52" itemprop="dateCreated datePublished" datetime="2025-01-11T10:32:52+08:00">2025-01-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-01-24 23:08:01" itemprop="dateModified" datetime="2025-01-24T23:08:01+08:00">2025-01-24</time>
+              </span>
 
           
 
@@ -2161,7 +2240,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-01-10 18:32:04" itemprop="dateModified" datetime="2025-01-10T18:32:04+08:00">2025-01-10</time>
+                <time title="Modified: 2025-01-26 13:12:02" itemprop="dateModified" datetime="2025-01-26T13:12:02+08:00">2025-01-26</time>
               </span>
 
           
@@ -2214,7 +2293,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动kubelet服务</span></span><br><span class="line">systemctl <span class="built_in">enable</span> kubelet &amp;&amp; systemctl start kubelet</span><br></pre></td></tr></table></figure>
 
 <h6 id="5-1-2-初始化K8s"><a href="#5-1-2-初始化K8s" class="headerlink" title="5.1.2 初始化K8s"></a>5.1.2 初始化K8s</h6><p>执行以下命令初始化k8s，注意–apiserver-advertise-address 后面的IP为master的主机ip，这条命令执行慢，需要等待两三分钟</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.16.0 --apiserver-advertise-address 192.168.xx.xx --pod-network-cidr=10.244.0.0/16 --token-ttl 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.16.0 --apiserver-advertise-address 192.168.147.160 --pod-network-cidr=10.244.0.0/16 --token-ttl 0</span><br></pre></td></tr></table></figure>
 
 <p>上面安装完后，会提示你输入如下命令，复制粘贴过来，执行即可。</p>
 <p>以上，安装master节点完毕。可以使用kubectl get nodes查看一下，此时master处于NotReady状态，暂时不用管。</p>
@@ -2423,408 +2502,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/23/docker/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="tyc的小窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/23/docker/" class="post-title-link" itemprop="url">Docker</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-03-23 18:12:23" itemprop="dateCreated datePublished" datetime="2024-03-23T18:12:23+08:00">2024-03-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-01-21 18:45:04" itemprop="dateModified" datetime="2025-01-21T18:45:04+08:00">2025-01-21</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h4 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h4><h5 id="1-删除旧版"><a href="#1-删除旧版" class="headerlink" title="1.删除旧版"></a>1.删除旧版</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update</span><br><span class="line">yum remove  docker</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-配置docker的yum仓库"><a href="#2-配置docker的yum仓库" class="headerlink" title="2.配置docker的yum仓库"></a>2.配置docker的yum仓库</h5><p>首先要安装一个yum工具</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum_utils</span><br></pre></td></tr></table></figure>
-
-<p>安装成功后，执行Docker的yum源：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-安装docker引擎"><a href="#3-安装docker引擎" class="headerlink" title="3.安装docker引擎"></a>3.安装docker引擎</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-启动Docker"><a href="#4-启动Docker" class="headerlink" title="4.启动Docker"></a>4.启动Docker</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">启动</span><br><span class="line">sudo systemctl start docker</span><br><span class="line">停止</span><br><span class="line">sudo systemctl stop docker</span><br><span class="line">重启</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"></span><br><span class="line">docker ps(执行该命令如果不报错，就说明安装成功  )</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-测试-Docker-是否安装正常"><a href="#5-测试-Docker-是否安装正常" class="headerlink" title="5.测试 Docker 是否安装正常"></a>5.测试 Docker 是否安装正常</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-
-<h5 id="6-配置镜像加速器"><a href="#6-配置镜像加速器" class="headerlink" title="6.配置镜像加速器"></a>6.配置镜像加速器</h5><p>阿里云</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://cr.console.aliyun.com/undefined/instances/mirrors</span><br></pre></td></tr></table></figure>
-
-<p>针对Docker客户端版本大于 1.10.0 的用户</p>
-<p>您可以通过修改daemon配置文件<code>/etc/docker/daemon.json</code>来使用加速器，如果没有daemon则新建</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://docker.mirrors.ustc.edu.cn&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h5 id="7-重启docker"><a href="#7-重启docker" class="headerlink" title="7.重启docker"></a>7.重启docker</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
-
-<h4 id="mysql部署"><a href="#mysql部署" class="headerlink" title="mysql部署"></a>mysql部署</h4><h5 id="1-镜像下载"><a href="#1-镜像下载" class="headerlink" title="1.镜像下载"></a>1.镜像下载</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql   下载最新版Mysql镜像 (其实此命令就等同于 : docker pull mysql:latest )</span><br><span class="line">docker pull mysql:xxx   下载指定版本的Mysql镜像 (xxx指具体版本号)</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-检查当前所有Docker下载的镜像"><a href="#2-检查当前所有Docker下载的镜像" class="headerlink" title="2.检查当前所有Docker下载的镜像"></a>2.检查当前所有Docker下载的镜像</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-
-<h5 id="3、创建Mysql容器并运行"><a href="#3、创建Mysql容器并运行" class="headerlink" title="3、创建Mysql容器并运行"></a>3、创建Mysql容器并运行</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Docker 创建Mysql容器</span></span><br><span class="line">docker run \</span><br><span class="line">--name mysql \</span><br><span class="line">-d \</span><br><span class="line">-p 3306:3306 \</span><br><span class="line">--restart unless-stopped \</span><br><span class="line">-v /mydata/mysql/log:/var/log/mysql \</span><br><span class="line">-v /mydata/mysql/data:/var/lib/mysql \</span><br><span class="line">-v /mydata/mysql/conf:/etc/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 \</span><br><span class="line">mysql:5.7</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">命令解读</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">命令													描述</span></span><br><span class="line">docker run										创建一个新的容器 , 同时运行这个容器</span><br><span class="line">–name mysql	 									启动容器的名字</span><br><span class="line">-d	 											后台运行</span><br><span class="line">-p 3306:3306	 								将容器的 3306 (后面那个) 端口映射到主机的 3306 													(前面那个) 端口</span><br><span class="line">–restart unless-stopped	 						容器重启策略</span><br><span class="line">-v /mydata/mysql/log:/var/log/mysql				将日志文件夹挂载到主机</span><br><span class="line">-v /mydata/mysql/data:/var/lib/mysql			将mysql储存文件夹挂载到主机</span><br><span class="line">-v /mydata/mysql/conf:/etc/mysql				将配置文件夹挂载到主机</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=root	 					设置 root 用户的密码</span><br><span class="line">mysql:5.7	（不写：5.7，默认最新版） 				 启动哪个版本的 mysql (本地镜像的版本)</span><br><span class="line">\ 	shell 										命令换行符</span><br></pre></td></tr></table></figure>
-
-<h5 id="4、查看Mysql是否运行"><a href="#4、查看Mysql是否运行" class="headerlink" title="4、查看Mysql是否运行"></a>4、查看Mysql是否运行</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## 查看Docker运行中的容器</span></span></span><br><span class="line">docker ps  </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 通过Docker命令进入Mysql容器内部</span></span></span><br><span class="line">docker exec -it mysql /bin/bash</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 或者</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入容器内部</span></span><br><span class="line">docker exec -it mysql bash</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-客户端连接"><a href="#5-客户端连接" class="headerlink" title="5.客户端连接"></a>5.客户端连接</h5><h5 id="6-镜像和容器"><a href="#6-镜像和容器" class="headerlink" title="6.镜像和容器"></a>6.镜像和容器</h5><p>当我们利用Docker安装应用时,Docker会自动搜索并下载应用镜像(image)。镜像不仅包含应用本身,还包含应用<br>运行所需要的环境、配置、系统函数库。Docker会在运行镜像时创建一个隔离环境,称为容器(container)。</p>
-<p>镜像仓库:存储和管理镜像的平台,Docker官方维护了一个公共仓库:Docker Hub。</p>
-<h2 id="入门基础"><a href="#入门基础" class="headerlink" title="入门基础"></a>入门基础</h2><h4 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看镜像</span></span><br><span class="line">docker images	</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除镜像</span></span><br><span class="line">docker rmi  </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看docker 版本号信息</span></span><br><span class="line">docker version</span><br><span class="line"></span><br><span class="line">docker info	#docker系统信息</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">docker 帮助命令</span></span><br><span class="line">docker --help</span><br><span class="line">docker pull --help							</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">搜索镜像</span></span><br><span class="line">docker search 镜像名</span><br><span class="line">docker search --filter=STARS=9000 mysql 搜索 STARS &gt;9000的 mysql 镜像</span><br><span class="line">（可以在官网找到对应版本直接pull）</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看日志</span></span><br><span class="line">docker logs --tail 50 --follow --timestamps mysql </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看容器中进程信息</span></span><br><span class="line">docker top 容器id</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看容器信息</span></span><br><span class="line">docker ps</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看全部容器信息</span></span><br><span class="line">docker ps -a</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看容器镜像的详细信息/镜像元数据</span></span><br><span class="line">docker inspect 容器id</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">容器启动与关闭</span></span><br><span class="line">docker start/stop/kill/ 镜像/容器id</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">登录与登出</span></span><br><span class="line">docker login/logout</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 通过Docker命令进入Mysql容器内部  打开一个新的终端</span></span></span><br><span class="line">docker exec -it mysql /bin/bash</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 或者</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入容器内部</span></span><br><span class="line">docker exec -it mysql bash</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">方式2  进入容器正在执行的终端，不会启动新的进程</span></span><br><span class="line">docker attach 容器id /bin/bash</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">容器内文件拷贝</span></span><br><span class="line">docker cp 容器id:容器内路径  目的主机路径</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker run参数</span><br><span class="line">-d: 后台运行容器并返回容器 ID。</span><br><span class="line">-it: 交互式运行容器，分配一个伪终端。</span><br><span class="line">--name: 给容器指定一个名称。</span><br><span class="line">-p: 端口映射，格式为 host_port:container_port。</span><br><span class="line">-P:随机指定端口</span><br><span class="line">-v: 挂载卷，格式为 host_dir:container_dir。</span><br><span class="line">--rm: 容器停止后自动删除容器。</span><br><span class="line">--env 或 -e: 设置环境变量。</span><br><span class="line">--network: 指定容器的网络模式。</span><br><span class="line">--restart: 容器的重启策略（如 no、on-failure、always、unless-stopped）。</span><br><span class="line">-u: 指定用户。</span><br></pre></td></tr></table></figure>
-
-<p><strong>直接运行docker run 不拉去镜像也能启动容器，不过当停止容器时会自动释放掉容器的所有内容</strong></p>
-<h4 id="命令别名"><a href="#命令别名" class="headerlink" title="命令别名"></a>命令别名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias [别名]=[需要别名的命令] </span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">永久生效</span></span><br><span class="line">vim /root/.bashrc</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">.bashrc</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">User specific aliases and <span class="built_in">functions</span></span></span><br><span class="line"></span><br><span class="line">alias rm=&#x27;rm -i&#x27;</span><br><span class="line">alias cp=&#x27;cp -i&#x27;</span><br><span class="line">alias mv=&#x27;mv -i&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Source global definitions</span></span><br><span class="line">if [ -f /etc/bashrc ]; then</span><br><span class="line">        . /etc/bashrc</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-<h2 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h2><h3 id="直接查看"><a href="#直接查看" class="headerlink" title="直接查看"></a>直接查看</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-
-<p>不带-a是查看所有已运行中的容器。</p>
-<h3 id="过滤查看"><a href="#过滤查看" class="headerlink" title="过滤查看"></a>过滤查看</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a|grep xxx</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看所有退出的容器id列表"><a href="#查看所有退出的容器id列表" class="headerlink" title="查看所有退出的容器id列表"></a>查看所有退出的容器id列表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a|grep Exited|awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="删除指定容器"><a href="#删除指定容器" class="headerlink" title="删除指定容器"></a>删除指定容器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> <span class="built_in">id</span>/名称</span><br><span class="line">或</span><br><span class="line">docker <span class="built_in">rm</span> -f <span class="built_in">id</span>/名称</span><br></pre></td></tr></table></figure>
-
-<h3 id="条件删除删除未启动容器"><a href="#条件删除删除未启动容器" class="headerlink" title="条件删除删除未启动容器"></a>条件删除删除未启动容器</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm $(docker ps -a| grep <span class="title class_">Created</span>|awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除所有容器"><a href="#删除所有容器" class="headerlink" title="删除所有容器"></a>删除所有容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> $(docker ps -a -q)</span><br></pre></td></tr></table></figure>
-
-<p>如果要停止所有，把rm换成stop即可。</p>
-<h3 id="删除所有镜像"><a href="#删除所有镜像" class="headerlink" title="删除所有镜像"></a>删除所有镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi $(docker images -q)</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改容器端口映射"><a href="#修改容器端口映射" class="headerlink" title="修改容器端口映射"></a>修改容器端口映射</h2><h4 id="方法一-删除原有容器，重新建新容器"><a href="#方法一-删除原有容器，重新建新容器" class="headerlink" title="方法一: 删除原有容器，重新建新容器"></a>方法一: 删除原有容器，重新建新容器</h4><p>这个解决方案最为简单，把原来的容器删掉，重新建一个。当然这次不要忘记加上端口映射。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -uroot -p 8989:8080 --name jenkins1 -v /home/xianyudoufu/jenkins_node:/var/jenkins_home jenkins/jenkins:2.289.3-cen</span><br><span class="line">tos</span><br></pre></td></tr></table></figure>
-
-<p>优缺点：优点是简单快捷，在测试环境使用较多。缺点是如果是数据库镜像，那重新建一个又要重新配置一次，就会比较麻烦。</p>
-<h4 id="方法二：修改容器配置文件，重启docker服务"><a href="#方法二：修改容器配置文件，重启docker服务" class="headerlink" title="方法二：修改容器配置文件，重启docker服务"></a>方法二：修改容器配置文件，重启docker服务</h4><p>今天我需要新增一个端口，就是通过这个方式处理的，亲测有效。</p>
-<p>首先关闭docker服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop docker</span><br></pre></td></tr></table></figure>
-
-<p>关闭之后，找到容器的配置文件路径，通常都是安装在这个路径下方</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/lib/docker/containers</span><br></pre></td></tr></table></figure>
-
-<p>然后我们在ls查看一下容器，找我们想要修改的容器ID<br>修改容器中的 <code>hostconfig.json</code> 文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi 容器ID hostconfig.json</span><br></pre></td></tr></table></figure>
-
-
-<p>如上图，文件中其中有一项是PortBindings，其中8080&#x2F;tcp对应的是容器内部的8080端口，HostPort对应的是映射到宿主机的端口8989。8361&#x2F;tcp对应的是容器内部的8361端口，HostPort对应的是映射到宿主机的端口9999，按需修改端口。</p>
-<p>修改容器中 <code>config.v2.json</code> 文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi 容器ID /config.v2.json </span><br></pre></td></tr></table></figure>
-
-<p>这里面是容器原本的端口号，检查一下对不对，不对的话进行修改</p>
-<p>全部弄好之后，启动容器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
-
-<p>优缺点：这个方法的优点是没有副作用，操作简单。缺点是需要重启整个docker服务，如果在同一个宿主机上运行着多个容器服务的话，就会影响其他容器服务。</p>
-<h4 id="方法三：利用docker-commit新构镜像"><a href="#方法三：利用docker-commit新构镜像" class="headerlink" title="方法三：利用docker commit新构镜像"></a>方法三：利用docker commit新构镜像</h4><p>docker commit：把一个容器的文件改动和配置信息commit到一个新的镜像。这个在测试的时候会非常有用，把容器所有的文件改动和配置信息导入成一个新的docker镜像，然后用这个新的镜像重起一个容器，这对之前的容器不会有任何影响。</p>
-<p>停止docker容器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stops container01</span><br></pre></td></tr></table></figure>
-
-<p>commit该docker容器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit container01 new_image:tag</span><br></pre></td></tr></table></figure>
-
-<p>用前一步新生成的镜像重新起一个容器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name container02 -p 80:80 new_image:tag</span><br></pre></td></tr></table></figure>
-
-<p>优缺点：这种方式的优点是不会影响统一宿主机上的其他容器，缺点是管理起来显得比较乱，没有第二种方法那么直观。</p>
-<h2 id="docker容器正在启动中无法exec控制容器错误排查"><a href="#docker容器正在启动中无法exec控制容器错误排查" class="headerlink" title="docker容器正在启动中无法exec控制容器错误排查"></a>docker容器正在启动中无法exec控制容器错误排查</h2><h4 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# docker exec -it mysql bash</span><br><span class="line">Error response from daemon: Container 86a52dd7c0252d6ec55e365dc6aa199be5f6d682112d7f2f3341fb2e8fecb283 is restarting, wait until the container is running</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="（1）查看容器是否启动"><a href="#（1）查看容器是否启动" class="headerlink" title="（1）查看容器是否启动"></a>（1）查看容器是否启动</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# docker ps</span><br><span class="line">CONTAINER ID   IMAGE     COMMAND                   CREATED          STATUS                          PORTS     NAMES</span><br><span class="line">86a52dd7c025   mysql     &quot;docker-entrypoint.s…&quot;   13 minutes ago   Restarting (1) 32 seconds ago             mysql</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>容器启动，状态Restarting,端口空白</p>
-<h4 id="（2）查看端囗是否被占用"><a href="#（2）查看端囗是否被占用" class="headerlink" title="（2）查看端囗是否被占用"></a>（2）查看端囗是否被占用</h4><p>以为一直主机上已经有MySQL，启动容器时已经将容器3306映射到主机的3307</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# lsof -i:3307</span><br></pre></td></tr></table></figure>
-
-<p>现在主机端口3307未被占用，</p>
-<h4 id="（3）查看docker日志"><a href="#（3）查看docker日志" class="headerlink" title="（3）查看docker日志"></a>（3）查看docker日志</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# docker logs --tail 50 --follow --timestamps mysql </span><br><span class="line">2025-01-20T08:20:26.734594188Z mysqld: [ERROR] Stopped processing the &#x27;includedir&#x27; directive in file /etc/my.cnf at line 32.</span><br><span class="line">2025-01-20T08:20:26.734698588Z mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br><span class="line">2025-01-20T08:20:40.377050799Z 2025-01-20 08:20:40+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 9.1.0-1.el9 started.</span><br><span class="line">2025-01-20T08:20:40.419462151Z 2025-01-20 08:20:40+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">2025-01-20T08:20:40.419505081Z 	command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.8250f3JkdC</span><br><span class="line">2025-01-20T08:20:40.419515251Z 	mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (OS errno 2 - No such file or directory)</span><br><span class="line">2025-01-20T08:20:40.419549450Z mysqld: [ERROR] Stopped processing the &#x27;includedir&#x27; directive in file /etc/my.cnf at line 32.</span><br><span class="line">2025-01-20T08:20:40.419563941Z mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br><span class="line">2025-01-20T08:21:13.680145697Z 2025-01-20 08:21:13+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 9.1.0-1.el9 started.</span><br><span class="line">2025-01-20T08:21:13.717457825Z 2025-01-20 08:21:13+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">2025-01-20T08:21:13.717596515Z 	command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.TYh3CpN1u8</span><br><span class="line">2025-01-20T08:21:13.717636655Z 	mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (OS errno 2 - No such file or directory)</span><br><span class="line">2025-01-20T08:21:13.717798115Z mysqld: [ERROR] Stopped processing the &#x27;includedir&#x27; directive in file /etc/my.cnf at line 32.</span><br><span class="line">2025-01-20T08:21:13.717837625Z mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br><span class="line">2025-01-20T08:22:05.745368974Z 2025-01-20 08:22:05+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 9.1.0-1.el9 started.</span><br><span class="line">2025-01-20T08:22:05.789739896Z 2025-01-20 08:22:05+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">2025-01-20T08:22:05.789822966Z 	command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.C05n80Ysco</span><br><span class="line">2025-01-20T08:22:05.789859597Z 	mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (OS errno 2 - No such file or directory)</span><br><span class="line">2025-01-20T08:22:05.789893527Z mysqld: [ERROR] Stopped processing the &#x27;includedir&#x27; directive in file /etc/my.cnf at line 32.</span><br><span class="line">2025-01-20T08:22:05.789927187Z mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br><span class="line">2025-01-20T08:23:12.645946982Z 2025-01-20 08:23:12+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 9.1.0-1.el9 started.</span><br><span class="line">2025-01-20T08:23:12.684595612Z 2025-01-20 08:23:12+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">2025-01-20T08:23:12.684630352Z 	command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.1rB9VCkp64</span><br><span class="line">2025-01-20T08:23:12.684640702Z 	mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (OS errno 2 - No such file or directory)</span><br><span class="line">2025-01-20T08:23:12.684649972Z mysqld: [ERROR] Stopped processing the &#x27;includedir&#x27; directive in file /etc/my.cnf at line 32.</span><br><span class="line">2025-01-20T08:23:12.684659332Z mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br><span class="line">2025-01-20T08:24:24.216607747Z 2025-01-20 08:24:24+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 9.1.0-1.el9 started.</span><br><span class="line">2025-01-20T08:24:24.257900368Z 2025-01-20 08:24:24+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">2025-01-20T08:24:24.257941768Z 	command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.6GSe4KbVW1</span><br><span class="line">2025-01-20T08:24:24.257954068Z 	mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (OS errno 2 - No such file or directory)</span><br><span class="line">2025-01-20T08:24:24.257965368Z mysqld: [ERROR] Stopped processing the &#x27;includedir&#x27; directive in file /etc/my.cnf at line 32.</span><br><span class="line">2025-01-20T08:24:24.257976968Z mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br><span class="line">2025-01-20T08:25:29.659499906Z 2025-01-20 08:25:29+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 9.1.0-1.el9 started.</span><br><span class="line">2025-01-20T08:25:29.700926926Z 2025-01-20 08:25:29+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">2025-01-20T08:25:29.701021426Z 	command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.a8mWSG80iJ</span><br><span class="line">2025-01-20T08:25:29.701061526Z 	mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (OS errno 2 - No such file or directory)</span><br><span class="line">2025-01-20T08:25:29.701099426Z mysqld: [ERROR] Stopped processing the &#x27;includedir&#x27; directive in file /etc/my.cnf at line 32.</span><br><span class="line">2025-01-20T08:25:29.701290726Z mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br><span class="line">2025-01-20T08:26:34.665746987Z 2025-01-20 08:26:34+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 9.1.0-1.el9 started.</span><br><span class="line">2025-01-20T08:26:34.706785408Z 2025-01-20 08:26:34+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">2025-01-20T08:26:34.706926808Z 	command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.iW6BztAeCU</span><br><span class="line">2025-01-20T08:26:34.707219808Z 	mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (OS errno 2 - No such file or directory)</span><br><span class="line">2025-01-20T08:26:34.707260608Z mysqld: [ERROR] Stopped processing the &#x27;includedir&#x27; directive in file /etc/my.cnf at line 32.</span><br><span class="line">2025-01-20T08:26:34.707302108Z mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br><span class="line">2025-01-20T08:27:39.135705165Z 2025-01-20 08:27:39+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 9.1.0-1.el9 started.</span><br><span class="line">2025-01-20T08:27:39.176601786Z 2025-01-20 08:27:39+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">2025-01-20T08:27:39.176695586Z 	command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.6Qbbqnndbq</span><br><span class="line">2025-01-20T08:27:39.176736686Z 	mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (OS errno 2 - No such file or directory)</span><br><span class="line">2025-01-20T08:27:39.176774786Z mysqld: [ERROR] Stopped processing the &#x27;includedir&#x27; directive in file /etc/my.cnf at line 32.</span><br><span class="line">2025-01-20T08:27:39.176812086Z mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>其中：主要下面几种报错循环报错</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2025-01-20T08:26:34.707302108Z mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br><span class="line">2025-01-20T08:27:39.135705165Z 2025-01-20 08:27:39+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 9.1.0-1.el9 started.</span><br><span class="line">2025-01-20T08:27:39.176601786Z 2025-01-20 08:27:39+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">2025-01-20T08:27:39.176695586Z 	command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.6Qbbqnndbq</span><br><span class="line">2025-01-20T08:27:39.176736686Z 	mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (OS errno 2 - No such file or directory)    #这个报错指不能找到conf.d文件</span><br></pre></td></tr></table></figure>
-
-<p>从上面报错信息可以看出 mysqld: Can’t read dir of ‘&#x2F;etc&#x2F;mysql&#x2F;conf.d&#x2F;‘ （无法读取&#x2F;etc&#x2F;mysql&#x2F;conf.d&#x2F;目录）。这样就知道原因了，mysql找不到conf.d目录。所以启动容器时指定到conf.d目录</p>
-<p>修改创建容器的的语句，</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Docker 创建Mysql容器</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-p参数中port1:port2  port1是主机端口 port2是容器端口</span></span><br><span class="line">docker run \</span><br><span class="line">--name mysql \</span><br><span class="line">-d \</span><br><span class="line">-p 3307:3306 \</span><br><span class="line">--restart unless-stopped \</span><br><span class="line">-v /mydata/mysql/log:/var/log/mysql \</span><br><span class="line">-v /mydata/mysql/data:/var/lib/mysql \</span><br><span class="line">-v /mydata/mysql/conf/:/etc/mysql/conf.d \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 \</span><br><span class="line">mysql</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3307:3306 --privileged=true \</span><br><span class="line">-v /mysql/data:/var/lib/mysql \</span><br><span class="line">-v /mysql/log:/var/log/mysql \</span><br><span class="line">-v /mysql/conf:/etc/mysql/conf.d \		#如果需要给mysql进行配置，可以将配置文件写入conf映射到容器里</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 --name=mysql-server -d mysql</span><br></pre></td></tr></table></figure>
-
-<h3 id="远程连接mysql"><a href="#远程连接mysql" class="headerlink" title="远程连接mysql"></a>远程连接mysql</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#创建一个新的用户或者授权现有用户（如果已存在）：</span><br><span class="line">CREATE USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;password&#x27;;</span><br><span class="line">#或者</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#x27;root&#x27;@&#x27;%&#x27; WITH GRANT OPTION;</span><br><span class="line">#刷新权限：</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line">#其中，&#x27;root&#x27;@&#x27;%&#x27;表示任何IP地址的客户端都可以用root用户连接到服务器，&#x27;password&#x27;是你为root用户设置的密码。</span><br><span class="line">#请确保你的防火墙允许3306端口（或你自定义的MySQL端口）的入站连接。</span><br></pre></td></tr></table></figure>
-
-<h2 id="后台启动应用避雷"><a href="#后台启动应用避雷" class="headerlink" title="后台启动应用避雷"></a>后台启动应用避雷</h2><p>我们 docker run 启动容器的时候，常需要将其在后台运行，通常我们设置参数 -d 即可。</p>
-<p>但后台运行，其实是有前提的，如果没有前台进程，那么实际运行完docker run命令后，会处于退出状态，即exited。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">例子：</span></span><br><span class="line">docker run -d --name my-redis redis bash</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定命令是bash，但显然bash在容器起来后，很快就会结束，导致没有前台进程，故容器处于退出状态</span></span><br></pre></td></tr></table></figure>
-
-<p>Docker容器后台运行，必须有一个前台进程。容器运行的命令如果不是那些一直挂起的命令（比如运行ping，sleep），就是会自动退出的。<br>而上面的代码中bash就是需要执行的指定的命令。<br>命令如果执行完毕了，或者叫指定的应用终结时，容器会自动停止。</p>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>目前了解的可以使用以下3种方法，具体用哪种方法，依据实际情况，生产情况下，通常用<code>docker-compose</code>结合具体<code>cmd</code>作为容器初起的命令。</p>
-<h4 id="1-指定挂起阻塞命令启动容器"><a href="#1-指定挂起阻塞命令启动容器" class="headerlink" title="1.指定挂起阻塞命令启动容器"></a>1.指定挂起阻塞命令启动容器</h4><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d <span class="comment">--name my-redis redis sleep 99999999999999</span></span><br></pre></td></tr></table></figure>
-
-<p>命令执行后，通过**<code>docker ps -a | grep my-redis</code><strong>，可以看到容器处于运行状态，即</strong><code>up</code>**。</p>
-<h4 id="2-使用交互界面后退出容器"><a href="#2-使用交互界面后退出容器" class="headerlink" title="2.使用交互界面后退出容器"></a>2.使用交互界面后退出容器</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it <span class="attr">--name</span> my-redis redis bash</span><br></pre></td></tr></table></figure>
-
-<p>之后会进入容器，如果想保持容器后台运行，我们可以 **<code>Ctrl + p + q</code><strong>，再次查看容器运行状态，也可以看到容器处于</strong><code>up</code>**状态。</p>
-<h4 id="3-td命令结合使用"><a href="#3-td命令结合使用" class="headerlink" title="3.-td命令结合使用"></a>3.-td命令结合使用</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd <span class="attr">--name</span> my-redis2 redis bash</span><br><span class="line"># -<span class="selector-tag">i</span> 不是必需，加了，容器起来后终端返回容器ID</span><br></pre></td></tr></table></figure>
-
-<p>刚也提到，就是<code>-d</code>运行容器时，需要有前台进程，<code>-t</code>提供一个伪终端，类似前台进程，查看容器运行状态，也可以看到，容器处于**<code>up</code>**状态。</p>
-<h2 id="docker-安装nginx"><a href="#docker-安装nginx" class="headerlink" title="docker 安装nginx"></a>docker 安装nginx</h2><h3 id="1、用-docker-search-nginx-命令来查看可用版本："><a href="#1、用-docker-search-nginx-命令来查看可用版本：" class="headerlink" title="1、用 docker search nginx 命令来查看可用版本："></a>1、用 <strong>docker search nginx</strong> 命令来查看可用版本：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search nginx</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、取最新版的-Nginx-镜像"><a href="#2、取最新版的-Nginx-镜像" class="headerlink" title="2、取最新版的 Nginx 镜像"></a>2、取最新版的 Nginx 镜像</h3><p>这里我们拉取官方的最新版本的镜像：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nginx:latest</span><br></pre></td></tr></table></figure>
-
-<h3 id="3、查看本地镜像"><a href="#3、查看本地镜像" class="headerlink" title="3、查看本地镜像"></a>3、查看本地镜像</h3><p>使用以下命令来查看是否已安装了 nginx：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-
-<h3 id="4、运行容器"><a href="#4、运行容器" class="headerlink" title="4、运行容器"></a>4、运行容器</h3><p>安装完成后，我们可以使用以下命令来运行 nginx 容器：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name nginx-test -p 8080:80 -d nginx</span><br></pre></td></tr></table></figure>
-
-<p>参数说明：</p>
-<ul>
-<li><strong>–name nginx-test</strong>：容器名称。</li>
-<li><strong>-p 8080:80</strong>： 端口进行映射，将本地 8080 端口映射到容器内部的 80 端口。</li>
-<li><strong>-d nginx</strong>： 设置容器在在后台一直运行</li>
-</ul>
-<h2 id="docker-安装tomcat"><a href="#docker-安装tomcat" class="headerlink" title="docker 安装tomcat"></a>docker 安装tomcat</h2><p>其他步骤与mysql和nginx相同</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name tomcat -p 8080:8080 -v $PWD/test:/usr/local/tomcat/webapps/test -d tomcat 容器id</span><br></pre></td></tr></table></figure>
-
-<p><strong>-p 8080:8080：</strong>将主机的 8080 端口映射到容器的 8080 端口。</p>
-<p><strong>-v $PWD&#x2F;test:&#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;webapps&#x2F;test：</strong>将主机中当前目录下的 test 挂载到容器的 &#x2F;test。</p>
-<h2 id="基础命令总结"><a href="#基础命令总结" class="headerlink" title="基础命令总结"></a>基础命令总结</h2><h3 id="1-Docker运行"><a href="#1-Docker运行" class="headerlink" title="1. Docker运行"></a>1. Docker运行</h3><p>要在Docker中运行容器，可以使用以下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker run</code>：运行容器的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置容器的各种选项，如端口映射、容器名称等。</li>
-<li>• <code>IMAGE</code>：要运行的镜像名称或ID。</li>
-<li>• <code>[COMMAND] [ARG...]</code>：可选的命令和参数，用于在容器内执行特定的命令。</li>
-</ul>
-<h3 id="2-Docker构建"><a href="#2-Docker构建" class="headerlink" title="2. Docker构建"></a>2. Docker构建</h3><p>要构建自己的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Docker%E9%95%9C%E5%83%8F&spm=1001.2101.3001.7020">Docker镜像</a>，可以使用以下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build [OPTIONS] PATH | URL | -</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker build</code>：构建镜像的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置构建过程，如镜像标签、构建上下文路径等。</li>
-<li>• <code>PATH | URL | -</code>：Dockerfile所在的路径、URL或者使用标准输入作为Dockerfile。</li>
-</ul>
-<h3 id="3-Docker-pull"><a href="#3-Docker-pull" class="headerlink" title="3. Docker pull"></a>3. Docker pull</h3><p>要从Docker仓库中拉取现有的镜像，可以使用以下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [OPTIONS] NAME[:TAG|@DIGEST]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker pull</code>：拉取镜像的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置拉取过程，如认证信息等。</li>
-<li>• <code>NAME[:TAG|@DIGEST]</code>：要拉取的镜像名称、标签或摘要。</li>
-</ul>
-<h3 id="4-Docker-push"><a href="#4-Docker-push" class="headerlink" title="4. Docker push"></a>4. Docker push</h3><p>要将本地的镜像推送到Docker仓库，可以使用以下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push [OPTIONS] NAME[:TAG]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker push</code>：推送镜像的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置推送过程，如认证信息等。</li>
-<li>• <code>NAME[:TAG]</code>：要推送的镜像名称和标签。</li>
-</ul>
-<h3 id="5-Docker-images"><a href="#5-Docker-images" class="headerlink" title="5. Docker images"></a>5. Docker images</h3><p>要列出本地所有的镜像，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images [OPTIONS] [REPOSITORY[:TAG]]</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker images</code>：列出镜像的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置输出结果的格式等。</li>
-<li>• <code>[REPOSITORY[:TAG]]</code>：可选的镜像名称和标签，用于过滤输出结果。</li>
-</ul>
-<h3 id="6-Docker-ps"><a href="#6-Docker-ps" class="headerlink" title="6. Docker ps"></a>6. Docker ps</h3><p>要列出正在运行的容器，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps [OPTIONS]</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker ps</code>：列出容器的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置输出结果的格式和过滤条件。</li>
-</ul>
-<h3 id="7-Docker-stop"><a href="#7-Docker-stop" class="headerlink" title="7. Docker stop"></a>7. Docker stop</h3><p>要停止正在运行的容器，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stop [OPTIONS] CONTAINER [CONTAINER...]</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker stop</code>：停止容器的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置停止过程，如超时时间等。</li>
-<li>• <code>CONTAINER [CONTAINER...]</code>：要停止的容器名称或ID。</li>
-</ul>
-<h3 id="8-Docker-start"><a href="#8-Docker-start" class="headerlink" title="8. Docker start"></a>8. Docker start</h3><p>要启动已停止的容器，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker start [OPTIONS] CONTAINER [CONTAINER...]</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker start</code>：启动容器的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置启动过程，如守护模式等。</li>
-<li>• <code>CONTAINER [CONTAINER...]</code>：要启动的容器名称或ID。</li>
-</ul>
-<h3 id="9-Docker-restart"><a href="#9-Docker-restart" class="headerlink" title="9. Docker restart"></a>9. Docker restart</h3><p>要重启正在运行的容器，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker restart [OPTIONS] CONTAINER [CONTAINER...]</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker restart</code>：重启容器的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置重启过程，如超时时间等。</li>
-<li>• <code>CONTAINER [CONTAINER...]</code>：要重启的容器名称或ID。</li>
-</ul>
-<h3 id="10-Docker-kill"><a href="#10-Docker-kill" class="headerlink" title="10. Docker kill"></a>10. Docker kill</h3><p>要强制终止正在运行的容器，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker kill [OPTIONS] CONTAINER [CONTAINER...]</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker kill</code>：终止容器的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置终止过程，如信号等。</li>
-<li>• <code>CONTAINER [CONTAINER...]</code>：要终止的容器名称或ID。</li>
-</ul>
-<h3 id="11-Docker-rm-x2F-docker-rmi"><a href="#11-Docker-rm-x2F-docker-rmi" class="headerlink" title="11. Docker rm&#x2F;docker rmi"></a>11. Docker rm&#x2F;docker rmi</h3><p>要删除已停止的容器或镜像，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker rm [OPTIONS] CONTAINER [CONTAINER...]   docker rmi [OPTIONS] IMAGE [IMAGE...]</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker rm</code>：删除容器的命令。</li>
-<li>• <code>docker rmi</code>：删除镜像的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置删除过程，如强制删除等。</li>
-<li>• <code>CONTAINER [CONTAINER...]</code>：要删除的容器名称或ID。</li>
-<li>• <code>IMAGE [IMAGE...]</code>：要删除的镜像名称或ID。</li>
-</ul>
-<h3 id="12-Docker-exec"><a href="#12-Docker-exec" class="headerlink" title="12. Docker exec"></a>12. Docker exec</h3><p>要在运行中的容器内执行命令，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec [OPTIONS] CONTAINER COMMAND [ARG...]</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker exec</code>：在容器内执行命令的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置执行过程，如进入交互模式等。</li>
-<li>• <code>CONTAINER</code>：要执行命令的容器名称或ID。</li>
-<li>• <code>COMMAND [ARG...]</code>：要在容器内执行的命令及其参数。</li>
-</ul>
-<h3 id="13-Docker-logs"><a href="#13-Docker-logs" class="headerlink" title="13. Docker logs"></a>13. Docker logs</h3><p>要查看容器的日志输出，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker logs [OPTIONS] CONTAINER</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker logs</code>：查看容器日志的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置输出结果，如时间戳等。</li>
-<li>• <code>CONTAINER</code>：要查看日志的容器名称或ID。</li>
-</ul>
-<h3 id="14-Docker-inspect"><a href="#14-Docker-inspect" class="headerlink" title="14. Docker inspect"></a>14. Docker inspect</h3><p>要获取容器或镜像的详细信息，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker inspect [OPTIONS] NAME|ID [NAME|ID...]</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker inspect</code>：获取详细信息的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置输出结果的格式等。</li>
-<li>• <code>NAME|ID [NAME|ID...]</code>：要获取信息的容器或镜像的名称或ID。</li>
-</ul>
-<h3 id="15-Docker-cp"><a href="#15-Docker-cp" class="headerlink" title="15. Docker cp"></a>15. Docker cp</h3><p>要在容器和主机之间复制文件或目录，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH   docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker cp</code>：复制文件或目录的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置复制过程，如权限等。</li>
-<li>• <code>CONTAINER:SRC_PATH</code>：源路径，其中<code>CONTAINER</code>是容器名称或ID。</li>
-<li>• <code>DEST_PATH</code>：目标路径，其中<code>DEST_PATH</code>是主机路径。</li>
-<li>• <code>SRC_PATH|-</code>：源路径，其中<code>-</code>表示从标准输入读取。</li>
-</ul>
-<h3 id="16-Docker-system-prune"><a href="#16-Docker-system-prune" class="headerlink" title="16. Docker system prune"></a>16. Docker system prune</h3><p>要清理不再使用的镜像、容器和其他资源，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker system prune [OPTIONS]</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>• <code>docker system prune</code>：清理资源的命令。</li>
-<li>• <code>[OPTIONS]</code>：可选参数，用于配置清理过程，如强制删除等。</li>
-</ul>
-<h3 id="17-Docker-network"><a href="#17-Docker-network" class="headerlink" title="17. Docker network"></a>17. Docker network</h3><p>Docker网络允许容器之间进行通信和连接到外部网络。以下是一些与Docker网络相关的常用命令：</p>
-<ul>
-<li>• <code>docker network ls</code>：列出所有的Docker网络。</li>
-<li>• <code>docker network create</code>：创建一个新的Docker网络。</li>
-<li>• <code>docker network connect</code>：将容器连接到指定的Docker网络。</li>
-<li>• <code>docker network disconnect</code>：将容器从指定的Docker网络断开连接。</li>
-</ul>
-<h3 id="18-Docker-volume"><a href="#18-Docker-volume" class="headerlink" title="18. Docker volume"></a>18. Docker volume</h3><p>Docker卷用于在容器和主机之间持久化存储数据。以下是一些与Docker卷相关的常用命令：</p>
-<ul>
-<li>• <code>docker volume ls</code>：列出所有的Docker卷。</li>
-<li>• <code>docker volume create</code>：创建一个新的Docker卷。</li>
-<li>• <code>docker volume inspect</code>：获取Docker卷的详细信息。</li>
-<li>• <code>docker volume rm</code>：删除指定的Docker卷。</li>
-</ul>
-<h3 id="19-Docker-compose"><a href="#19-Docker-compose" class="headerlink" title="19. Docker-compose"></a>19. Docker-compose</h3><p>Docker-compose是一个用于定义和运行多个容器应用程序的工具。它使用YAML文件来配置应用程序的服务、网络和卷等。以下是一些与Docker-compose相关的常用命令：</p>
-<ul>
-<li>• <code>docker-compose up</code>：构建并启动Docker-compose定义的所有服务。</li>
-<li>• <code>docker-compose down</code>：停止并删除Docker-compose定义的所有服务。</li>
-<li>• <code>docker-compose build</code>：构建Docker-compose定义的所有服务的镜像。</li>
-<li>• <code>docker-compose logs</code>：查看Docker-compose定义的所有服务的日志。</li>
-</ul>
-<h3 id="20-Docker-swarm"><a href="#20-Docker-swarm" class="headerlink" title="20. Docker swarm"></a>20. Docker swarm</h3><p>Docker swarm是Docker的原生集群管理和编排工具，用于在多个Docker主机上运行和管理应用程序。以下是一些与Docker swarm相关的常用命令：</p>
-<ul>
-<li>• <code>docker swarm init</code>：初始化一个新的Docker swarm集群。</li>
-<li>• <code>docker swarm join</code>：将节点加入到Docker swarm集群。</li>
-<li>• <code>docker node ls</code>：列出Docker swarm集群中的所有节点。</li>
-<li>• <code>docker service</code>：管理在Docker swarm集群中运行的服务。</li>
-</ul>
-<h3 id="21-Dockerfile"><a href="#21-Dockerfile" class="headerlink" title="21. Dockerfile"></a>21. Dockerfile</h3><p>Dockerfile是用于定义Docker镜像构建过程的文本文件。它包含一系列的指令和配置，用于指导Docker引擎在构建过程中执行特定的操作。以下是一些与Dockerfile相关的常用命令：</p>
-<ul>
-<li>• <code>FROM</code>：指定基础镜像。</li>
-<li>• <code>RUN</code>：在容器内执行命令。</li>
-<li>• <code>COPY</code>：将文件或目录从主机复制到容器内。</li>
-<li>• <code>ADD</code>：将文件或目录从主机复制到容器内，并支持URL和解压缩操作。</li>
-<li>• <code>WORKDIR</code>：设置工作目录。</li>
-<li>• <code>EXPOSE</code>：声明容器运行时监听的端口。</li>
-<li>• <code>CMD</code>：指定容器启动时要执行的命令。</li>
-</ul>
-<p>这些命令可以在Dockerfile中按照特定的顺序组合使用，以定义和构建自定义的Docker镜像。</p>
-<h3 id="22-Docker登录和认证"><a href="#22-Docker登录和认证" class="headerlink" title="22. Docker登录和认证"></a>22. Docker登录和认证</h3><p>要登录到Docker仓库或私有镜像仓库，可以使用以下命令：</p>
-<ul>
-<li>• <code>docker login</code>：登录到Docker仓库。</li>
-<li>• <code>docker logout</code>：退出登录。</li>
-</ul>
-<p>登录后，您可以使用<code>docker pull</code>和<code>docker push</code>命令来拉取和推送镜像。</p>
-<h3 id="23-Docker容器日志管理"><a href="#23-Docker容器日志管理" class="headerlink" title="23. Docker容器日志管理"></a>23. Docker容器日志管理</h3><p>除了使用<code>docker logs</code>命令查看容器日志外，还可以使用以下命令对容器日志进行管理：</p>
-<ul>
-<li>• <code>docker logs --tail</code>：只显示最后几行的日志。</li>
-<li>• <code>docker logs --follow</code>：实时跟踪容器的日志输出。</li>
-<li>• <code>docker logs --since</code>：只显示特定时间之后的日志。</li>
-<li>• <code>docker logs --until</code>：只显示特定时间之前的日志。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2894,7 +2571,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
